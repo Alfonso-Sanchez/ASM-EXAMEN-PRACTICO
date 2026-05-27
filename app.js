@@ -67,7 +67,7 @@ on(els.questionCount, "input", updatePassTarget);
 
 loadQuestions();
 window.addEventListener("load", () => {
-  setTimeout(checkForUpdates, 700);
+  setTimeout(() => checkForUpdates({ silent: true }), 700);
 });
 
 function on(element, event, handler) {
@@ -552,14 +552,19 @@ function showOnly(id) {
   els[id].classList.remove("hidden");
 }
 
-async function checkForUpdates() {
-  setUpdatePanel("Comprobando GitHub...", `Repositorio: ${GITHUB_REPO}`, "ready");
+async function checkForUpdates(options = {}) {
+  const silent = options.silent === true;
+  if (!silent) setUpdatePanel("Comprobando GitHub...", `Repositorio: ${GITHUB_REPO}`, "ready");
   try {
     const response = await fetch("/api/check-update");
     if (!response.ok) throw new Error("El servidor local no expone /api/check-update. Arranca con node serve-local.js.");
     const info = await response.json();
     state.pendingUpdate = info;
     if (!info.available) {
+      if (silent) {
+        hideUpdatePanel();
+        return;
+      }
       setUpdatePanel("Sin update disponible", `Version local: ${info.currentCommit || "local"}; GitHub: ${shortSha(info.latestCommit)}.`, "done");
       return;
     }
@@ -569,7 +574,7 @@ async function checkForUpdates() {
     setUpdatePanel("Update detectada", `${packageText} GitHub: ${shortSha(info.latestCommit)}.`, info.packageAvailable ? "ready" : "error");
     els.applyUpdateBtn.classList.toggle("hidden", !info.packageAvailable);
   } catch (error) {
-    setUpdatePanel("No se pudo comprobar", error.message, "error");
+    if (!silent) setUpdatePanel("No se pudo comprobar", error.message, "error");
   }
 }
 
@@ -637,6 +642,11 @@ function setUpdatePanel(title, status, kind) {
   els.updateTitle.textContent = title;
   els.updateStatus.textContent = status;
   if (kind !== "ready") els.applyUpdateBtn.classList.add("hidden");
+}
+
+function hideUpdatePanel() {
+  els.updatePanel.classList.add("hidden");
+  els.applyUpdateBtn.classList.add("hidden");
 }
 
 function shortSha(value) {
