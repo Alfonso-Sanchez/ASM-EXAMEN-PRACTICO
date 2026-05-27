@@ -298,8 +298,11 @@ function renderAnswerControl(q, answer) {
     const text = q.options[idx];
     const btn = document.createElement("button");
     const selected = Array.isArray(answer) ? answer.includes(idx) : answer === idx;
-    btn.className = `option${selected ? " selected" : ""}`;
-    btn.textContent = text;
+    btn.className = `option ${q.type === "multiple" ? "multi-option" : "single-option"}${selected ? " selected" : ""}`;
+    btn.innerHTML = `
+      <span class="choice-indicator" aria-hidden="true"></span>
+      <span>${escapeHtml(text)}</span>
+    `;
     btn.addEventListener("click", () => selectOption(q, idx));
     optionsHost.appendChild(btn);
   });
