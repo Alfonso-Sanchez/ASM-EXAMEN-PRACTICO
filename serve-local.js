@@ -1,6 +1,7 @@
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
+const { spawn } = require("child_process");
 
 const root = __dirname;
 const port = Number(process.env.PORT || 8080);
@@ -21,7 +22,12 @@ const mime = {
   ".json": "application/json; charset=utf-8"
 };
 
-http.createServer(async (req, res) => {
+const server = http.createServer(async (req, res) => {
+  if (req.url === "/api/health") {
+    sendJson(res, 200, { ok: true });
+    return;
+  }
+
   if (req.url === "/api/check-update") {
     await handleCheckUpdate(res);
     return;
@@ -54,7 +60,9 @@ http.createServer(async (req, res) => {
     });
     res.end(data);
   });
-}).listen(port, "127.0.0.1", () => {
+});
+
+server.listen(port, "127.0.0.1", () => {
   console.log(`Pedalean2 exam app: http://127.0.0.1:${port}`);
 });
 
@@ -103,10 +111,23 @@ async function handleApplyUpdate(res) {
       updatedAt: new Date().toISOString()
     }, null, 2) + "\n");
 
-    sendJson(res, 200, { ok: true, latestCommit, updatedFiles });
+    sendJson(res, 200, { ok: true, latestCommit, updatedFiles, restarting: true });
+    setTimeout(restartServer, 250);
   } catch (error) {
     sendJson(res, 500, { ok: false, error: error.message });
   }
+}
+
+function restartServer() {
+  const child = spawn(process.execPath, [__filename], {
+    cwd: root,
+    detached: true,
+    stdio: "ignore",
+    env: process.env
+  });
+  child.unref();
+  server.close(() => process.exit(0));
+  setTimeout(() => process.exit(0), 500);
 }
 
 async function getLatestCommit() {

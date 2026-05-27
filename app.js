@@ -58,6 +58,9 @@ els.searchBox.addEventListener("input", renderBank);
 els.questionCount.addEventListener("input", updatePassTarget);
 
 loadQuestions();
+window.addEventListener("load", () => {
+  setTimeout(checkForUpdates, 700);
+});
 
 async function loadQuestions() {
   try {
@@ -566,11 +569,32 @@ async function applyUpdate() {
     const response = await fetch("/api/apply-update", { method: "POST" });
     const result = await response.json();
     if (!response.ok || !result.ok) throw new Error(result.error || "No se pudo aplicar la update.");
-    setUpdatePanel("Update aplicada", `Archivos actualizados: ${result.updatedFiles.join(", ")}. Recargando...`, "done");
-    setTimeout(() => location.reload(), 900);
+    setUpdatePanel("Update aplicada", `Archivos actualizados: ${result.updatedFiles.join(", ")}. Reiniciando servidor y recargando...`, "done");
+    setTimeout(waitForServerAndReload, 1200);
   } catch (error) {
     setUpdatePanel("Fallo al aplicar", error.message, "error");
   }
+}
+
+async function waitForServerAndReload() {
+  const deadline = Date.now() + 15000;
+  while (Date.now() < deadline) {
+    try {
+      const response = await fetch("/api/health", { cache: "no-store" });
+      if (response.ok) {
+        location.reload();
+        return;
+      }
+    } catch {
+      // The local server is restarting.
+    }
+    await sleep(500);
+  }
+  location.reload();
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 function setUpdatePanel(title, status, kind) {
