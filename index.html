@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pedalean2 - Estudio de examen</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">ASM - Pedalean2</p>
+      <h1>Entrenador de examen</h1>
+    </div>
+    <div class="header-actions">
+      <button id="newExamBtn" class="primary">Test de 15</button>
+      <button id="reinforceBtn">Refuerzo</button>
+      <button id="bankBtn">Banco</button>
+      <button id="updateBtn">Actualizar</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="updatePanel" class="update-panel hidden">
+      <div>
+        <strong id="updateTitle">Actualizaciones</strong>
+        <span id="updateStatus">Conectado a Alfonso-Sanchez/ASM-EXAMEN-PRACTICO</span>
+      </div>
+      <button id="applyUpdateBtn" class="primary hidden">Aplicar update</button>
+    </section>
+
+    <section class="panel controls">
+      <label>
+        Tema
+        <select id="topicFilter"></select>
+      </label>
+      <label>
+        Tipo
+        <select id="typeFilter"></select>
+      </label>
+      <label>
+        Dificultad
+        <select id="difficultyFilter">
+          <option value="all">Todas</option>
+          <option value="normal">Normal</option>
+          <option value="trampa">Trampa</option>
+          <option value="matar">A matar</option>
+        </select>
+      </label>
+      <label>
+        Preguntas
+        <input id="questionCount" type="number" min="5" max="30" value="15">
+      </label>
+    </section>
+
+    <section class="dashboard">
+      <article class="metric">
+        <span>Preguntas</span>
+        <strong id="totalQuestions">0</strong>
+      </article>
+      <article class="metric">
+        <span>Ultima nota</span>
+        <strong id="lastScore">-</strong>
+      </article>
+      <article class="metric">
+        <span>Media</span>
+        <strong id="avgScore">-</strong>
+      </article>
+      <article class="metric">
+        <span>Punto debil</span>
+        <strong id="weakArea">-</strong>
+      </article>
+      <article class="metric">
+        <span>Para aprobar</span>
+        <strong id="passTarget">9/15</strong>
+      </article>
+    </section>
+
+    <section id="intro" class="panel intro">
+      <h2>Practica como si fueran a preguntar lo rebuscado</h2>
+      <p>El banco esta inspirado en la practica Pedalean2: Room, DAOs, entidades, repositorios, Retrofit, tokens, mappers, ViewModels, Compose, ciclos de Activity y sincronizacion local-remota.</p>
+      <div class="quick-grid" id="topicCards"></div>
+    </section>
+
+    <section id="exam" class="panel exam hidden">
+      <div class="exam-top">
+        <div>
+          <p class="eyebrow" id="examMode">Test</p>
+          <h2 id="examTitle">Pregunta</h2>
+        </div>
+        <div class="progress">
+          <span id="progressText">0/0</span>
+          <div><i id="progressBar"></i></div>
+        </div>
+      </div>
+      <article id="questionHost" class="question"></article>
+      <div class="exam-actions">
+        <button id="prevBtn">Anterior</button>
+        <button id="checkBtn" class="primary">Comprobar</button>
+        <button id="nextBtn">Siguiente</button>
+        <button id="finishBtn" class="danger">Finalizar</button>
+      </div>
+    </section>
+
+    <section id="report" class="panel report hidden"></section>
+
+    <section id="bank" class="panel bank hidden">
+      <div class="bank-head">
+        <div>
+          <p class="eyebrow">Explorador</p>
+          <h2>Banco de preguntas</h2>
+        </div>
+        <input id="searchBox" type="search" placeholder="Buscar por palabra, clase, anotacion...">
+      </div>
+      <div id="bankList" class="bank-list"></div>
+    </section>
+  </main>
+
+  <template id="optionTemplate">
+    <button class="option" type="button"></button>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
