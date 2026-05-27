@@ -4946,7 +4946,7 @@
     "topic": "room",
     "type": "seleccionar-codigo",
     "difficulty": "matar",
-    "question": "Te dan este código de creación de Room. ¿Qué respuesta elegirías en un test?",
+    "question": "Analiza esta creación de la base de datos Room. ¿Cuál es el problema principal si se usa como singleton?",
     "code": "Room.databaseBuilder(\n    activity,\n    Pedalean2Database::class.java,\n    \"pedalean2.db\"\n).build()",
     "options": [
       "Es peligroso si se guarda como singleton porque puede retener una Activity; debería usarse applicationContext.",
@@ -4962,7 +4962,7 @@
     "topic": "dao",
     "type": "seleccionar-codigo",
     "difficulty": "trampa",
-    "question": "Observa el insert. ¿Qué interpretación es correcta?",
+    "question": "Analiza este insert de Room. ¿Qué efecto tiene OnConflictStrategy.REPLACE?",
     "code": "@Insert(onConflict = OnConflictStrategy.REPLACE)\nfun insertBike(entity: BikeEntity)",
     "options": [
       "Si existe otra fila con la misma clave primaria, Room sustituye la entidad conflictiva.",
@@ -4978,7 +4978,7 @@
     "topic": "dao",
     "type": "seleccionar-codigo",
     "difficulty": "normal",
-    "question": "Si el DAO contiene este método, ¿qué significa el Int devuelto?",
+    "question": "Analiza este método DAO. ¿Qué representa el Int que devuelve?",
     "code": "@Query(\"DELETE FROM rents WHERE uuid = :uuid\")\nfun delete(uuid: String): Int",
     "options": [
       "El número de filas afectadas por el DELETE.",
@@ -4994,7 +4994,7 @@
     "topic": "retrofit",
     "type": "seleccionar-codigo",
     "difficulty": "trampa",
-    "question": "¿Qué pasaría con esta configuración de Retrofit?",
+    "question": "Analiza esta configuración de Retrofit. ¿Qué problema puede provocar la baseUrl?",
     "code": "Retrofit.Builder()\n    .baseUrl(\"https://api.pedalean2.com/endpoints/v2\")\n    .build()",
     "options": [
       "Puede lanzar IllegalArgumentException porque la baseUrl debe terminar en /.",
@@ -5010,7 +5010,7 @@
     "topic": "retrofit",
     "type": "seleccionar-codigo",
     "difficulty": "matar",
-    "question": "En este fragmento de repositorio/ViewModel, ¿cuál es el riesgo principal?",
+    "question": "Analiza esta llamada Retrofit. ¿Cuál es el riesgo de ejecutar ese código desde UI o desde un ViewModel sin cambiar de dispatcher?",
     "code": "val response = apiService.getBikes().execute()\n_bikes.value = response.body() ?: emptyList()",
     "options": [
       "execute() es síncrono y no debería ejecutarse en el hilo principal.",
@@ -5026,7 +5026,7 @@
     "topic": "auth",
     "type": "seleccionar-codigo",
     "difficulty": "trampa",
-    "question": "Este cierre de sesión intenta borrar credenciales. ¿Qué problema tiene?",
+    "question": "Analiza este cierre de sesión. ¿Por qué puede dejar credenciales guardadas?",
     "code": "fun clearTokens() {\n    prefs.edit()\n        .remove(\"access_token\")\n        .apply()\n}",
     "options": [
       "Solo borra access_token; podrían quedar refresh token u otras claves de autenticación.",
@@ -5042,7 +5042,7 @@
     "topic": "auth",
     "type": "seleccionar-codigo",
     "difficulty": "matar",
-    "question": "Si ves este comentario en un examen, ¿qué opción es más precisa según la práctica?",
+    "question": "Analiza el comentario del fragmento. ¿Qué afirmación es correcta según la práctica?",
     "code": "if (tokenManager.hasValidSession()) {\n    // Si el access token expiró, aquí se renueva con el refresh token.\n    navigateToHome()\n}",
     "options": [
       "El comentario es engañoso: se guarda refresh token, pero no hay flujo automático de renovación implementado.",
@@ -5058,7 +5058,7 @@
     "topic": "repositorios",
     "type": "seleccionar-codigo",
     "difficulty": "normal",
-    "question": "¿Qué patrón describe mejor este acceso a repositorios?",
+    "question": "Analiza este acceso a repositorios. ¿Qué patrón o enfoque se está usando?",
     "code": "val bikeRepository = RepositoryProvider.bikeRepository(context)\nval rentRepository = RepositoryProvider.rentRepository(context)",
     "options": [
       "Service locator manual.",
@@ -5074,7 +5074,7 @@
     "topic": "repositorios",
     "type": "seleccionar-codigo",
     "difficulty": "matar",
-    "question": "¿Qué diferencia importante tiene este refresh frente a uno que primero borra la caché local?",
+    "question": "Analiza este refresh de bicis. ¿Qué problema puede aparecer al no limpiar antes la caché local?",
     "code": "override fun refreshFromRemote(): List<Bike> {\n    remoteDatasource.getAll().forEach { localDatasource.insert(it.toEntity()) }\n    return localDatasource.getAll().map { it.toBike() }\n}",
     "options": [
       "Puede dejar bicis antiguas que ya no vengan del remoto, porque no limpia la caché antes de insertar.",
@@ -5090,7 +5090,7 @@
     "topic": "repositorios",
     "type": "seleccionar-codigo",
     "difficulty": "matar",
-    "question": "Mira esta llamada. ¿Cuál es la trampa típica?",
+    "question": "Analiza esta llamada al repositorio de rentas. ¿Qué identificador espera realmente el método?",
     "code": "val active = rentRepository.isRentActive(bike.uuid)",
     "options": [
       "isRentActive espera uuid de renta, no necesariamente uuid de bici.",
@@ -5106,7 +5106,7 @@
     "topic": "mappers",
     "type": "seleccionar-codigo",
     "difficulty": "trampa",
-    "question": "¿Por qué este mapper puede guardar un valor feo o incorrecto?",
+    "question": "Analiza este mapper. ¿Qué problema puede aparecer si algún campo de la API viene a null?",
     "code": "BikeEntity(\n    uuid = apiBike.uuid.toString(),\n    lastUse = apiBike.lastUse.toString()\n)",
     "options": [
       "Si el valor viene null, toString() puede producir el literal \"null\"; es mejor usar orEmpty() o tratar el null.",
@@ -5122,7 +5122,7 @@
     "topic": "mappers",
     "type": "seleccionar-codigo",
     "difficulty": "matar",
-    "question": "¿Qué problema puede tener este parseo directo?",
+    "question": "Analiza este parseo de fecha. ¿Qué ocurre si el texto no tiene un formato compatible?",
     "code": "val lastUseDate = LocalDateTime.parse(lastUse)",
     "options": [
       "Si el formato no es compatible o viene mal, puede lanzar excepción; conviene envolverlo con runCatching.",
@@ -5138,7 +5138,7 @@
     "topic": "viewmodel",
     "type": "seleccionar-codigo",
     "difficulty": "trampa",
-    "question": "¿Qué bug de estado puede aparecer en este ViewModel?",
+    "question": "Analiza este manejo de carga en el ViewModel. ¿Qué bug de estado puede aparecer si falla el repositorio?",
     "code": "_isLoading.value = true\ntry {\n    repository.refreshFromRemote()\n    _isLoading.value = false\n} catch (e: Exception) {\n    _error.value = e.message\n}",
     "options": [
       "Si hay excepción, isLoading puede quedarse en true porque falta finally.",
@@ -5154,7 +5154,7 @@
     "topic": "viewmodel",
     "type": "seleccionar-codigo",
     "difficulty": "matar",
-    "question": "Tras fallar una operación de start/stop, ¿qué falta si se compara con el patrón de recuperación de la práctica?",
+    "question": "Analiza este catch tras una operación de start/stop. ¿Qué paso de recuperación falta?",
     "code": "catch (e: Exception) {\n    _error.value = e.message\n}",
     "options": [
       "Intentar refrescar el estado con runCatching para no dejar la UI desactualizada.",
@@ -5170,7 +5170,7 @@
     "topic": "compose",
     "type": "seleccionar-codigo",
     "difficulty": "normal",
-    "question": "¿Qué detalle falta en este Scaffold?",
+    "question": "Analiza este Scaffold de Compose. ¿Qué detalle falta para evitar solapes con la topBar?",
     "code": "Scaffold(\n    topBar = { TopAppBar(title = { Text(\"Bicis\") }) }\n) {\n    LazyColumn(Modifier.fillMaxSize()) {\n        items(bikes) { BikeRow(it) }\n    }\n}",
     "options": [
       "Usar el innerPadding del Scaffold en el contenido.",
@@ -5186,7 +5186,7 @@
     "topic": "compose",
     "type": "seleccionar-codigo",
     "difficulty": "trampa",
-    "question": "¿Qué afirmación sobre este código es correcta?",
+    "question": "Analiza este LazyColumn. ¿Qué afirmación describe mejor cómo se pintan los elementos?",
     "code": "LazyColumn {\n    items(bikes) { bike ->\n        BikeRow(bike)\n    }\n}",
     "options": [
       "Pinta una fila por cada bici, pero no está dando una key estable explícita.",
@@ -5202,7 +5202,7 @@
     "topic": "activity",
     "type": "seleccionar-codigo",
     "difficulty": "matar",
-    "question": "¿Qué problema tiene esta Activity launcher en Android moderno?",
+    "question": "Analiza esta Activity launcher del Manifest. ¿Qué problema tiene android:exported?",
     "code": "<activity\n    android:name=\".presentation.SplashActivity\"\n    android:exported=\"false\">\n    <intent-filter>\n        <action android:name=\"android.intent.action.MAIN\" />\n        <category android:name=\"android.intent.category.LAUNCHER\" />\n    </intent-filter>\n</activity>",
     "options": [
       "Una Activity con MAIN/LAUNCHER debe estar exportada para poder lanzarse desde el sistema.",
@@ -5218,7 +5218,7 @@
     "topic": "activity",
     "type": "seleccionar-codigo",
     "difficulty": "normal",
-    "question": "Si el Manifest solo tiene esto, ¿qué faltaría para que Retrofit pueda salir a red?",
+    "question": "Analiza este Manifest mínimo. ¿Qué permiso falta para que Retrofit pueda hacer llamadas de red?",
     "code": "<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\">\n    <application>\n        ...\n    </application>\n</manifest>",
     "options": [
       "El permiso android.permission.INTERNET.",
@@ -5234,7 +5234,7 @@
     "topic": "gradle",
     "type": "seleccionar-codigo",
     "difficulty": "matar",
-    "question": "¿Qué problema conceptual tiene esta dependencia de Room compiler?",
+    "question": "Analiza estas dependencias Gradle de Room. ¿Qué está mal en la configuración del compiler?",
     "code": "dependencies {\n    implementation(libs.androidx.room.runtime)\n    implementation(libs.androidx.room.ktx)\n    implementation(libs.androidx.room.compiler)\n}",
     "options": [
       "El compiler de Room debe ir como procesador, por ejemplo ksp(...), no como implementation.",
@@ -5250,7 +5250,7 @@
     "topic": "gradle",
     "type": "seleccionar-codigo",
     "difficulty": "trampa",
-    "question": "Según la configuración esperada de la práctica, ¿qué elegirías al ver esto?",
+    "question": "Analiza este defaultConfig. ¿Qué no coincide con la configuración esperada de la práctica?",
     "code": "android {\n    defaultConfig {\n        minSdk = 21\n    }\n}",
     "options": [
       "No coincide con la práctica si se espera minSdk = 33.",
@@ -5266,7 +5266,7 @@
     "topic": "api",
     "type": "seleccionar-codigo",
     "difficulty": "matar",
-    "question": "Este parser intenta detectar un usuario directo. ¿Cuál es la idea clave?",
+    "question": "Analiza este parser de usuario. ¿Por qué comprueba campos como uuid, email o username?",
     "code": "if (jsonObject.has(\"uuid\") ||\n    jsonObject.has(\"email\") ||\n    jsonObject.has(\"username\")\n) {\n    return gson.fromJson(jsonObject, ApiUser::class.java)\n}",
     "options": [
       "Si el objeto ya trae campos típicos de usuario, se parsea directamente como ApiUser.",
@@ -5282,7 +5282,7 @@
     "topic": "api",
     "type": "seleccionar-codigo",
     "difficulty": "trampa",
-    "question": "¿Qué está haciendo este código al leer una respuesta JSON envoltorio?",
+    "question": "Analiza este recorrido de un objeto JSON. ¿Qué valor intenta extraer?",
     "code": "for ((_, value) in jsonObject.entrySet()) {\n    if (value.isJsonArray) {\n        return value.asJsonArray\n    }\n}",
     "options": [
       "Busca el primer campo cuyo valor sea un array JSON.",
@@ -5298,7 +5298,7 @@
     "topic": "login",
     "type": "seleccionar-codigo",
     "difficulty": "normal",
-    "question": "¿Por qué se usa trim() en este login?",
+    "question": "Analiza la construcción del TokenRequest. ¿Para qué se aplica trim() a las credenciales?",
     "code": "val request = TokenRequest(\n    username = email.trim(),\n    password = password.trim()\n)",
     "options": [
       "Para quitar espacios accidentales al principio o final antes de pedir el token.",
@@ -5314,7 +5314,7 @@
     "topic": "login",
     "type": "seleccionar-codigo",
     "difficulty": "matar",
-    "question": "¿Cómo deberías interpretar este catch después de obtener token?",
+    "question": "Analiza este flujo después de obtener token. ¿Qué significa que falle userRepository.getUser() en el catch?",
     "code": "val token = authRepository.login(credentials)\ntry {\n    userRepository.getUser()\n} catch (e: Exception) {\n    // No se invalida necesariamente el token obtenido.\n}",
     "options": [
       "Puede fallar la carga/cache del usuario aunque el login haya devuelto token.",
@@ -5330,7 +5330,7 @@
     "topic": "modelos",
     "type": "seleccionar-codigo",
     "difficulty": "normal",
-    "question": "¿Qué significa el signo ? en este modelo?",
+    "question": "Analiza este modelo Kotlin. ¿Qué indica el signo ? en los tipos de las propiedades?",
     "code": "data class User(\n    val uuid: String?,\n    val creditCardCvv: Int?\n)",
     "options": [
       "Los campos pueden ser null.",
@@ -5346,7 +5346,7 @@
     "topic": "modelos",
     "type": "seleccionar-codigo",
     "difficulty": "trampa",
-    "question": "En este modelo de dominio, ¿qué representa rents?",
+    "question": "Analiza este modelo Bike. ¿Qué representa la propiedad rents?",
     "code": "data class Bike(\n    val uuid: String,\n    val name: String,\n    val rents: BikeRent? = null\n)",
     "options": [
       "La renta asociada/activa de la bici, nullable.",
@@ -5362,7 +5362,7 @@
     "topic": "profile",
     "type": "seleccionar-codigo",
     "difficulty": "trampa",
-    "question": "¿Qué dato está mostrando esta línea del perfil?",
+    "question": "Analiza esta línea de ProfileScreen. ¿Qué dato del usuario se está mostrando?",
     "code": "ProfileField(\n    label = \"CVV\",\n    value = user.creditCardCvv?.toString()\n)",
     "options": [
       "El código de seguridad de la tarjeta si existe.",
@@ -5378,7 +5378,7 @@
     "topic": "profile",
     "type": "seleccionar-codigo",
     "difficulty": "normal",
-    "question": "¿Qué calcula h en este fragmento?",
+    "question": "Analiza este cálculo de duración. ¿Qué representa la variable h?",
     "code": "val totalSeconds = user.totalUsageSeconds ?: 0\nval h = totalSeconds / 3600\nval m = (totalSeconds % 3600) / 60",
     "options": [
       "Las horas completas dentro del total de segundos.",
@@ -5394,7 +5394,7 @@
     "topic": "revision-codigo",
     "type": "seleccionar-codigo",
     "difficulty": "matar",
-    "question": "Te dan este código de otro grupo. ¿Qué opción de test marca mejor el fallo?",
+    "question": "Analiza este código de DAO. ¿Qué fallo tiene la consulta si se quiere buscar una bici por uuid?",
     "code": "@Query(\"SELECT * FROM bikes WHERE id = :uuid LIMIT 1\")\nfun getById(uuid: String): BikeEntity?",
     "options": [
       "Usa id en la query aunque el parámetro y la clave esperada van por uuid.",
@@ -5410,7 +5410,7 @@
     "topic": "revision-codigo",
     "type": "seleccionar-codigo",
     "difficulty": "normal",
-    "question": "¿Cuál sería la versión más coherente si se quiere buscar una bici por uuid?",
+    "question": "El objetivo es obtener una bici por uuid. ¿Cuál de las opciones implementa correctamente la consulta?",
     "code": "// Se quiere obtener una bici por uuid",
     "options": [
       "@Query(\"SELECT * FROM bikes WHERE uuid = :uuid LIMIT 1\") fun getById(uuid: String): BikeEntity?",
