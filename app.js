@@ -50,25 +50,29 @@ const els = {
   confirmUpdateBtn: document.querySelector("#confirmUpdateBtn")
 };
 
-document.querySelector("#newExamBtn").addEventListener("click", () => startExam("test"));
-document.querySelector("#reinforceBtn").addEventListener("click", () => startExam("reinforcement"));
-document.querySelector("#bankBtn").addEventListener("click", showBank);
-els.updateBtn.addEventListener("click", checkForUpdates);
-els.applyUpdateBtn.addEventListener("click", openUpdateModal);
-els.closeUpdateModalBtn.addEventListener("click", closeUpdateModal);
-els.cancelUpdateBtn.addEventListener("click", closeUpdateModal);
-els.confirmUpdateBtn.addEventListener("click", applyUpdate);
-els.prevBtn.addEventListener("click", () => move(-1));
-els.nextBtn.addEventListener("click", () => move(1));
-els.checkBtn.addEventListener("click", checkCurrent);
-els.finishBtn.addEventListener("click", finishExam);
-els.searchBox.addEventListener("input", renderBank);
-els.questionCount.addEventListener("input", updatePassTarget);
+on(document.querySelector("#newExamBtn"), "click", () => startExam("test"));
+on(document.querySelector("#reinforceBtn"), "click", () => startExam("reinforcement"));
+on(document.querySelector("#bankBtn"), "click", showBank);
+on(els.updateBtn, "click", checkForUpdates);
+on(els.applyUpdateBtn, "click", openUpdateModal);
+on(els.closeUpdateModalBtn, "click", closeUpdateModal);
+on(els.cancelUpdateBtn, "click", closeUpdateModal);
+on(els.confirmUpdateBtn, "click", applyUpdate);
+on(els.prevBtn, "click", () => move(-1));
+on(els.nextBtn, "click", () => move(1));
+on(els.checkBtn, "click", checkCurrent);
+on(els.finishBtn, "click", finishExam);
+on(els.searchBox, "input", renderBank);
+on(els.questionCount, "input", updatePassTarget);
 
 loadQuestions();
 window.addEventListener("load", () => {
   setTimeout(checkForUpdates, 700);
 });
+
+function on(element, event, handler) {
+  if (element) element.addEventListener(event, handler);
+}
 
 async function loadQuestions() {
   try {
