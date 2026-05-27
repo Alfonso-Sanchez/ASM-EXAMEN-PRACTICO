@@ -46,5 +46,3 @@ El navegador por si solo no puede sobrescribir archivos locales. Por eso el boto
 - `styles.css`
 - `README.md`
 - `data/questions.json`
-
-Ahora mismo el repo publico solo contiene licencia/metadatos. Cuando subas esos archivos al repo, el boton `Actualizar` podra detectar el commit nuevo y aplicar la update.
