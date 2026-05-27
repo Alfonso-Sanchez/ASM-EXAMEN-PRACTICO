@@ -12,14 +12,14 @@
       "UserDao, BikeDao y RentDao"
     ],
     "answer": 1,
-    "explanation": "Room debe recibir clases anotadas con @Entity. En esta practica son UserEntity, BikeEntity y RentEntity."
+    "explanation": "Room debe recibir clases anotadas con @Entity. En está practica son UserEntity, BikeEntity y RentEntity."
   },
   {
     "id": "room-002",
     "topic": "room",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Que efecto tiene @Volatile en instance dentro del companion object de la base de datos?",
+    "question": "Qué efecto tiene @Volatile en instance dentro del companion object de la base de datos?",
     "options": [
       "Permite que Room haga migraciones automaticas",
       "Hace visible el ultimo valor de instance entre hilos",
@@ -54,7 +54,7 @@
     "type": "completar-codigo",
     "difficulty": "normal",
     "question": "Completa la anotacion de una entidad Room para la tabla users.",
-    "code": "____(tableName = \"users\")\ndata class UserEntity(...)",
+    "code": "____(tableName = \"users\") data class UserEntity(...)",
     "answer": [
       "@Entity",
       "Entity"
@@ -66,7 +66,7 @@
     "topic": "room",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Que devuelve BikeDao.insert cuando usa @Insert(onConflict = OnConflictStrategy.REPLACE)?",
+    "question": "Qué devuelve BikeDao.insert cuando usa @Insert(onConflict = OnConflictStrategy.REPLACE)?",
     "options": [
       "Boolean",
       "BikeEntity",
@@ -81,7 +81,7 @@
     "topic": "room",
     "type": "single",
     "difficulty": "matar",
-    "question": "Cual es la consecuencia de no definir ForeignKey entre RentEntity y BikeEntity?",
+    "question": "Cuál es la consecuencia de no definir ForeignKey entre RentEntity y BikeEntity?",
     "options": [
       "Room no compila",
       "Room no garantiza integridad referencial entre alquiler y bici",
@@ -96,7 +96,7 @@
     "topic": "dao",
     "type": "single",
     "difficulty": "normal",
-    "question": "Que consulta usa getById en los tres DAO?",
+    "question": "Qué consulta usa getById en los tres DAO?",
     "options": [
       "SELECT uuid FROM tabla",
       "SELECT * FROM tabla WHERE uuid = :uuid LIMIT 1",
@@ -111,7 +111,7 @@
     "topic": "dao",
     "type": "multiple",
     "difficulty": "trampa",
-    "question": "Que metodos DAO devuelven Int en esta practica?",
+    "question": "Qué metodos DAO devuelven Int en esta practica?",
     "options": [
       "update",
       "delete",
@@ -130,7 +130,7 @@
     "type": "completar-codigo",
     "difficulty": "normal",
     "question": "Completa el parametro que Room enlaza dentro de esta Query.",
-    "code": "@Query(\"SELECT * FROM bikes WHERE uuid = :____ LIMIT 1\")\nfun getById(uuid: String): BikeEntity?",
+    "code": "@Query(\"SELECT * FROM bikes WHERE uuid = :____ LIMIT 1\") fun getById(uuid: String): BikeEntity?",
     "answer": [
       "uuid"
     ],
@@ -156,7 +156,7 @@
     "topic": "retrofit",
     "type": "single",
     "difficulty": "normal",
-    "question": "Cual es la BASE_URL configurada en RetrofitClient?",
+    "question": "Cuál es la BASE_URL configurada en RetrofitClient?",
     "options": [
       "https://api.pedalean2.com/",
       "https://api.pedalean2.com/endpoints/v2/",
@@ -171,7 +171,7 @@
     "topic": "retrofit",
     "type": "multiple",
     "difficulty": "trampa",
-    "question": "Que headers anade el authInterceptor a cada request?",
+    "question": "Qué headers anade el authInterceptor a cada request?",
     "options": [
       "server-token",
       "Content-Type: application/json",
@@ -206,7 +206,7 @@
     "type": "completar-codigo",
     "difficulty": "normal",
     "question": "Completa la anotacion Retrofit para login.",
-    "code": "____(\"token/\")\nfun login(@Body request: TokenRequest): Call<TokenResponse>",
+    "code": "____(\"token/\") fun login(@Body request: TokenRequest): Call<TokenResponse>",
     "answer": [
       "@POST",
       "POST"
@@ -218,7 +218,7 @@
     "topic": "retrofit",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Que nivel de logging usa HttpLoggingInterceptor en release?",
+    "question": "Qué nivel de logging usa HttpLoggingInterceptor en release?",
     "options": [
       "BASIC",
       "BODY",
@@ -264,7 +264,7 @@
     "topic": "auth",
     "type": "multiple",
     "difficulty": "trampa",
-    "question": "Que condiciones hacen que hasValidSession devuelva false?",
+    "question": "Qué condiciones hacen que hasValidSession devuelva false?",
     "options": [
       "Access token nulo",
       "Access token vacio",
@@ -276,7 +276,7 @@
       1,
       2
     ],
-    "explanation": "hasValidSession solo mira el access token y si esta expirado. No valida refresh token."
+    "explanation": "hasValidSession solo mira el access token y si está expirado. No valida refresh token."
   },
   {
     "id": "auth-004",
@@ -298,7 +298,7 @@
     "topic": "repositorios",
     "type": "single",
     "difficulty": "normal",
-    "question": "Que hace BikeRepository.getAll si remoteDatasource.getAll() funciona?",
+    "question": "Qué hace BikeRepository.getAll si remoteDatasource.getAll() funciona?",
     "options": [
       "Ignora Room",
       "Sincroniza cache local y devuelve bicis remotas mapeadas a dominio",
@@ -313,7 +313,7 @@
     "topic": "repositorios",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Que hace UserRepository.getUser() primero?",
+    "question": "Qué hace UserRepository.getUser() primero?",
     "options": [
       "Llama siempre a Retrofit",
       "Devuelve el primer usuario cacheado si existe",
@@ -328,7 +328,7 @@
     "topic": "repositorios",
     "type": "multiple",
     "difficulty": "matar",
-    "question": "Que operaciones locales hace RentRepository.startRent antes o aunque falle remoto?",
+    "question": "Qué operaciones locales hace RentRepository.startRent antes o aunque falle remoto?",
     "options": [
       "Inserta un RentModel pending_bikeUuid",
       "Marca la bici como isRented true",
@@ -347,7 +347,7 @@
     "topic": "repositorios",
     "type": "single",
     "difficulty": "matar",
-    "question": "Que devuelve RentRepository.startRent aunque el servidor rechace la sincronizacion?",
+    "question": "Qué devuelve RentRepository.startRent aunque el servidor rechace la sincronizacion?",
     "options": [
       "false",
       "true",
@@ -362,7 +362,7 @@
     "topic": "repositorios",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Que prefijo usa una renta pendiente de inicio?",
+    "question": "Qué prefijo usa una renta pendiente de inicio?",
     "options": [
       "offline_",
       "pending_",
@@ -395,7 +395,7 @@
     "topic": "mappers",
     "type": "single",
     "difficulty": "normal",
-    "question": "Que hace BikeModel.toBike con el String type?",
+    "question": "Qué hace BikeModel.toBike con el String type?",
     "options": [
       "Lo deja como String",
       "Lo convierte a BikeType usando uppercase y valueOf",
@@ -418,14 +418,14 @@
       "Lanza IllegalArgumentException"
     ],
     "answer": 1,
-    "explanation": "El valueOf esta dentro de runCatching y cae a BikeType.REGULAR si no reconoce el texto."
+    "explanation": "El valueOf está dentro de runCatching y cae a BikeType.REGULAR si no reconoce el texto."
   },
   {
     "id": "mapper-003",
     "topic": "mappers",
     "type": "multiple",
     "difficulty": "normal",
-    "question": "Que capas conectan los mappers locales?",
+    "question": "Qué capas conectan los mappers locales?",
     "options": [
       "Room Entity",
       "Common Model de IDatasource",
@@ -458,7 +458,7 @@
     "topic": "viewmodel",
     "type": "single",
     "difficulty": "normal",
-    "question": "Que tipo expone BikeViewModel para bikes hacia la UI?",
+    "question": "Qué tipo expone BikeViewModel para bikes hacia la UI?",
     "options": [
       "MutableLiveData<List<Bike>>",
       "LiveData<List<Bike>>",
@@ -473,7 +473,7 @@
     "topic": "viewmodel",
     "type": "multiple",
     "difficulty": "trampa",
-    "question": "Que operaciones se hacen dentro de withContext(Dispatchers.IO) en BikeViewModel?",
+    "question": "Qué operaciones se hacen dentro de withContext(Dispatchers.IO) en BikeViewModel?",
     "options": [
       "startRent del repositorio",
       "stopRent del repositorio",
@@ -492,7 +492,7 @@
     "topic": "viewmodel",
     "type": "single",
     "difficulty": "matar",
-    "question": "Como detecta BikeViewModel la renta activa de una bici visible?",
+    "question": "Cómo detecta BikeViewModel la renta activa de una bici visible?",
     "options": [
       "Comprueba activeRent.uuid == bike.uuid",
       "Busca rent.isRented y que rent.rents?.uuid este en los uuid de bikes",
@@ -507,7 +507,7 @@
     "topic": "viewmodel",
     "type": "single",
     "difficulty": "normal",
-    "question": "Que hace ProfileViewModel.fetchRents antes de publicar rents?",
+    "question": "Qué hace ProfileViewModel.fetchRents antes de publicar rents?",
     "options": [
       "Los ordena por timeStart descendente",
       "Los filtra por batteryLevel",
@@ -522,7 +522,7 @@
     "topic": "compose",
     "type": "single",
     "difficulty": "normal",
-    "question": "Como observa BikeListScreen los LiveData del ViewModel?",
+    "question": "Cómo observa BikeListScreen los LiveData del ViewModel?",
     "options": [
       "collectAsState()",
       "observeAsState()",
@@ -552,7 +552,7 @@
     "topic": "compose",
     "type": "multiple",
     "difficulty": "normal",
-    "question": "Que condiciones hacen que una bici se considere available en BikeCardItem?",
+    "question": "Qué condiciones hacen que una bici se considere available en BikeCardItem?",
     "options": [
       "!bike.isRented",
       "!bike.isReserved",
@@ -585,7 +585,7 @@
     "topic": "activity",
     "type": "single",
     "difficulty": "normal",
-    "question": "Que Activity es launcher en AndroidManifest.xml?",
+    "question": "Qué Activity es launcher en AndroidManifest.xml?",
     "options": [
       "MainActivity",
       "LoginActivity",
@@ -600,7 +600,7 @@
     "topic": "activity",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Que permiso declara el manifest para poder llamar a la API?",
+    "question": "Qué permiso declara el manifest para poder llamar a la API?",
     "options": [
       "ACCESS_FINE_LOCATION",
       "INTERNET",
@@ -615,7 +615,7 @@
     "topic": "activity",
     "type": "multiple",
     "difficulty": "normal",
-    "question": "Que Activities aparecen declaradas como exported=false?",
+    "question": "Qué Activities aparecen declaradas como exported=false?",
     "options": [
       "LoginActivity",
       "MainActivity",
@@ -629,14 +629,14 @@
       2,
       3
     ],
-    "explanation": "SplashActivity es exported=true por ser launcher. Las demas estan exported=false."
+    "explanation": "SplashActivity es exported=true por ser launcher. Las demas están exported=false."
   },
   {
     "id": "build-001",
     "topic": "gradle",
     "type": "single",
     "difficulty": "normal",
-    "question": "Que plugin se usa para generar codigo de Room?",
+    "question": "Qué plugin se usa para generar codigo de Room?",
     "options": [
       "ksp",
       "kapt",
@@ -651,7 +651,7 @@
     "topic": "gradle",
     "type": "multiple",
     "difficulty": "trampa",
-    "question": "Que buildFeatures estan activadas?",
+    "question": "Qué buildFeatures estan activadas?",
     "options": [
       "compose",
       "buildConfig",
@@ -684,7 +684,7 @@
     "topic": "usecases",
     "type": "single",
     "difficulty": "normal",
-    "question": "Que valida LoginUsecase antes de llamar a la API?",
+    "question": "Qué valida LoginUsecase antes de llamar a la API?",
     "options": [
       "credentials.isNotEmpty()",
       "Que el token no haya expirado",
@@ -736,7 +736,7 @@
     "topic": "datasources",
     "type": "single",
     "difficulty": "normal",
-    "question": "Que interfaz implementan los datasources locales y remotos?",
+    "question": "Qué interfaz implementan los datasources locales y remotos?",
     "options": [
       "IDatasource<T>",
       "Dao<T>",
@@ -751,7 +751,7 @@
     "topic": "datasources",
     "type": "multiple",
     "difficulty": "trampa",
-    "question": "Que metodos remotos devuelven false porque la API no los soporta?",
+    "question": "Qué metodos remotos devuelven false porque la API no los soporta?",
     "options": [
       "BikeRemoteDatasource.insert",
       "BikeRemoteDatasource.update",
@@ -771,7 +771,7 @@
     "topic": "datasources",
     "type": "single",
     "difficulty": "matar",
-    "question": "Que hace UserRemoteDatasource si la respuesta HTTP no es successful?",
+    "question": "Qué hace UserRemoteDatasource si la respuesta HTTP no es successful?",
     "options": [
       "Lanza RuntimeException siempre",
       "Registra error y devuelve emptyList",
@@ -801,7 +801,7 @@
     "topic": "json-api",
     "type": "multiple",
     "difficulty": "matar",
-    "question": "Que formatos acepta UserRemoteDatasource para getAll?",
+    "question": "Qué formatos acepta UserRemoteDatasource para getAll?",
     "options": [
       "Array de UserApiModel",
       "Objeto con campo user objeto",
@@ -821,7 +821,7 @@
     "topic": "modelos",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Que propiedad de dominio Rent contiene la bici alquilada?",
+    "question": "Qué propiedad de dominio Rent contiene la bici alquilada?",
     "options": [
       "bike",
       "rents",
@@ -836,7 +836,7 @@
     "topic": "modelos",
     "type": "single",
     "difficulty": "normal",
-    "question": "Que enum de dominio representa el tipo de bici?",
+    "question": "Qué enum de dominio representa el tipo de bici?",
     "options": [
       "BikeType con REGULAR y ELECTRIC",
       "BikeKind con NORMAL y EBIKE",
@@ -851,7 +851,7 @@
     "topic": "modelos",
     "type": "multiple",
     "difficulty": "trampa",
-    "question": "Que campos de User de dominio son nullable?",
+    "question": "Qué campos de User de dominio son nullable?",
     "options": [
       "uuid",
       "email",
@@ -894,7 +894,7 @@
     "type": "completar-codigo",
     "difficulty": "matar",
     "question": "Completa la comprobacion de upsert local: si update falla, insertar.",
-    "code": "private fun upsertLocalBike(bikeModel: BikeModel) {\n    if (!localDatasource.____(bikeModel)) {\n        localDatasource.insert(bikeModel)\n    }\n}",
+    "code": "private fun upsertLocalBike(bikeModel: BikeModel) { if (!localDatasource.____(bikeModel)) { localDatasource.insert(bikeModel) } }",
     "answer": [
       "update"
     ],
@@ -918,7 +918,7 @@
     "topic": "codigo",
     "type": "single",
     "difficulty": "matar",
-    "question": "Que problema conceptual hay si los DAO son sincronicos y ademas se usa allowMainThreadQueries?",
+    "question": "Qué problema conceptual hay si los DAO son sincronicos y ademas se usa allowMainThreadQueries?",
     "options": [
       "Ninguno, es la arquitectura recomendada",
       "Se puede acabar haciendo I/O en main thread si alguien llama fuera de Dispatchers.IO",
@@ -933,7 +933,7 @@
     "topic": "offline",
     "type": "single",
     "difficulty": "normal",
-    "question": "Que estrategia general siguen BikeRepository y RentRepository cuando falla remoto?",
+    "question": "Qué estrategia general siguen BikeRepository y RentRepository cuando falla remoto?",
     "options": [
       "Fallback a cache local",
       "Cerrar la aplicacion",
@@ -948,7 +948,7 @@
     "topic": "offline",
     "type": "multiple",
     "difficulty": "matar",
-    "question": "Que detalles hacen que el soporte offline de rentas sea parcial y examinable?",
+    "question": "Qué detalles hacen que el soporte offline de rentas sea parcial y examinable?",
     "options": [
       "Se crean uuids pending_",
       "Solo se sincronizan pending con isRented true",
@@ -968,7 +968,7 @@
     "topic": "perfil",
     "type": "single",
     "difficulty": "normal",
-    "question": "Que use case usa ProfileViewModel para cargar usuario?",
+    "question": "Qué use case usa ProfileViewModel para cargar usuario?",
     "options": [
       "GetUserUseCase.execute()",
       "LoginUsecase.execute()",
@@ -983,7 +983,7 @@
     "topic": "perfil",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Que ocurre si GetUserUseCase devuelve null en fetchUser?",
+    "question": "Qué ocurre si GetUserUseCase devuelve null en fetchUser?",
     "options": [
       "Se muestra error No user data found",
       "Se lanza NullPointerException",
@@ -1031,7 +1031,7 @@
     "topic": "preguntas-rebuscadas",
     "type": "single",
     "difficulty": "matar",
-    "question": "Que nombre de archivo tiene una Activity con typo, aunque la clase se llame correctamente SplashActivity?",
+    "question": "Qué nombre de archivo tiene una Activity con typo, aunque la clase se llame correctamente SplashActivity?",
     "options": [
       "SplashActivitiy.kt",
       "SplashScreen.kt",
@@ -1039,7 +1039,7 @@
       "LoginAct.kt"
     ],
     "answer": 0,
-    "explanation": "El archivo esta escrito SplashActivitiy.kt, pero dentro declara class SplashActivity."
+    "explanation": "El archivo está escrito SplashActivitiy.kt, pero dentro declara class SplashActivity."
   },
   {
     "id": "exam-002",
@@ -1061,7 +1061,7 @@
     "topic": "preguntas-rebuscadas",
     "type": "multiple",
     "difficulty": "matar",
-    "question": "Que nombres exactos aparecen como tablas Room?",
+    "question": "Qué nombres exactos aparecen como tablas Room?",
     "options": [
       "users",
       "bikes",
@@ -1080,7 +1080,7 @@
     "topic": "preguntas-rebuscadas",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Que extension de fecha se usa para parsear lastUse y lastMaintenance?",
+    "question": "Qué extension de fecha se usa para parsear lastUse y lastMaintenance?",
     "options": [
       "SimpleDateFormat",
       "LocalDate.parse",
@@ -1110,7 +1110,7 @@
     "topic": "preguntas-rebuscadas",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Que objeto centraliza la creacion de repositorios?",
+    "question": "Qué objeto centraliza la creacion de repositorios?",
     "options": [
       "RepositoryProvider",
       "Pedalean2Application",
@@ -1137,7 +1137,7 @@
     "topic": "preguntas-rebuscadas",
     "type": "single",
     "difficulty": "matar",
-    "question": "Que respuesta describe mejor deleteAll en BikeRepository?",
+    "question": "Qué respuesta describe mejor deleteAll en BikeRepository?",
     "options": [
       "Borra lo que devuelve getAll(), por tanto puede depender de remoto si remoto funciona",
       "Borra directamente toda la tabla con SQL",
@@ -1152,7 +1152,7 @@
     "topic": "preguntas-rebuscadas",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Que tipo de retorno usa ApiService.login?",
+    "question": "Qué tipo de retorno usa ApiService.login?",
     "options": [
       "Call<TokenResponse>",
       "Response<TokenResponse>",
@@ -1167,7 +1167,7 @@
     "topic": "preguntas-rebuscadas",
     "type": "multiple",
     "difficulty": "matar",
-    "question": "Que metodos o clases son singleton/object en el codigo inspeccionado?",
+    "question": "Qué metodos o clases son singleton/object en el codigo inspeccionado?",
     "options": [
       "RetrofitClient",
       "TokenManager",
@@ -1201,7 +1201,7 @@
     "topic": "splash",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Que metodo se llama despues de startActivity(intent) en SplashActivity?",
+    "question": "Qué metodo se llama despues de startActivity(intent) en SplashActivity?",
     "options": [
       "finish()",
       "recreate()",
@@ -1216,7 +1216,7 @@
     "topic": "splash",
     "type": "multiple",
     "difficulty": "normal",
-    "question": "Que callbacks de ciclo de vida registran Log.d en SplashActivity?",
+    "question": "Qué callbacks de ciclo de vida registran Log.d en SplashActivity?",
     "options": [
       "onStart",
       "onResume",
@@ -1238,7 +1238,7 @@
     "topic": "login-ui",
     "type": "single",
     "difficulty": "normal",
-    "question": "Que estado Compose guarda las credenciales en LoginScreen?",
+    "question": "Qué estado Compose guarda las credenciales en LoginScreen?",
     "options": [
       "remember { mutableStateOf(Credentials()) }",
       "rememberSaveable { mutableStateOf(User()) }",
@@ -1253,7 +1253,7 @@
     "topic": "login-ui",
     "type": "single",
     "difficulty": "matar",
-    "question": "Que riesgo concreto introduce loginUsecase!! dentro del onClick?",
+    "question": "Qué riesgo concreto introduce loginUsecase!! dentro del onClick?",
     "options": [
       "Puede lanzar NullPointerException si se pasa null",
       "Hace que la llamada sea asincrona",
@@ -1268,7 +1268,7 @@
     "topic": "login-ui",
     "type": "multiple",
     "difficulty": "trampa",
-    "question": "Que condiciones deshabilitan el boton Login?",
+    "question": "Qué condiciones deshabilitan el boton Login?",
     "options": [
       "credentials.isNotEmpty() es false",
       "isLoading es true",
@@ -1286,7 +1286,7 @@
     "topic": "login-ui",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Que hace el boton Register en LoginScreen?",
+    "question": "Qué hace el boton Register en LoginScreen?",
     "options": [
       "No hace nada; onClick esta vacio",
       "Abre RegisterActivity",
@@ -1301,7 +1301,7 @@
     "topic": "login-ui",
     "type": "single",
     "difficulty": "normal",
-    "question": "Que transformacion visual se aplica al campo Password?",
+    "question": "Qué transformacion visual se aplica al campo Password?",
     "options": [
       "PasswordVisualTransformation()",
       "VisualTransformation.None",
@@ -1316,7 +1316,7 @@
     "topic": "profile-ui",
     "type": "single",
     "difficulty": "normal",
-    "question": "Que composable se usa para listar las rentas en ProfileScreen?",
+    "question": "Qué composable se usa para listar las rentas en ProfileScreen?",
     "options": [
       "LazyColumn",
       "LazyRow",
@@ -1331,7 +1331,7 @@
     "topic": "profile-ui",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Que muestra ProfileScreen si user == null y no hay error?",
+    "question": "Qué muestra ProfileScreen si user == null y no hay error?",
     "options": [
       "No user data found.",
       "Invalid email or password.",
@@ -1346,7 +1346,7 @@
     "topic": "profile-ui",
     "type": "single",
     "difficulty": "matar",
-    "question": "Como formatea formatDuration(65)?",
+    "question": "Cómo formatea formatDuration(65)?",
     "options": [
       "1:05",
       "0:01:05",
@@ -1361,7 +1361,7 @@
     "topic": "profile-ui",
     "type": "single",
     "difficulty": "matar",
-    "question": "Que texto usa RentCardItem si rent.rents?.name es null?",
+    "question": "Qué texto usa RentCardItem si rent.rents?.name es null?",
     "options": [
       "Unknown bike",
       "No rents found.",
@@ -1376,7 +1376,7 @@
     "topic": "profile-ui",
     "type": "multiple",
     "difficulty": "trampa",
-    "question": "Que campos de tarjeta bancaria se muestran en UserProfileCard?",
+    "question": "Qué campos de tarjeta bancaria se muestran en UserProfileCard?",
     "options": [
       "Number",
       "CVV",
@@ -1395,7 +1395,7 @@
     "topic": "api-models",
     "type": "single",
     "difficulty": "normal",
-    "question": "Que anotacion Gson mapea batteryLevel a battery_level?",
+    "question": "Qué anotacion Gson mapea batteryLevel a battery_level?",
     "options": [
       "@SerializedName(\"battery_level\")",
       "@ColumnInfo(\"battery_level\")",
@@ -1410,7 +1410,7 @@
     "topic": "api-models",
     "type": "multiple",
     "difficulty": "matar",
-    "question": "Que nombres JSON alternativos acepta RentApiModel para rentStartLatitude y rentStartLongitude?",
+    "question": "Qué nombres JSON alternativos acepta RentApiModel para rentStartLatitude y rentStartLongitude?",
     "options": [
       "rent_start_lat",
       "rent_start_lng",
@@ -1428,7 +1428,7 @@
     "topic": "api-models",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Que valor por defecto tiene BikeApiModel.type?",
+    "question": "Qué valor por defecto tiene BikeApiModel.type?",
     "options": [
       "regular",
       "REGULAR",
@@ -1443,7 +1443,7 @@
     "topic": "api-models",
     "type": "single",
     "difficulty": "matar",
-    "question": "Que valor por defecto tiene RentApiModel.timeEnd?",
+    "question": "Qué valor por defecto tiene RentApiModel.timeEnd?",
     "options": [
       "null",
       "string vacio",
@@ -1458,7 +1458,7 @@
     "topic": "api-models",
     "type": "multiple",
     "difficulty": "trampa",
-    "question": "Que submodelos anidados define RentApiModel.kt?",
+    "question": "Qué submodelos anidados define RentApiModel.kt?",
     "options": [
       "BikeRentApiModel",
       "UserRentApiModel",
@@ -1476,7 +1476,7 @@
     "topic": "interfaces",
     "type": "multiple",
     "difficulty": "normal",
-    "question": "Que operaciones bulk declara IBikeRepository?",
+    "question": "Qué operaciones bulk declara IBikeRepository?",
     "options": [
       "insertAll",
       "updateAll",
@@ -1495,7 +1495,7 @@
     "topic": "interfaces",
     "type": "multiple",
     "difficulty": "normal",
-    "question": "Que metodos especificos de alquiler declara IRentRepository ademas de CRUD?",
+    "question": "Qué metodos especificos de alquiler declara IRentRepository ademas de CRUD?",
     "options": [
       "isRentActive",
       "startRent",
@@ -1515,7 +1515,7 @@
     "topic": "interfaces",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Que devuelve IRentRepository.refreshFromRemote()?",
+    "question": "Qué devuelve IRentRepository.refreshFromRemote()?",
     "options": [
       "List<Rent>",
       "Boolean",
@@ -1530,7 +1530,7 @@
     "topic": "local-datasources",
     "type": "single",
     "difficulty": "normal",
-    "question": "Que hace BikeLocalDatasource.getAll()?",
+    "question": "Qué hace BikeLocalDatasource.getAll()?",
     "options": [
       "bikeDao.getAll().map { it.toModel() }",
       "remoteDatasource.getAll()",
@@ -1545,7 +1545,7 @@
     "topic": "local-datasources",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Que condicion convierte insert local en true?",
+    "question": "Qué condicion convierte insert local en true?",
     "options": [
       "dao.insert(...) != -1L",
       "dao.insert(...) == 0L",
@@ -1575,7 +1575,7 @@
     "topic": "remote-datasources",
     "type": "single",
     "difficulty": "normal",
-    "question": "Que metodo remoto se usa para arrancar alquiler en RentRemoteDatasource.insert?",
+    "question": "Qué metodo remoto se usa para arrancar alquiler en RentRemoteDatasource.insert?",
     "options": [
       "apiService.startRent(request).execute()",
       "apiService.getRents().execute()",
@@ -1590,7 +1590,7 @@
     "topic": "remote-datasources",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Que hace RentRemoteDatasource.delete(uuid)?",
+    "question": "Qué hace RentRemoteDatasource.delete(uuid)?",
     "options": [
       "Devuelve false",
       "Llama a DELETE /rent",
@@ -1598,22 +1598,23 @@
       "Lanza siempre NotImplementedError"
     ],
     "answer": 0,
-    "explanation": "La eliminacion de rentas no esta soportada por REST API y devuelve false."
+    "explanation": "La eliminacion de rentas no está soportada por REST API y devuelve false."
   },
   {
     "id": "remote-ds-003",
     "topic": "remote-datasources",
     "type": "single",
     "difficulty": "matar",
-    "question": "Pregunta trampa de tipo: que problema hay en esta propia pregunta si el campo type fuese 'matar' en vez de 'single'?",
+    "question": "El banco de preguntas representa los tipos de ejercicio mediante el campo type. ¿Qué ocurriría si una pregunta declarase type = \"matar\" en lugar de un tipo reconocido?",
     "options": [
-      "La app no sabria renderizarla como opcion unica",
-      "La respuesta seria siempre correcta",
-      "El JSON no parsearia",
-      "Se convertiria en completar-codigo"
+      "La aplicación no sabría renderizarla como pregunta de opción única",
+      "La respuesta se consideraría correcta automáticamente",
+      "El archivo JSON dejaría de ser válido",
+      "Se transformaría automáticamente en una pregunta de completar código"
     ],
     "answer": 0,
-    "explanation": "El motor espera type single/multiple/completar-codigo/ordenar-codigo. Esta pregunta comprueba que distingues type de difficulty."
+    "explanation": "El motor de la aplicación espera tipos reconocidos como single, multiple, completar-codigo, ordenar-codigo o revisar-codigo. La dificultad se modela en difficulty, no en type.",
+    "trap": "Confundir type con difficulty rompe el flujo de renderizado."
   },
   {
     "id": "remote-ds-004",
@@ -1635,7 +1636,7 @@
     "topic": "bug-hunt",
     "type": "single",
     "difficulty": "matar",
-    "question": "Que detalle de ProfileScreen puede provocar texto raro si el archivo no esta bien codificado?",
+    "question": "Qué detalle de ProfileScreen puede provocar texto raro si el archivo no esta bien codificado?",
     "options": [
       "El separador Â· en RentCardItem",
       "El texto Profile",
@@ -1650,7 +1651,7 @@
     "topic": "bug-hunt",
     "type": "single",
     "difficulty": "matar",
-    "question": "Que comentario de IRentRepository contradice parcialmente la implementacion de startRent?",
+    "question": "Qué comentario de IRentRepository contradice parcialmente la implementacion de startRent?",
     "options": [
       "Dice que devuelve true si servidor confirma, pero la implementacion devuelve true si el inicio local se hizo",
       "Dice que borra todos los usuarios",
@@ -1665,7 +1666,7 @@
     "topic": "bug-hunt",
     "type": "multiple",
     "difficulty": "matar",
-    "question": "Que puntos podrian salir como critica arquitectonica en una pregunta abierta o de completar?",
+    "question": "Qué puntos podrian salir como critica arquitectonica en una pregunta abierta o de completar?",
     "options": [
       "allowMainThreadQueries",
       "RepositoryProvider como service locator manual",
@@ -1708,7 +1709,7 @@
     "type": "completar-codigo",
     "difficulty": "normal",
     "question": "Completa la llamada Compose usada en Activities para montar UI.",
-    "code": "override fun onCreate(savedInstanceState: Bundle?) {\n    super.onCreate(savedInstanceState)\n    ____(...) { /* Composables */ }\n}",
+    "code": "override fun onCreate(savedInstanceState: Bundle?) { super.onCreate(savedInstanceState) ____(...) { /* Composables */ } }",
     "answer": [
       "setContent"
     ],
@@ -1731,7 +1732,7 @@
     "topic": "codigo",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Que import permite usar observeAsState con LiveData?",
+    "question": "Qué import permite usar observeAsState con LiveData?",
     "options": [
       "androidx.compose.runtime.livedata.observeAsState",
       "androidx.lifecycle.observeAsState",
@@ -1746,7 +1747,7 @@
     "topic": "preguntas-rebuscadas",
     "type": "single",
     "difficulty": "matar",
-    "question": "Que coordenadas fijas usa BikeViewModel al iniciar y parar rentas?",
+    "question": "Qué coordenadas fijas usa BikeViewModel al iniciar y parar rentas?",
     "options": [
       "41.1189, 1.2445",
       "0.0, 0.0",
@@ -1761,7 +1762,7 @@
     "topic": "preguntas-rebuscadas",
     "type": "single",
     "difficulty": "matar",
-    "question": "Que pasa si TokenManager intenta parsear un token mal formado?",
+    "question": "Qué pasa si TokenManager intenta parsear un token mal formado?",
     "options": [
       "isTokenExpired devuelve true",
       "hasValidSession devuelve true",
@@ -1776,8 +1777,8 @@
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "matar",
-    "question": "Un grupo entrega este DAO. Di si esta bien y como lo arreglarias.",
-    "code": "@Dao\ninterface BikeDao {\n    @Query(\"SELECT * FROM bikes WHERE id = :uuid LIMIT 1\")\n    fun getById(uuid: String): BikeEntity?\n}",
+    "question": "Evalúe el fragmento de código asociado a DAO y Room. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
+    "code": "@Dao interface BikeDao { @Query(\"SELECT * FROM bikes WHERE id = :uuid LIMIT 1\") fun getById(uuid: String): BikeEntity? }",
     "verdictOptions": [
       "correcto",
       "incorrecto",
@@ -1797,8 +1798,8 @@
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "matar",
-    "question": "Revisa este singleton de Room.",
-    "code": "companion object {\n    private var instance: Pedalean2AppDatabase? = null\n\n    fun getInstance(context: Context): Pedalean2AppDatabase {\n        return Room.databaseBuilder(context, Pedalean2AppDatabase::class.java, \"pedalean2.db\").build()\n    }\n}",
+    "question": "Evalúe el fragmento de código asociado a la arquitectura de Pedalean2. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
+    "code": "companion object { private var instance: Pedalean2AppDatabase? = null fun getInstance(context: Context): Pedalean2AppDatabase { return Room.databaseBuilder(context, Pedalean2AppDatabase::class.java, \"pedalean2.db\").build() } }",
     "verdictOptions": [
       "correcto",
       "incorrecto",
@@ -1819,8 +1820,8 @@
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "trampa",
-    "question": "Un grupo implementa login asi. Que dirias?",
-    "code": "fun execute(credentials: Credentials): Boolean {\n    val response = RetrofitClient.apiService.login(TokenRequest(credentials.email, credentials.password)).execute()\n    TokenManager.saveTokens(response.body()!!.access, response.body()!!.refresh)\n    return true\n}",
+    "question": "Evalúe el fragmento de código asociado a Retrofit y API. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
+    "code": "fun execute(credentials: Credentials): Boolean { val response = RetrofitClient.apiService.login(TokenRequest(credentials.email, credentials.password)).execute() TokenManager.saveTokens(response.body()!!.access, response.body()!!.refresh) return true }",
     "verdictOptions": [
       "correcto",
       "incorrecto",
@@ -1842,8 +1843,8 @@
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "matar",
-    "question": "Revisa este interceptor.",
-    "code": "val request = chain.request().newBuilder()\n    .header(\"Authorization\", \"Bearer ${TokenManager.getAccessToken()}\")\n    .build()",
+    "question": "Evalúe el fragmento de código asociado a autenticación. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
+    "code": "val request = chain.request().newBuilder() .header(\"Authorization\", \"Bearer ${TokenManager.getAccessToken()}\") .build()",
     "verdictOptions": [
       "correcto",
       "incorrecto",
@@ -1864,8 +1865,8 @@
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "matar",
-    "question": "Revisa este ViewModel.",
-    "code": "fun fetchBikes() {\n    _isLoading.value = true\n    val bikes = GetBikesUseCase.execute()\n    _bikes.value = bikes\n    _isLoading.value = false\n}",
+    "question": "Evalúe el fragmento de código asociado a ViewModel y corrutinas. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
+    "code": "fun fetchBikes() { _isLoading.value = true val bikes = GetBikesUseCase.execute() _bikes.value = bikes _isLoading.value = false }",
     "verdictOptions": [
       "correcto",
       "incorrecto",
@@ -1886,8 +1887,8 @@
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "trampa",
-    "question": "Revisa este mapper de bici.",
-    "code": "fun BikeModel.toBike(): Bike = Bike(\n    uuid = uuid,\n    name = name,\n    type = BikeType.valueOf(type),\n    batteryLevel = batteryLevel\n)",
+    "question": "Evalúe el fragmento de código asociado a la arquitectura de Pedalean2. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
+    "code": "fun BikeModel.toBike(): Bike = Bike( uuid = uuid, name = name, type = BikeType.valueOf(type), batteryLevel = batteryLevel )",
     "verdictOptions": [
       "correcto",
       "incorrecto",
@@ -1908,8 +1909,8 @@
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "matar",
-    "question": "Un grupo mapea RentEntity asi. Revisa el fallo.",
-    "code": "fun RentEntity.toModel(): RentModel {\n    return RentModel(\n        uuid = uuid,\n        bike = null,\n        user = null,\n        isRented = isRented\n    )\n}",
+    "question": "Evalúe el fragmento de código asociado a persistencia Room. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
+    "code": "fun RentEntity.toModel(): RentModel { return RentModel( uuid = uuid, bike = null, user = null, isRented = isRented ) }",
     "verdictOptions": [
       "correcto",
       "incorrecto",
@@ -1930,8 +1931,8 @@
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "normal",
-    "question": "Revisa este endpoint Retrofit.",
-    "code": "@GET(\"rent/start\")\nfun startRent(@Body request: StartRentRequest): Call<JsonElement>",
+    "question": "Evalúe el fragmento de código asociado a Retrofit y API. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
+    "code": "@GET(\"rent/start\") fun startRent(@Body request: StartRentRequest): Call<JsonElement>",
     "verdictOptions": [
       "correcto",
       "incorrecto",
@@ -1951,8 +1952,8 @@
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "matar",
-    "question": "Revisa este cacheo de usuario.",
-    "code": "private fun replaceCachedUser(userModel: UserModel) {\n    localDatasource.insert(userModel)\n}",
+    "question": "Evalúe el fragmento de código asociado a la arquitectura de Pedalean2. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
+    "code": "private fun replaceCachedUser(userModel: UserModel) { localDatasource.insert(userModel) }",
     "verdictOptions": [
       "correcto",
       "incorrecto",
@@ -1973,8 +1974,8 @@
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "trampa",
-    "question": "Revisa esta UI Compose.",
-    "code": "val bikes = viewModel.bikes.value ?: emptyList()\nLazyColumn { items(bikes) { bike -> Text(bike.name) } }",
+    "question": "Evalúe el fragmento de código asociado a ViewModel y corrutinas. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
+    "code": "val bikes = viewModel.bikes.value ?: emptyList() LazyColumn { items(bikes) { bike -> Text(bike.name) } }",
     "verdictOptions": [
       "correcto",
       "incorrecto",
@@ -1994,8 +1995,8 @@
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "matar",
-    "question": "Revisa este arranque de alquiler offline-first.",
-    "code": "override fun startRent(bikeUuid: String, latitude: Double, longitude: Double): Boolean {\n    return remoteDatasource.insert(RentModel(bike = BikeRentModel(bikeUuid, \"\")))\n}",
+    "question": "Evalúe el fragmento de código asociado a sincronización offline. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
+    "code": "override fun startRent(bikeUuid: String, latitude: Double, longitude: Double): Boolean { return remoteDatasource.insert(RentModel(bike = BikeRentModel(bikeUuid, \"\"))) }",
     "verdictOptions": [
       "correcto",
       "incorrecto",
@@ -2016,8 +2017,8 @@
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "normal",
-    "question": "Revisa esta entidad.",
-    "code": "@Entity(tableName = \"bikes\")\ndata class BikeEntity(\n    val uuid: String,\n    val name: String\n)",
+    "question": "Evalúe el fragmento de código asociado a persistencia Room. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
+    "code": "@Entity(tableName = \"bikes\") data class BikeEntity( val uuid: String, val name: String )",
     "verdictOptions": [
       "correcto",
       "incorrecto",
@@ -2037,8 +2038,8 @@
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "matar",
-    "question": "Revisa este stopRent.",
-    "code": "override fun stopRent(bikeUuid: String, latitude: Double, longitude: Double): Boolean {\n    localDatasource.delete(bikeUuid)\n    return true\n}",
+    "question": "Evalúe el fragmento de código asociado a la arquitectura de Pedalean2. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
+    "code": "override fun stopRent(bikeUuid: String, latitude: Double, longitude: Double): Boolean { localDatasource.delete(bikeUuid) return true }",
     "verdictOptions": [
       "correcto",
       "incorrecto",
@@ -2059,8 +2060,8 @@
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "trampa",
-    "question": "Revisa este manejo de JSON remoto.",
-    "code": "val type = object : TypeToken<List<BikeApiModel>>() {}.type\nval bikes: List<BikeApiModel> = Gson().fromJson(element, type)",
+    "question": "Evalúe el fragmento de código asociado a Retrofit y API. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
+    "code": "val type = object : TypeToken<List<BikeApiModel>>() {}.type val bikes: List<BikeApiModel> = Gson().fromJson(element, type)",
     "verdictOptions": [
       "correcto",
       "incorrecto",
@@ -2081,8 +2082,8 @@
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "matar",
-    "question": "Revisa este codigo de Splash.",
-    "code": "SplashScreen(onGetStartedClick = {\n    startActivity(Intent(this, LoginActivity::class.java))\n})",
+    "question": "Evalúe el fragmento de código asociado a la arquitectura de Pedalean2. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
+    "code": "SplashScreen(onGetStartedClick = { startActivity(Intent(this, LoginActivity::class.java)) })",
     "verdictOptions": [
       "correcto",
       "incorrecto",
@@ -2100,10 +2101,10 @@
   },
   {
     "id": "inverse-001",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "matar",
-    "question": "Cual de estas afirmaciones NO es cierta sobre Pedalean2AppDatabase?",
+    "question": "Cuál de estas afirmaciones NO es cierta sobre Pedalean2AppDatabase?",
     "options": [
       "Usa version = 1",
       "Tiene exportSchema = false",
@@ -2115,7 +2116,7 @@
   },
   {
     "id": "inverse-002",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "multiple",
     "difficulty": "trampa",
     "question": "Marca lo que NO hace el authInterceptor de la practica.",
@@ -2133,7 +2134,7 @@
   },
   {
     "id": "inverse-003",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "matar",
     "question": "Si te dicen 'getAll de BikeRepository siempre devuelve lo local primero', cual es la mejor respuesta?",
@@ -2148,10 +2149,10 @@
   },
   {
     "id": "inverse-004",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Que detalle haria que una respuesta sobre TokenManager fuese sospechosa?",
+    "question": "Qué detalle haria que una respuesta sobre TokenManager fuese sospechosa?",
     "options": [
       "Dice que usa SharedPreferences",
       "Dice que hasValidSession solo mira access token",
@@ -2163,10 +2164,10 @@
   },
   {
     "id": "inverse-005",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "matar",
-    "question": "Un test dice: 'Si exp no existe en el JWT, la sesion se invalida'. Segun este codigo, que contestas?",
+    "question": "Según la implementación de TokenManager, determine qué ocurre cuando el payload del JWT no contiene la propiedad exp.",
     "options": [
       "Verdadero",
       "Falso: isTokenExpired devuelve false si exp == 0L",
@@ -2178,7 +2179,7 @@
   },
   {
     "id": "inverse-006",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "multiple",
     "difficulty": "matar",
     "question": "Cuales son senales de que una implementacion NO respeta el offline-first de rentas?",
@@ -2197,10 +2198,10 @@
   },
   {
     "id": "inverse-007",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Cual de estas frases sobre Room es la mas peligrosa en este proyecto?",
+    "question": "Cuál de estas frases sobre Room es la mas peligrosa en este proyecto?",
     "options": [
       "@Entity define la tabla",
       "@PrimaryKey marca uuid",
@@ -2212,7 +2213,7 @@
   },
   {
     "id": "inverse-008",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "matar",
     "question": "Si una pregunta dice que RentEntity normaliza la relacion con BikeEntity mediante ForeignKey, que respondes?",
@@ -2227,10 +2228,10 @@
   },
   {
     "id": "inverse-009",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Que respuesta seria incorrecta si preguntan por observeAsState?",
+    "question": "Qué respuesta seria incorrecta si preguntan por observeAsState?",
     "options": [
       "Permite observar LiveData desde Compose",
       "Recompone cuando cambia el LiveData",
@@ -2242,10 +2243,10 @@
   },
   {
     "id": "inverse-010",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "matar",
-    "question": "Te dan una bici con type = 'ELECTRIC'. Que NO pasara en BikeModel.toBike()?",
+    "question": "Te dan una bici con type = 'ELECTRIC'. qué NO pasara en BikeModel.toBike()?",
     "options": [
       "Se hara uppercase",
       "Se obtendra BikeType.ELECTRIC",
@@ -2257,10 +2258,10 @@
   },
   {
     "id": "inverse-011",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "multiple",
     "difficulty": "trampa",
-    "question": "Que opciones NO son operaciones soportadas por los remotos de Bike/User en esta fase?",
+    "question": "Seleccione la respuesta correcta.",
     "options": [
       "Crear bici por API",
       "Actualizar usuario por API",
@@ -2276,10 +2277,10 @@
   },
   {
     "id": "inverse-012",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "matar",
-    "question": "Cual es el fallo en decir 'deleteAll de BikeRepository borra directamente toda la tabla local'?",
+    "question": "Cuál es el fallo en decir 'deleteAll de BikeRepository borra directamente toda la tabla local'?",
     "options": [
       "No existe deleteAll",
       "deleteAll llama a getAll() y borra uno a uno por uuid",
@@ -2291,7 +2292,7 @@
   },
   {
     "id": "inverse-013",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "trampa",
     "question": "Si UserRemoteDatasource recibe HTTP 500, que NO hace segun el codigo?",
@@ -2306,10 +2307,10 @@
   },
   {
     "id": "inverse-014",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "matar",
-    "question": "Que frase es falsa sobre LoginScreen?",
+    "question": "Qué frase es falsa sobre LoginScreen?",
     "options": [
       "Usa PasswordVisualTransformation",
       "El boton Register tiene accion vacia",
@@ -2321,7 +2322,7 @@
   },
   {
     "id": "inverse-015",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "matar",
     "question": "Si el profesor pregunta 'por que este codigo no recompone?', que pista buscarias primero?",
@@ -2336,7 +2337,7 @@
   },
   {
     "id": "inverse-016",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "multiple",
     "difficulty": "matar",
     "question": "Cuales NO son razones validas para que BikeCardItem permita pulsar Rent Bike?",
@@ -2353,10 +2354,10 @@
   },
   {
     "id": "inverse-017",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Que afirmacion sobre ProfileViewModel.fetchRents seria falsa?",
+    "question": "Qué afirmacion sobre ProfileViewModel.fetchRents seria falsa?",
     "options": [
       "Usa RepositoryProvider.rentRepository().getAllRents()",
       "Ordena por timeStart descendente",
@@ -2368,7 +2369,7 @@
   },
   {
     "id": "inverse-018",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "matar",
     "question": "Te ensenan StopRentRequest construido con latitude y longitude recibidos por parametro. Por que puede NO coincidir con esta practica?",
@@ -2383,10 +2384,10 @@
   },
   {
     "id": "inverse-019",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "matar",
-    "question": "Que respuesta NO arregla una entidad Room sin primary key?",
+    "question": "Qué respuesta NO arregla una entidad Room sin primary key?",
     "options": [
       "Anadir @PrimaryKey a uuid",
       "Usar autoGenerate si procede",
@@ -2398,10 +2399,10 @@
   },
   {
     "id": "inverse-020",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Cual seria una explicacion mala para el uso de JsonElement en ApiService?",
+    "question": "Cuál seria una explicacion mala para el uso de JsonElement en ApiService?",
     "options": [
       "La API puede devolver array directo",
       "La API puede devolver objeto con array interno",
@@ -2413,11 +2414,11 @@
   },
   {
     "id": "inverse-021",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "revisar-codigo",
     "difficulty": "matar",
-    "question": "Forma indirecta: te dicen 'este codigo esta bien porque compila'. Rebate o acepta.",
-    "code": "fun BikeModel.toBike(): Bike {\n    return Bike(uuid = uuid, name = name, type = BikeType.valueOf(type))\n}",
+    "question": "Evalúe el fragmento propuesto y determine si compilar correctamente es suficiente para considerarlo válido en esta práctica.",
+    "code": "fun BikeModel.toBike(): Bike { return Bike(uuid = uuid, name = name, type = BikeType.valueOf(type)) }",
     "verdictOptions": [
       "correcto",
       "incorrecto",
@@ -2434,11 +2435,11 @@
   },
   {
     "id": "inverse-022",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "revisar-codigo",
     "difficulty": "matar",
-    "question": "Forma inversa: si quisieras romper la sesion guardada desde Splash, que detalle malo ves aqui?",
-    "code": "val destination = LoginActivity::class.java\nstartActivity(Intent(this, destination))\nfinish()",
+    "question": "Revise el siguiente flujo de navegacion desde SplashActivity e indique que condicion funcional no se esta contemplando.",
+    "code": "val destination = LoginActivity::class.java startActivity(Intent(this, destination)) finish()",
     "verdictOptions": [
       "correcto",
       "incorrecto",
@@ -2454,11 +2455,11 @@
   },
   {
     "id": "inverse-023",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "revisar-codigo",
     "difficulty": "matar",
-    "question": "Pregunta con truco: el alumno dice que esto es mejor porque evita duplicados. Que contestas?",
-    "code": "override fun startRent(bikeUuid: String, latitude: Double, longitude: Double): Boolean {\n    localDatasource.delete(\"pending_$bikeUuid\")\n    return remoteDatasource.insert(createRentModel(bikeUuid))\n}",
+    "question": "Revise la siguiente modificacion de startRent orientada a evitar duplicados y determine si preserva el comportamiento offline-first.",
+    "code": "override fun startRent(bikeUuid: String, latitude: Double, longitude: Double): Boolean { localDatasource.delete(\"pending_$bikeUuid\") return remoteDatasource.insert(createRentModel(bikeUuid)) }",
     "verdictOptions": [
       "correcto",
       "incorrecto",
@@ -2475,11 +2476,11 @@
   },
   {
     "id": "inverse-024",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "revisar-codigo",
     "difficulty": "trampa",
-    "question": "Indirecta de DAO: 'como devuelve Int, seguro que update crea si no existe'. Corrige esa idea.",
-    "code": "@Update\nfun update(user: UserEntity): Int",
+    "question": "Analice la semantica de @Update en Room y explique si la siguiente interpretacion es correcta.",
+    "code": "@Update fun update(user: UserEntity): Int",
     "verdictOptions": [
       "correcto",
       "incorrecto",
@@ -2496,11 +2497,11 @@
   },
   {
     "id": "inverse-025",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "revisar-codigo",
     "difficulty": "matar",
-    "question": "Lio de capas: el alumno mete dominio en Room. Que dices?",
-    "code": "@Database(entities = [User::class, Bike::class, Rent::class], version = 1)\nabstract class Pedalean2AppDatabase : RoomDatabase()",
+    "question": "Revise la configuracion de entidades de Room y determine si respeta la separacion entre entidades de persistencia y modelos de dominio.",
+    "code": "@Database(entities = [User::class, Bike::class, Rent::class], version = 1) abstract class Pedalean2AppDatabase : RoomDatabase()",
     "verdictOptions": [
       "correcto",
       "incorrecto",
@@ -2520,37 +2521,37 @@
     "topic": "room",
     "type": "single",
     "difficulty": "matar",
-    "question": "Forma directa: Room.databaseBuilder debe recibir context.applicationContext para evitar retener una Activity. Que opcion encaja mejor?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre Room.",
     "options": [
       "Usar context.applicationContext en Room.databaseBuilder",
       "Pasar una Activity como contexto permanente",
-      "Depende solo de si compila",
-      "No se puede saber mirando el codigo"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 0,
     "explanation": "Room.databaseBuilder debe recibir context.applicationContext para evitar retener una Activity."
   },
   {
     "id": "auto-room-app-context-inverse-1",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "matar",
-    "question": "Forma inversa sobre room: cual es la afirmacion falsa?",
+    "question": "En relación con Room, seleccione la opción incompatible con el comportamiento implementado.",
     "options": [
       "Room.databaseBuilder debe recibir context.applicationContext para evitar retener una Activity.",
       "Usar context.applicationContext en Room.databaseBuilder",
       "Pasar una Activity como contexto permanente",
-      "Es un detalle que puede salir en examen"
+      "La implementacion debe evaluarse a partir del contrato y del flujo real del codigo."
     ],
     "answer": 2,
-    "explanation": "La falsa es: Pasar una Activity como contexto permanente. Room.databaseBuilder debe recibir context.applicationContext para evitar retener una Activity."
+    "explanation": "La afirmación incorrecta es: Pasar una Activity como contexto permanente. Room.databaseBuilder debe recibir context.applicationContext para evitar retener una Activity."
   },
   {
     "id": "auto-room-app-context-review-1",
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "matar",
-    "question": "Codigo de otro grupo: di si esta bien, mal o parcial y como lo arreglarias.",
+    "question": "Evalúe el fragmento de código asociado a Room. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
     "code": "Room.databaseBuilder(this, Pedalean2AppDatabase::class.java, \"pedalean2.db\").build()",
     "verdictOptions": [
       "correcto",
@@ -2570,12 +2571,12 @@
     "topic": "room",
     "type": "multiple",
     "difficulty": "matar",
-    "question": "Selecciona las ideas correctas relacionadas con: Room.databaseBuilder debe recibir context.applicationContext para evitar retener una Activity.",
+    "question": "Seleccione todas las afirmaciones tecnicamente correctas sobre Room.",
     "options": [
       "Usar context.applicationContext en Room.databaseBuilder",
       "Room.databaseBuilder debe recibir context.applicationContext para evitar retener una Activity.",
       "Pasar una Activity como contexto permanente",
-      "La compilacion siempre demuestra que la arquitectura es correcta"
+      "La compilacion del fragmento garantiza por si sola que se respeta la arquitectura esperada."
     ],
     "answer": [
       0,
@@ -2588,8 +2589,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "matar",
-    "question": "Completa con la palabra clave que mejor arregla este caso: Pasar una Activity como contexto permanente",
-    "code": "// Pista del arreglo esperado\n// usar ____",
+    "question": "Complete con el concepto, anotación o identificador clave relacionado con applicationContext.",
+    "code": "// Pista del arreglo esperado // usar ____",
     "answer": [
       "applicationContext"
     ],
@@ -2600,38 +2601,38 @@
     "topic": "room",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Forma directa: exportSchema = false evita exportar el esquema de Room, pero no desactiva la base de datos. Que opcion encaja mejor?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre Room.",
     "options": [
       "exportSchema controla la exportacion del esquema",
       "exportSchema=false borra las tablas al arrancar",
-      "Depende solo de si compila",
-      "No se puede saber mirando el codigo"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 0,
     "explanation": "exportSchema = false evita exportar el esquema de Room, pero no desactiva la base de datos."
   },
   {
     "id": "auto-room-export-schema-inverse-2",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Forma inversa sobre room: cual es la afirmacion falsa?",
+    "question": "En relación con Room, seleccione la opción incompatible con el comportamiento implementado.",
     "options": [
       "exportSchema = false evita exportar el esquema de Room, pero no desactiva la base de datos.",
       "exportSchema controla la exportacion del esquema",
       "exportSchema=false borra las tablas al arrancar",
-      "Es un detalle que puede salir en examen"
+      "La implementacion debe evaluarse a partir del contrato y del flujo real del codigo."
     ],
     "answer": 2,
-    "explanation": "La falsa es: exportSchema=false borra las tablas al arrancar. exportSchema = false evita exportar el esquema de Room, pero no desactiva la base de datos."
+    "explanation": "La afirmación incorrecta es: exportSchema=false borra las tablas al arrancar. exportSchema = false evita exportar el esquema de Room, pero no desactiva la base de datos."
   },
   {
     "id": "auto-room-export-schema-review-2",
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "trampa",
-    "question": "Codigo de otro grupo: di si esta bien, mal o parcial y como lo arreglarias.",
-    "code": "@Database(entities = [UserEntity::class], version = 1, exportSchema = false)\nabstract class Db : RoomDatabase() // Comentario: esto borra la BD cada inicio",
+    "question": "Evalúe el fragmento de código asociado a Room. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
+    "code": "@Database(entities = [UserEntity::class], version = 1, exportSchema = false) abstract class Db : RoomDatabase() // Comentario: esto borra la BD cada inicio",
     "verdictOptions": [
       "correcto",
       "incorrecto",
@@ -2651,12 +2652,12 @@
     "topic": "room",
     "type": "multiple",
     "difficulty": "trampa",
-    "question": "Selecciona las ideas correctas relacionadas con: exportSchema = false evita exportar el esquema de Room, pero no desactiva la base de datos.",
+    "question": "Seleccione todas las afirmaciones tecnicamente correctas sobre Room.",
     "options": [
       "exportSchema controla la exportacion del esquema",
       "exportSchema = false evita exportar el esquema de Room, pero no desactiva la base de datos.",
       "exportSchema=false borra las tablas al arrancar",
-      "La compilacion siempre demuestra que la arquitectura es correcta"
+      "La compilacion del fragmento garantiza por si sola que se respeta la arquitectura esperada."
     ],
     "answer": [
       0,
@@ -2669,8 +2670,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "trampa",
-    "question": "Completa con la palabra clave que mejor arregla este caso: exportSchema=false borra las tablas al arrancar",
-    "code": "// Pista del arreglo esperado\n// usar ____",
+    "question": "Complete con el concepto, anotación o identificador clave relacionado con exportSchema.",
+    "code": "// Pista del arreglo esperado // usar ____",
     "answer": [
       "exportSchema"
     ],
@@ -2681,37 +2682,37 @@
     "topic": "dao",
     "type": "single",
     "difficulty": "normal",
-    "question": "Forma directa: Un @Query DELETE que devuelve Int informa cuantas filas se han borrado. Que opcion encaja mejor?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre DAO.",
     "options": [
       "DELETE devuelve filas afectadas si la funcion retorna Int",
       "DELETE devuelve siempre 1 aunque no exista el uuid",
-      "Depende solo de si compila",
-      "No se puede saber mirando el codigo"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 0,
     "explanation": "Un @Query DELETE que devuelve Int informa cuantas filas se han borrado."
   },
   {
     "id": "auto-dao-delete-return-inverse-3",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "normal",
-    "question": "Forma inversa sobre dao: cual es la afirmacion falsa?",
+    "question": "En relación con DAO, seleccione la opción incompatible con el comportamiento implementado.",
     "options": [
       "Un @Query DELETE que devuelve Int informa cuantas filas se han borrado.",
       "DELETE devuelve filas afectadas si la funcion retorna Int",
       "DELETE devuelve siempre 1 aunque no exista el uuid",
-      "Es un detalle que puede salir en examen"
+      "La implementacion debe evaluarse a partir del contrato y del flujo real del codigo."
     ],
     "answer": 2,
-    "explanation": "La falsa es: DELETE devuelve siempre 1 aunque no exista el uuid. Un @Query DELETE que devuelve Int informa cuantas filas se han borrado."
+    "explanation": "La afirmación incorrecta es: DELETE devuelve siempre 1 aunque no exista el uuid. Un @Query DELETE que devuelve Int informa cuantas filas se han borrado."
   },
   {
     "id": "auto-dao-delete-return-review-3",
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "normal",
-    "question": "Codigo de otro grupo: di si esta bien, mal o parcial y como lo arreglarias.",
+    "question": "Evalúe el fragmento de código asociado a DAO. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
     "code": "fun delete(uuid: String): Boolean = bikeDao.delete(uuid) == 1 // asume que todo no-1 es error fatal",
     "verdictOptions": [
       "correcto",
@@ -2732,12 +2733,12 @@
     "topic": "dao",
     "type": "multiple",
     "difficulty": "normal",
-    "question": "Selecciona las ideas correctas relacionadas con: Un @Query DELETE que devuelve Int informa cuantas filas se han borrado.",
+    "question": "Seleccione todas las afirmaciones tecnicamente correctas sobre DAO.",
     "options": [
       "DELETE devuelve filas afectadas si la funcion retorna Int",
       "Un @Query DELETE que devuelve Int informa cuantas filas se han borrado.",
       "DELETE devuelve siempre 1 aunque no exista el uuid",
-      "La compilacion siempre demuestra que la arquitectura es correcta"
+      "La compilacion del fragmento garantiza por si sola que se respeta la arquitectura esperada."
     ],
     "answer": [
       0,
@@ -2750,8 +2751,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "normal",
-    "question": "Completa con la palabra clave que mejor arregla este caso: DELETE devuelve siempre 1 aunque no exista el uuid",
-    "code": "// Pista del arreglo esperado\n// usar ____",
+    "question": "Complete con el concepto, anotación o identificador clave relacionado con filas.",
+    "code": "// Pista del arreglo esperado // usar ____",
     "answer": [
       "filas"
     ],
@@ -2762,38 +2763,38 @@
     "topic": "dao",
     "type": "single",
     "difficulty": "matar",
-    "question": "Forma directa: OnConflictStrategy.REPLACE reemplaza una fila con la misma clave primaria, no fusiona campos parcialmente. Que opcion encaja mejor?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre DAO.",
     "options": [
       "REPLACE sustituye la entidad conflictiva",
       "REPLACE mezcla solo los campos no nulos",
-      "Depende solo de si compila",
-      "No se puede saber mirando el codigo"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 0,
     "explanation": "OnConflictStrategy.REPLACE reemplaza una fila con la misma clave primaria, no fusiona campos parcialmente."
   },
   {
     "id": "auto-dao-replace-inverse-4",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "matar",
-    "question": "Forma inversa sobre dao: cual es la afirmacion falsa?",
+    "question": "En relación con DAO, seleccione la opción incompatible con el comportamiento implementado.",
     "options": [
       "OnConflictStrategy.REPLACE reemplaza una fila con la misma clave primaria, no fusiona campos parcialmente.",
       "REPLACE sustituye la entidad conflictiva",
       "REPLACE mezcla solo los campos no nulos",
-      "Es un detalle que puede salir en examen"
+      "La implementacion debe evaluarse a partir del contrato y del flujo real del codigo."
     ],
     "answer": 2,
-    "explanation": "La falsa es: REPLACE mezcla solo los campos no nulos. OnConflictStrategy.REPLACE reemplaza una fila con la misma clave primaria, no fusiona campos parcialmente."
+    "explanation": "La afirmación incorrecta es: REPLACE mezcla solo los campos no nulos. OnConflictStrategy.REPLACE reemplaza una fila con la misma clave primaria, no fusiona campos parcialmente."
   },
   {
     "id": "auto-dao-replace-review-4",
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "matar",
-    "question": "Codigo de otro grupo: di si esta bien, mal o parcial y como lo arreglarias.",
-    "code": "@Insert(onConflict = OnConflictStrategy.REPLACE)\nfun insert(user: UserEntity): Long // Comentario: solo actualiza campos no vacios",
+    "question": "Evalúe el fragmento de código asociado a DAO. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
+    "code": "@Insert(onConflict = OnConflictStrategy.REPLACE) fun insert(user: UserEntity): Long // Comentario: solo actualiza campos no vacios",
     "verdictOptions": [
       "correcto",
       "incorrecto",
@@ -2813,12 +2814,12 @@
     "topic": "dao",
     "type": "multiple",
     "difficulty": "matar",
-    "question": "Selecciona las ideas correctas relacionadas con: OnConflictStrategy.REPLACE reemplaza una fila con la misma clave primaria, no fusiona campos parcialmente.",
+    "question": "Seleccione todas las afirmaciones tecnicamente correctas sobre DAO.",
     "options": [
       "REPLACE sustituye la entidad conflictiva",
       "OnConflictStrategy.REPLACE reemplaza una fila con la misma clave primaria, no fusiona campos parcialmente.",
       "REPLACE mezcla solo los campos no nulos",
-      "La compilacion siempre demuestra que la arquitectura es correcta"
+      "La compilacion del fragmento garantiza por si sola que se respeta la arquitectura esperada."
     ],
     "answer": [
       0,
@@ -2831,8 +2832,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "matar",
-    "question": "Completa con la palabra clave que mejor arregla este caso: REPLACE mezcla solo los campos no nulos",
-    "code": "// Pista del arreglo esperado\n// usar ____",
+    "question": "Complete con el concepto, anotación o identificador clave relacionado con REPLACE.",
+    "code": "// Pista del arreglo esperado // usar ____",
     "answer": [
       "REPLACE"
     ],
@@ -2843,37 +2844,37 @@
     "topic": "retrofit",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Forma directa: La baseUrl de Retrofit debe terminar en /. Que opcion encaja mejor?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre Retrofit.",
     "options": [
       "La base URL termina en barra",
       "Quitar la barra final de baseUrl no importa",
-      "Depende solo de si compila",
-      "No se puede saber mirando el codigo"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 0,
     "explanation": "La baseUrl de Retrofit debe terminar en /."
   },
   {
     "id": "auto-retrofit-base-slash-inverse-5",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Forma inversa sobre retrofit: cual es la afirmacion falsa?",
+    "question": "En relación con Retrofit, seleccione la opción incompatible con el comportamiento implementado.",
     "options": [
       "La baseUrl de Retrofit debe terminar en /.",
       "La base URL termina en barra",
       "Quitar la barra final de baseUrl no importa",
-      "Es un detalle que puede salir en examen"
+      "La implementacion debe evaluarse a partir del contrato y del flujo real del codigo."
     ],
     "answer": 2,
-    "explanation": "La falsa es: Quitar la barra final de baseUrl no importa. La baseUrl de Retrofit debe terminar en /."
+    "explanation": "La afirmación incorrecta es: Quitar la barra final de baseUrl no importa. La baseUrl de Retrofit debe terminar en /."
   },
   {
     "id": "auto-retrofit-base-slash-review-5",
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "trampa",
-    "question": "Codigo de otro grupo: di si esta bien, mal o parcial y como lo arreglarias.",
+    "question": "Evalúe el fragmento de código asociado a Retrofit. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
     "code": "Retrofit.Builder().baseUrl(\"https://api.pedalean2.com/endpoints/v2\").build()",
     "verdictOptions": [
       "correcto",
@@ -2894,12 +2895,12 @@
     "topic": "retrofit",
     "type": "multiple",
     "difficulty": "trampa",
-    "question": "Selecciona las ideas correctas relacionadas con: La baseUrl de Retrofit debe terminar en /.",
+    "question": "Seleccione todas las afirmaciones tecnicamente correctas sobre Retrofit.",
     "options": [
       "La base URL termina en barra",
       "La baseUrl de Retrofit debe terminar en /.",
       "Quitar la barra final de baseUrl no importa",
-      "La compilacion siempre demuestra que la arquitectura es correcta"
+      "La compilacion del fragmento garantiza por si sola que se respeta la arquitectura esperada."
     ],
     "answer": [
       0,
@@ -2912,8 +2913,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "trampa",
-    "question": "Completa con la palabra clave que mejor arregla este caso: Quitar la barra final de baseUrl no importa",
-    "code": "// Pista del arreglo esperado\n// usar ____",
+    "question": "Complete con el concepto, anotación o identificador clave relacionado con barra.",
+    "code": "// Pista del arreglo esperado // usar ____",
     "answer": [
       "barra"
     ],
@@ -2924,38 +2925,38 @@
     "topic": "retrofit",
     "type": "single",
     "difficulty": "matar",
-    "question": "Forma directa: Call.execute() es sincronico y debe ejecutarse fuera del hilo principal. Que opcion encaja mejor?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre Retrofit.",
     "options": [
       "execute es sincronico y se lleva a Dispatchers.IO",
       "execute ya es asincrono por ser Retrofit",
-      "Depende solo de si compila",
-      "No se puede saber mirando el codigo"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 0,
     "explanation": "Call.execute() es sincronico y debe ejecutarse fuera del hilo principal."
   },
   {
     "id": "auto-retrofit-sync-execute-inverse-6",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "matar",
-    "question": "Forma inversa sobre retrofit: cual es la afirmacion falsa?",
+    "question": "En relación con Retrofit, seleccione la opción incompatible con el comportamiento implementado.",
     "options": [
       "Call.execute() es sincronico y debe ejecutarse fuera del hilo principal.",
       "execute es sincronico y se lleva a Dispatchers.IO",
       "execute ya es asincrono por ser Retrofit",
-      "Es un detalle que puede salir en examen"
+      "La implementacion debe evaluarse a partir del contrato y del flujo real del codigo."
     ],
     "answer": 2,
-    "explanation": "La falsa es: execute ya es asincrono por ser Retrofit. Call.execute() es sincronico y debe ejecutarse fuera del hilo principal."
+    "explanation": "La afirmación incorrecta es: execute ya es asincrono por ser Retrofit. Call.execute() es sincronico y debe ejecutarse fuera del hilo principal."
   },
   {
     "id": "auto-retrofit-sync-execute-review-6",
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "matar",
-    "question": "Codigo de otro grupo: di si esta bien, mal o parcial y como lo arreglarias.",
-    "code": "val response = RetrofitClient.apiService.getBikes().execute()\n_bikes.value = response.body()",
+    "question": "Evalúe el fragmento de código asociado a Retrofit. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
+    "code": "val response = RetrofitClient.apiService.getBikes().execute() _bikes.value = response.body()",
     "verdictOptions": [
       "correcto",
       "incorrecto",
@@ -2975,12 +2976,12 @@
     "topic": "retrofit",
     "type": "multiple",
     "difficulty": "matar",
-    "question": "Selecciona las ideas correctas relacionadas con: Call.execute() es sincronico y debe ejecutarse fuera del hilo principal.",
+    "question": "Seleccione todas las afirmaciones tecnicamente correctas sobre Retrofit.",
     "options": [
       "execute es sincronico y se lleva a Dispatchers.IO",
       "Call.execute() es sincronico y debe ejecutarse fuera del hilo principal.",
       "execute ya es asincrono por ser Retrofit",
-      "La compilacion siempre demuestra que la arquitectura es correcta"
+      "La compilacion del fragmento garantiza por si sola que se respeta la arquitectura esperada."
     ],
     "answer": [
       0,
@@ -2993,8 +2994,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "matar",
-    "question": "Completa con la palabra clave que mejor arregla este caso: execute ya es asincrono por ser Retrofit",
-    "code": "// Pista del arreglo esperado\n// usar ____",
+    "question": "Complete con el concepto, anotación o identificador clave relacionado con execute.",
+    "code": "// Pista del arreglo esperado // usar ____",
     "answer": [
       "execute"
     ],
@@ -3005,37 +3006,37 @@
     "topic": "auth",
     "type": "single",
     "difficulty": "matar",
-    "question": "Forma directa: El refresh token se guarda, pero no hay flujo implementado que renueve automaticamente el access token. Que opcion encaja mejor?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre autenticacion.",
     "options": [
       "El refresh se almacena pero no se usa para renovar",
       "TokenManager renueva automaticamente el access token",
-      "Depende solo de si compila",
-      "No se puede saber mirando el codigo"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 0,
     "explanation": "El refresh token se guarda, pero no hay flujo implementado que renueve automaticamente el access token."
   },
   {
     "id": "auto-token-refresh-unused-inverse-7",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "matar",
-    "question": "Forma inversa sobre auth: cual es la afirmacion falsa?",
+    "question": "En relación con autenticacion, seleccione la opción incompatible con el comportamiento implementado.",
     "options": [
       "El refresh token se guarda, pero no hay flujo implementado que renueve automaticamente el access token.",
       "El refresh se almacena pero no se usa para renovar",
       "TokenManager renueva automaticamente el access token",
-      "Es un detalle que puede salir en examen"
+      "La implementacion debe evaluarse a partir del contrato y del flujo real del codigo."
     ],
     "answer": 2,
-    "explanation": "La falsa es: TokenManager renueva automaticamente el access token. El refresh token se guarda, pero no hay flujo implementado que renueve automaticamente el access token."
+    "explanation": "La afirmación incorrecta es: TokenManager renueva automaticamente el access token. El refresh token se guarda, pero no hay flujo implementado que renueve automaticamente el access token."
   },
   {
     "id": "auto-token-refresh-unused-review-7",
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "matar",
-    "question": "Codigo de otro grupo: di si esta bien, mal o parcial y como lo arreglarias.",
+    "question": "Evalúe el fragmento de código asociado a autenticacion. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
     "code": "if (TokenManager.hasValidSession()) { /* esto tambien renueva access si expiro */ }",
     "verdictOptions": [
       "correcto",
@@ -3056,12 +3057,12 @@
     "topic": "auth",
     "type": "multiple",
     "difficulty": "matar",
-    "question": "Selecciona las ideas correctas relacionadas con: El refresh token se guarda, pero no hay flujo implementado que renueve automaticamente el access token.",
+    "question": "Seleccione todas las afirmaciones tecnicamente correctas sobre autenticacion.",
     "options": [
       "El refresh se almacena pero no se usa para renovar",
       "El refresh token se guarda, pero no hay flujo implementado que renueve automaticamente el access token.",
       "TokenManager renueva automaticamente el access token",
-      "La compilacion siempre demuestra que la arquitectura es correcta"
+      "La compilacion del fragmento garantiza por si sola que se respeta la arquitectura esperada."
     ],
     "answer": [
       0,
@@ -3074,8 +3075,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "matar",
-    "question": "Completa con la palabra clave que mejor arregla este caso: TokenManager renueva automaticamente el access token",
-    "code": "// Pista del arreglo esperado\n// usar ____",
+    "question": "Complete con el concepto, anotación o identificador clave relacionado con refresh.",
+    "code": "// Pista del arreglo esperado // usar ____",
     "answer": [
       "refresh"
     ],
@@ -3086,37 +3087,37 @@
     "topic": "auth",
     "type": "single",
     "difficulty": "normal",
-    "question": "Forma directa: clearTokens borra todas las claves del SharedPreferences de autenticacion. Que opcion encaja mejor?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre autenticacion.",
     "options": [
       "clearTokens hace prefs.edit().clear().apply()",
       "clearTokens solo borra access_token",
-      "Depende solo de si compila",
-      "No se puede saber mirando el codigo"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 0,
     "explanation": "clearTokens borra todas las claves del SharedPreferences de autenticacion."
   },
   {
     "id": "auto-token-clear-inverse-8",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "normal",
-    "question": "Forma inversa sobre auth: cual es la afirmacion falsa?",
+    "question": "En relación con autenticacion, seleccione la opción incompatible con el comportamiento implementado.",
     "options": [
       "clearTokens borra todas las claves del SharedPreferences de autenticacion.",
       "clearTokens hace prefs.edit().clear().apply()",
       "clearTokens solo borra access_token",
-      "Es un detalle que puede salir en examen"
+      "La implementacion debe evaluarse a partir del contrato y del flujo real del codigo."
     ],
     "answer": 2,
-    "explanation": "La falsa es: clearTokens solo borra access_token. clearTokens borra todas las claves del SharedPreferences de autenticacion."
+    "explanation": "La afirmación incorrecta es: clearTokens solo borra access_token. clearTokens borra todas las claves del SharedPreferences de autenticacion."
   },
   {
     "id": "auto-token-clear-review-8",
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "normal",
-    "question": "Codigo de otro grupo: di si esta bien, mal o parcial y como lo arreglarias.",
+    "question": "Evalúe el fragmento de código asociado a autenticacion. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
     "code": "fun clearTokens() { prefs.edit().remove(KEY_ACCESS_TOKEN).apply() }",
     "verdictOptions": [
       "correcto",
@@ -3137,12 +3138,12 @@
     "topic": "auth",
     "type": "multiple",
     "difficulty": "normal",
-    "question": "Selecciona las ideas correctas relacionadas con: clearTokens borra todas las claves del SharedPreferences de autenticacion.",
+    "question": "Seleccione todas las afirmaciones tecnicamente correctas sobre autenticacion.",
     "options": [
       "clearTokens hace prefs.edit().clear().apply()",
       "clearTokens borra todas las claves del SharedPreferences de autenticacion.",
       "clearTokens solo borra access_token",
-      "La compilacion siempre demuestra que la arquitectura es correcta"
+      "La compilacion del fragmento garantiza por si sola que se respeta la arquitectura esperada."
     ],
     "answer": [
       0,
@@ -3155,8 +3156,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "normal",
-    "question": "Completa con la palabra clave que mejor arregla este caso: clearTokens solo borra access_token",
-    "code": "// Pista del arreglo esperado\n// usar ____",
+    "question": "Complete con el concepto, anotación o identificador clave relacionado con clear.",
+    "code": "// Pista del arreglo esperado // usar ____",
     "answer": [
       "clear"
     ],
@@ -3167,38 +3168,38 @@
     "topic": "repositorios",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Forma directa: RepositoryProvider es un service locator manual, no Hilt ni Koin. Que opcion encaja mejor?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre repositorios.",
     "options": [
       "Centraliza creacion de repositorios manualmente",
       "Usa inyeccion Hilt automaticamente",
-      "Depende solo de si compila",
-      "No se puede saber mirando el codigo"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 0,
     "explanation": "RepositoryProvider es un service locator manual, no Hilt ni Koin."
   },
   {
     "id": "auto-repo-provider-service-locator-inverse-9",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Forma inversa sobre repositorios: cual es la afirmacion falsa?",
+    "question": "En relación con repositorios, seleccione la opción incompatible con el comportamiento implementado.",
     "options": [
       "RepositoryProvider es un service locator manual, no Hilt ni Koin.",
       "Centraliza creacion de repositorios manualmente",
       "Usa inyeccion Hilt automaticamente",
-      "Es un detalle que puede salir en examen"
+      "La implementacion debe evaluarse a partir del contrato y del flujo real del codigo."
     ],
     "answer": 2,
-    "explanation": "La falsa es: Usa inyeccion Hilt automaticamente. RepositoryProvider es un service locator manual, no Hilt ni Koin."
+    "explanation": "La afirmación incorrecta es: Usa inyeccion Hilt automaticamente. RepositoryProvider es un service locator manual, no Hilt ni Koin."
   },
   {
     "id": "auto-repo-provider-service-locator-review-9",
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "trampa",
-    "question": "Codigo de otro grupo: di si esta bien, mal o parcial y como lo arreglarias.",
-    "code": "@HiltViewModel\nclass BikeViewModel @Inject constructor(private val repo: BikeRepository) : ViewModel()",
+    "question": "Evalúe el fragmento de código asociado a repositorios. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
+    "code": "@HiltViewModel class BikeViewModel @Inject constructor(private val repo: BikeRepository) : ViewModel()",
     "verdictOptions": [
       "correcto",
       "incorrecto",
@@ -3218,12 +3219,12 @@
     "topic": "repositorios",
     "type": "multiple",
     "difficulty": "trampa",
-    "question": "Selecciona las ideas correctas relacionadas con: RepositoryProvider es un service locator manual, no Hilt ni Koin.",
+    "question": "Seleccione todas las afirmaciones tecnicamente correctas sobre repositorios.",
     "options": [
       "Centraliza creacion de repositorios manualmente",
       "RepositoryProvider es un service locator manual, no Hilt ni Koin.",
       "Usa inyeccion Hilt automaticamente",
-      "La compilacion siempre demuestra que la arquitectura es correcta"
+      "La compilacion del fragmento garantiza por si sola que se respeta la arquitectura esperada."
     ],
     "answer": [
       0,
@@ -3236,8 +3237,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "trampa",
-    "question": "Completa con la palabra clave que mejor arregla este caso: Usa inyeccion Hilt automaticamente",
-    "code": "// Pista del arreglo esperado\n// usar ____",
+    "question": "Complete con el concepto, anotación o identificador clave relacionado con RepositoryProvider.",
+    "code": "// Pista del arreglo esperado // usar ____",
     "answer": [
       "RepositoryProvider"
     ],
@@ -3248,38 +3249,38 @@
     "topic": "repositorios",
     "type": "single",
     "difficulty": "matar",
-    "question": "Forma directa: BikeRepository.refreshFromRemote borra la cache local y la reemplaza con datos remotos si remoto responde. Que opcion encaja mejor?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre repositorios.",
     "options": [
       "refreshFromRemote reemplaza cache local con remoto",
       "refreshFromRemote solo anade nuevas bicis y nunca borra antiguas",
-      "Depende solo de si compila",
-      "No se puede saber mirando el codigo"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 0,
     "explanation": "BikeRepository.refreshFromRemote borra la cache local y la reemplaza con datos remotos si remoto responde."
   },
   {
     "id": "auto-bike-refresh-clear-inverse-10",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "matar",
-    "question": "Forma inversa sobre repositorios: cual es la afirmacion falsa?",
+    "question": "En relación con repositorios, seleccione la opción incompatible con el comportamiento implementado.",
     "options": [
       "BikeRepository.refreshFromRemote borra la cache local y la reemplaza con datos remotos si remoto responde.",
       "refreshFromRemote reemplaza cache local con remoto",
       "refreshFromRemote solo anade nuevas bicis y nunca borra antiguas",
-      "Es un detalle que puede salir en examen"
+      "La implementacion debe evaluarse a partir del contrato y del flujo real del codigo."
     ],
     "answer": 2,
-    "explanation": "La falsa es: refreshFromRemote solo anade nuevas bicis y nunca borra antiguas. BikeRepository.refreshFromRemote borra la cache local y la reemplaza con datos remotos si remoto responde."
+    "explanation": "La afirmación incorrecta es: refreshFromRemote solo anade nuevas bicis y nunca borra antiguas. BikeRepository.refreshFromRemote borra la cache local y la reemplaza con datos remotos si remoto responde."
   },
   {
     "id": "auto-bike-refresh-clear-review-10",
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "matar",
-    "question": "Codigo de otro grupo: di si esta bien, mal o parcial y como lo arreglarias.",
-    "code": "override fun refreshFromRemote(): List<Bike> {\n    remoteDatasource.getAll().forEach(localDatasource::insert)\n    return localDatasource.getAll().map { it.toBike() }\n}",
+    "question": "Evalúe el fragmento de código asociado a repositorios. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
+    "code": "override fun refreshFromRemote(): List<Bike> { remoteDatasource.getAll().forEach(localDatasource::insert) return localDatasource.getAll().map { it.toBike() } }",
     "verdictOptions": [
       "correcto",
       "incorrecto",
@@ -3299,12 +3300,12 @@
     "topic": "repositorios",
     "type": "multiple",
     "difficulty": "matar",
-    "question": "Selecciona las ideas correctas relacionadas con: BikeRepository.refreshFromRemote borra la cache local y la reemplaza con datos remotos si remoto responde.",
+    "question": "Seleccione todas las afirmaciones tecnicamente correctas sobre repositorios.",
     "options": [
       "refreshFromRemote reemplaza cache local con remoto",
       "BikeRepository.refreshFromRemote borra la cache local y la reemplaza con datos remotos si remoto responde.",
       "refreshFromRemote solo anade nuevas bicis y nunca borra antiguas",
-      "La compilacion siempre demuestra que la arquitectura es correcta"
+      "La compilacion del fragmento garantiza por si sola que se respeta la arquitectura esperada."
     ],
     "answer": [
       0,
@@ -3317,8 +3318,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "matar",
-    "question": "Completa con la palabra clave que mejor arregla este caso: refreshFromRemote solo anade nuevas bicis y nunca borra antiguas",
-    "code": "// Pista del arreglo esperado\n// usar ____",
+    "question": "Complete con el concepto, anotación o identificador clave relacionado con borra.",
+    "code": "// Pista del arreglo esperado // usar ____",
     "answer": [
       "borra"
     ],
@@ -3329,37 +3330,37 @@
     "topic": "repositorios",
     "type": "single",
     "difficulty": "matar",
-    "question": "Forma directa: isRentActive(uuid) consulta una renta por uuid de renta, no por uuid de bici. Que opcion encaja mejor?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre repositorios.",
     "options": [
       "isRentActive espera uuid de la renta",
       "isRentActive recibe siempre bikeUuid",
-      "Depende solo de si compila",
-      "No se puede saber mirando el codigo"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 0,
     "explanation": "isRentActive(uuid) consulta una renta por uuid de renta, no por uuid de bici."
   },
   {
     "id": "auto-rent-active-by-rent-uuid-inverse-11",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "matar",
-    "question": "Forma inversa sobre repositorios: cual es la afirmacion falsa?",
+    "question": "En relación con repositorios, seleccione la opción incompatible con el comportamiento implementado.",
     "options": [
       "isRentActive(uuid) consulta una renta por uuid de renta, no por uuid de bici.",
       "isRentActive espera uuid de la renta",
       "isRentActive recibe siempre bikeUuid",
-      "Es un detalle que puede salir en examen"
+      "La implementacion debe evaluarse a partir del contrato y del flujo real del codigo."
     ],
     "answer": 2,
-    "explanation": "La falsa es: isRentActive recibe siempre bikeUuid. isRentActive(uuid) consulta una renta por uuid de renta, no por uuid de bici."
+    "explanation": "La afirmación incorrecta es: isRentActive recibe siempre bikeUuid. isRentActive(uuid) consulta una renta por uuid de renta, no por uuid de bici."
   },
   {
     "id": "auto-rent-active-by-rent-uuid-review-11",
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "matar",
-    "question": "Codigo de otro grupo: di si esta bien, mal o parcial y como lo arreglarias.",
+    "question": "Evalúe el fragmento de código asociado a repositorios. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
     "code": "val active = rentRepository.isRentActive(bike.uuid) // lo toma como si fuera uuid de bici",
     "verdictOptions": [
       "correcto",
@@ -3380,12 +3381,12 @@
     "topic": "repositorios",
     "type": "multiple",
     "difficulty": "matar",
-    "question": "Selecciona las ideas correctas relacionadas con: isRentActive(uuid) consulta una renta por uuid de renta, no por uuid de bici.",
+    "question": "Seleccione todas las afirmaciones tecnicamente correctas sobre repositorios.",
     "options": [
       "isRentActive espera uuid de la renta",
       "isRentActive(uuid) consulta una renta por uuid de renta, no por uuid de bici.",
       "isRentActive recibe siempre bikeUuid",
-      "La compilacion siempre demuestra que la arquitectura es correcta"
+      "La compilacion del fragmento garantiza por si sola que se respeta la arquitectura esperada."
     ],
     "answer": [
       0,
@@ -3398,8 +3399,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "matar",
-    "question": "Completa con la palabra clave que mejor arregla este caso: isRentActive recibe siempre bikeUuid",
-    "code": "// Pista del arreglo esperado\n// usar ____",
+    "question": "Complete con el concepto, anotación o identificador clave relacionado con renta.",
+    "code": "// Pista del arreglo esperado // usar ____",
     "answer": [
       "renta"
     ],
@@ -3410,37 +3411,37 @@
     "topic": "mappers",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Forma directa: Los mappers usan orEmpty() para convertir Strings nulos de API/modelos en cadenas vacias. Que opcion encaja mejor?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre mappers.",
     "options": [
       "orEmpty evita null en campos persistidos",
       "orEmpty convierte null en 'null' literal",
-      "Depende solo de si compila",
-      "No se puede saber mirando el codigo"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 0,
     "explanation": "Los mappers usan orEmpty() para convertir Strings nulos de API/modelos en cadenas vacias."
   },
   {
     "id": "auto-mapper-null-or-empty-inverse-12",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Forma inversa sobre mappers: cual es la afirmacion falsa?",
+    "question": "En relación con mappers, seleccione la opción incompatible con el comportamiento implementado.",
     "options": [
       "Los mappers usan orEmpty() para convertir Strings nulos de API/modelos en cadenas vacias.",
       "orEmpty evita null en campos persistidos",
       "orEmpty convierte null en 'null' literal",
-      "Es un detalle que puede salir en examen"
+      "La implementacion debe evaluarse a partir del contrato y del flujo real del codigo."
     ],
     "answer": 2,
-    "explanation": "La falsa es: orEmpty convierte null en 'null' literal. Los mappers usan orEmpty() para convertir Strings nulos de API/modelos en cadenas vacias."
+    "explanation": "La afirmación incorrecta es: orEmpty convierte null en 'null' literal. Los mappers usan orEmpty() para convertir Strings nulos de API/modelos en cadenas vacias."
   },
   {
     "id": "auto-mapper-null-or-empty-review-12",
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "trampa",
-    "question": "Codigo de otro grupo: di si esta bien, mal o parcial y como lo arreglarias.",
+    "question": "Evalúe el fragmento de código asociado a mappers. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
     "code": "lastUse = lastUse.toString() // si es null guarda \"null\"",
     "verdictOptions": [
       "correcto",
@@ -3461,12 +3462,12 @@
     "topic": "mappers",
     "type": "multiple",
     "difficulty": "trampa",
-    "question": "Selecciona las ideas correctas relacionadas con: Los mappers usan orEmpty() para convertir Strings nulos de API/modelos en cadenas vacias.",
+    "question": "Seleccione todas las afirmaciones tecnicamente correctas sobre mappers.",
     "options": [
       "orEmpty evita null en campos persistidos",
       "Los mappers usan orEmpty() para convertir Strings nulos de API/modelos en cadenas vacias.",
       "orEmpty convierte null en 'null' literal",
-      "La compilacion siempre demuestra que la arquitectura es correcta"
+      "La compilacion del fragmento garantiza por si sola que se respeta la arquitectura esperada."
     ],
     "answer": [
       0,
@@ -3479,8 +3480,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "trampa",
-    "question": "Completa con la palabra clave que mejor arregla este caso: orEmpty convierte null en 'null' literal",
-    "code": "// Pista del arreglo esperado\n// usar ____",
+    "question": "Complete con el concepto, anotación o identificador clave relacionado con orEmpty.",
+    "code": "// Pista del arreglo esperado // usar ____",
     "answer": [
       "orEmpty"
     ],
@@ -3491,37 +3492,37 @@
     "topic": "mappers",
     "type": "single",
     "difficulty": "matar",
-    "question": "Forma directa: LocalDateTime.parse requiere formato compatible ISO; si falla, el mapper devuelve null. Que opcion encaja mejor?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre mappers.",
     "options": [
       "runCatching devuelve null si la fecha no parsea",
       "Cualquier fecha española dd/MM/yyyy parsea directamente",
-      "Depende solo de si compila",
-      "No se puede saber mirando el codigo"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 0,
     "explanation": "LocalDateTime.parse requiere formato compatible ISO; si falla, el mapper devuelve null."
   },
   {
     "id": "auto-local-date-parse-inverse-13",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "matar",
-    "question": "Forma inversa sobre mappers: cual es la afirmacion falsa?",
+    "question": "En relación con mappers, seleccione la opción incompatible con el comportamiento implementado.",
     "options": [
       "LocalDateTime.parse requiere formato compatible ISO; si falla, el mapper devuelve null.",
       "runCatching devuelve null si la fecha no parsea",
       "Cualquier fecha española dd/MM/yyyy parsea directamente",
-      "Es un detalle que puede salir en examen"
+      "La implementacion debe evaluarse a partir del contrato y del flujo real del codigo."
     ],
     "answer": 2,
-    "explanation": "La falsa es: Cualquier fecha española dd/MM/yyyy parsea directamente. LocalDateTime.parse requiere formato compatible ISO; si falla, el mapper devuelve null."
+    "explanation": "La afirmación incorrecta es: Cualquier fecha española dd/MM/yyyy parsea directamente. LocalDateTime.parse requiere formato compatible ISO; si falla, el mapper devuelve null."
   },
   {
     "id": "auto-local-date-parse-review-13",
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "matar",
-    "question": "Codigo de otro grupo: di si esta bien, mal o parcial y como lo arreglarias.",
+    "question": "Evalúe el fragmento de código asociado a mappers. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
     "code": "lastUse = LocalDateTime.parse(lastUse) // sin runCatching",
     "verdictOptions": [
       "correcto",
@@ -3542,12 +3543,12 @@
     "topic": "mappers",
     "type": "multiple",
     "difficulty": "matar",
-    "question": "Selecciona las ideas correctas relacionadas con: LocalDateTime.parse requiere formato compatible ISO; si falla, el mapper devuelve null.",
+    "question": "Seleccione todas las afirmaciones tecnicamente correctas sobre mappers.",
     "options": [
       "runCatching devuelve null si la fecha no parsea",
       "LocalDateTime.parse requiere formato compatible ISO; si falla, el mapper devuelve null.",
       "Cualquier fecha española dd/MM/yyyy parsea directamente",
-      "La compilacion siempre demuestra que la arquitectura es correcta"
+      "La compilacion del fragmento garantiza por si sola que se respeta la arquitectura esperada."
     ],
     "answer": [
       0,
@@ -3560,8 +3561,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "matar",
-    "question": "Completa con la palabra clave que mejor arregla este caso: Cualquier fecha española dd/MM/yyyy parsea directamente",
-    "code": "// Pista del arreglo esperado\n// usar ____",
+    "question": "Complete con el concepto, anotación o identificador clave relacionado con LocalDateTime.",
+    "code": "// Pista del arreglo esperado // usar ____",
     "answer": [
       "LocalDateTime"
     ],
@@ -3572,37 +3573,37 @@
     "topic": "viewmodel",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Forma directa: El patron finally asegura que isLoading vuelva a false aunque haya excepcion. Que opcion encaja mejor?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre ViewModel.",
     "options": [
       "finally limpia estado de carga",
       "Solo se debe poner isLoading=false dentro del try",
-      "Depende solo de si compila",
-      "No se puede saber mirando el codigo"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 0,
     "explanation": "El patron finally asegura que isLoading vuelva a false aunque haya excepcion."
   },
   {
     "id": "auto-viewmodel-finally-loading-inverse-14",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Forma inversa sobre viewmodel: cual es la afirmacion falsa?",
+    "question": "En relación con ViewModel, seleccione la opción incompatible con el comportamiento implementado.",
     "options": [
       "El patron finally asegura que isLoading vuelva a false aunque haya excepcion.",
       "finally limpia estado de carga",
       "Solo se debe poner isLoading=false dentro del try",
-      "Es un detalle que puede salir en examen"
+      "La implementacion debe evaluarse a partir del contrato y del flujo real del codigo."
     ],
     "answer": 2,
-    "explanation": "La falsa es: Solo se debe poner isLoading=false dentro del try. El patron finally asegura que isLoading vuelva a false aunque haya excepcion."
+    "explanation": "La afirmación incorrecta es: Solo se debe poner isLoading=false dentro del try. El patron finally asegura que isLoading vuelva a false aunque haya excepcion."
   },
   {
     "id": "auto-viewmodel-finally-loading-review-14",
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "trampa",
-    "question": "Codigo de otro grupo: di si esta bien, mal o parcial y como lo arreglarias.",
+    "question": "Evalúe el fragmento de código asociado a ViewModel. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
     "code": "try { refreshBikeState(); _isLoading.value = false } catch(e: Exception) { _error.value = e.message }",
     "verdictOptions": [
       "correcto",
@@ -3623,12 +3624,12 @@
     "topic": "viewmodel",
     "type": "multiple",
     "difficulty": "trampa",
-    "question": "Selecciona las ideas correctas relacionadas con: El patron finally asegura que isLoading vuelva a false aunque haya excepcion.",
+    "question": "Seleccione todas las afirmaciones tecnicamente correctas sobre ViewModel.",
     "options": [
       "finally limpia estado de carga",
       "El patron finally asegura que isLoading vuelva a false aunque haya excepcion.",
       "Solo se debe poner isLoading=false dentro del try",
-      "La compilacion siempre demuestra que la arquitectura es correcta"
+      "La compilacion del fragmento garantiza por si sola que se respeta la arquitectura esperada."
     ],
     "answer": [
       0,
@@ -3641,8 +3642,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "trampa",
-    "question": "Completa con la palabra clave que mejor arregla este caso: Solo se debe poner isLoading=false dentro del try",
-    "code": "// Pista del arreglo esperado\n// usar ____",
+    "question": "Complete con el concepto, anotación o identificador clave relacionado con finally.",
+    "code": "// Pista del arreglo esperado // usar ____",
     "answer": [
       "finally"
     ],
@@ -3653,37 +3654,37 @@
     "topic": "viewmodel",
     "type": "single",
     "difficulty": "matar",
-    "question": "Forma directa: Tras error en start/stop, BikeViewModel intenta refrescar estado con runCatching. Que opcion encaja mejor?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre ViewModel.",
     "options": [
       "runCatching evita que falle tambien el refresco de recuperacion",
       "En catch no se intenta recuperar estado",
-      "Depende solo de si compila",
-      "No se puede saber mirando el codigo"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 0,
     "explanation": "Tras error en start/stop, BikeViewModel intenta refrescar estado con runCatching."
   },
   {
     "id": "auto-viewmodel-runcatching-refresh-inverse-15",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "matar",
-    "question": "Forma inversa sobre viewmodel: cual es la afirmacion falsa?",
+    "question": "En relación con ViewModel, seleccione la opción incompatible con el comportamiento implementado.",
     "options": [
       "Tras error en start/stop, BikeViewModel intenta refrescar estado con runCatching.",
       "runCatching evita que falle tambien el refresco de recuperacion",
       "En catch no se intenta recuperar estado",
-      "Es un detalle que puede salir en examen"
+      "La implementacion debe evaluarse a partir del contrato y del flujo real del codigo."
     ],
     "answer": 2,
-    "explanation": "La falsa es: En catch no se intenta recuperar estado. Tras error en start/stop, BikeViewModel intenta refrescar estado con runCatching."
+    "explanation": "La afirmación incorrecta es: En catch no se intenta recuperar estado. Tras error en start/stop, BikeViewModel intenta refrescar estado con runCatching."
   },
   {
     "id": "auto-viewmodel-runcatching-refresh-review-15",
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "matar",
-    "question": "Codigo de otro grupo: di si esta bien, mal o parcial y como lo arreglarias.",
+    "question": "Evalúe el fragmento de código asociado a ViewModel. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
     "code": "catch (e: Exception) { _error.value = e.message }",
     "verdictOptions": [
       "correcto",
@@ -3704,12 +3705,12 @@
     "topic": "viewmodel",
     "type": "multiple",
     "difficulty": "matar",
-    "question": "Selecciona las ideas correctas relacionadas con: Tras error en start/stop, BikeViewModel intenta refrescar estado con runCatching.",
+    "question": "Seleccione todas las afirmaciones tecnicamente correctas sobre ViewModel.",
     "options": [
       "runCatching evita que falle tambien el refresco de recuperacion",
       "Tras error en start/stop, BikeViewModel intenta refrescar estado con runCatching.",
       "En catch no se intenta recuperar estado",
-      "La compilacion siempre demuestra que la arquitectura es correcta"
+      "La compilacion del fragmento garantiza por si sola que se respeta la arquitectura esperada."
     ],
     "answer": [
       0,
@@ -3722,8 +3723,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "matar",
-    "question": "Completa con la palabra clave que mejor arregla este caso: En catch no se intenta recuperar estado",
-    "code": "// Pista del arreglo esperado\n// usar ____",
+    "question": "Complete con el concepto, anotación o identificador clave relacionado con runCatching.",
+    "code": "// Pista del arreglo esperado // usar ____",
     "answer": [
       "runCatching"
     ],
@@ -3734,37 +3735,37 @@
     "topic": "compose",
     "type": "single",
     "difficulty": "normal",
-    "question": "Forma directa: Las pantallas con Scaffold aplican innerPadding al contenido. Que opcion encaja mejor?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre Compose.",
     "options": [
       "Usar Modifier.padding(innerPadding)",
       "Ignorar innerPadding no afecta nunca a topBar",
-      "Depende solo de si compila",
-      "No se puede saber mirando el codigo"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 0,
     "explanation": "Las pantallas con Scaffold aplican innerPadding al contenido."
   },
   {
     "id": "auto-compose-scaffold-padding-inverse-16",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "normal",
-    "question": "Forma inversa sobre compose: cual es la afirmacion falsa?",
+    "question": "En relación con Compose, seleccione la opción incompatible con el comportamiento implementado.",
     "options": [
       "Las pantallas con Scaffold aplican innerPadding al contenido.",
       "Usar Modifier.padding(innerPadding)",
       "Ignorar innerPadding no afecta nunca a topBar",
-      "Es un detalle que puede salir en examen"
+      "La implementacion debe evaluarse a partir del contrato y del flujo real del codigo."
     ],
     "answer": 2,
-    "explanation": "La falsa es: Ignorar innerPadding no afecta nunca a topBar. Las pantallas con Scaffold aplican innerPadding al contenido."
+    "explanation": "La afirmación incorrecta es: Ignorar innerPadding no afecta nunca a topBar. Las pantallas con Scaffold aplican innerPadding al contenido."
   },
   {
     "id": "auto-compose-scaffold-padding-review-16",
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "normal",
-    "question": "Codigo de otro grupo: di si esta bien, mal o parcial y como lo arreglarias.",
+    "question": "Evalúe el fragmento de código asociado a Compose. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
     "code": "Scaffold(topBar = { TopAppBar(...) }) { LazyColumn(Modifier.fillMaxSize()) { /* ... */ } }",
     "verdictOptions": [
       "correcto",
@@ -3784,12 +3785,12 @@
     "topic": "compose",
     "type": "multiple",
     "difficulty": "normal",
-    "question": "Selecciona las ideas correctas relacionadas con: Las pantallas con Scaffold aplican innerPadding al contenido.",
+    "question": "Seleccione todas las afirmaciones tecnicamente correctas sobre Compose.",
     "options": [
       "Usar Modifier.padding(innerPadding)",
       "Las pantallas con Scaffold aplican innerPadding al contenido.",
       "Ignorar innerPadding no afecta nunca a topBar",
-      "La compilacion siempre demuestra que la arquitectura es correcta"
+      "La compilacion del fragmento garantiza por si sola que se respeta la arquitectura esperada."
     ],
     "answer": [
       0,
@@ -3802,8 +3803,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "normal",
-    "question": "Completa con la palabra clave que mejor arregla este caso: Ignorar innerPadding no afecta nunca a topBar",
-    "code": "// Pista del arreglo esperado\n// usar ____",
+    "question": "Complete con el concepto, anotación o identificador clave relacionado con innerPadding.",
+    "code": "// Pista del arreglo esperado // usar ____",
     "answer": [
       "innerPadding"
     ],
@@ -3814,37 +3815,37 @@
     "topic": "compose",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Forma directa: items(bikes) pinta cada elemento; no crea estado estable por key si no se le da key. Que opcion encaja mejor?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre Compose.",
     "options": [
       "items recorre la lista visible",
       "items(bikes) persiste automaticamente estado por uuid",
-      "Depende solo de si compila",
-      "No se puede saber mirando el codigo"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 0,
     "explanation": "items(bikes) pinta cada elemento; no crea estado estable por key si no se le da key."
   },
   {
     "id": "auto-compose-items-key-inverse-17",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Forma inversa sobre compose: cual es la afirmacion falsa?",
+    "question": "En relación con Compose, seleccione la opción incompatible con el comportamiento implementado.",
     "options": [
       "items(bikes) pinta cada elemento; no crea estado estable por key si no se le da key.",
       "items recorre la lista visible",
       "items(bikes) persiste automaticamente estado por uuid",
-      "Es un detalle que puede salir en examen"
+      "La implementacion debe evaluarse a partir del contrato y del flujo real del codigo."
     ],
     "answer": 2,
-    "explanation": "La falsa es: items(bikes) persiste automaticamente estado por uuid. items(bikes) pinta cada elemento; no crea estado estable por key si no se le da key."
+    "explanation": "La afirmación incorrecta es: items(bikes) persiste automaticamente estado por uuid. items(bikes) pinta cada elemento; no crea estado estable por key si no se le da key."
   },
   {
     "id": "auto-compose-items-key-review-17",
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "trampa",
-    "question": "Codigo de otro grupo: di si esta bien, mal o parcial y como lo arreglarias.",
+    "question": "Evalúe el fragmento de código asociado a Compose. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
     "code": "items(bikes) { bike -> /* comentario: Compose usa bike.uuid como key automaticamente */ }",
     "verdictOptions": [
       "correcto",
@@ -3865,12 +3866,12 @@
     "topic": "compose",
     "type": "multiple",
     "difficulty": "trampa",
-    "question": "Selecciona las ideas correctas relacionadas con: items(bikes) pinta cada elemento; no crea estado estable por key si no se le da key.",
+    "question": "Seleccione todas las afirmaciones tecnicamente correctas sobre Compose.",
     "options": [
       "items recorre la lista visible",
       "items(bikes) pinta cada elemento; no crea estado estable por key si no se le da key.",
       "items(bikes) persiste automaticamente estado por uuid",
-      "La compilacion siempre demuestra que la arquitectura es correcta"
+      "La compilacion del fragmento garantiza por si sola que se respeta la arquitectura esperada."
     ],
     "answer": [
       0,
@@ -3883,8 +3884,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "trampa",
-    "question": "Completa con la palabra clave que mejor arregla este caso: items(bikes) persiste automaticamente estado por uuid",
-    "code": "// Pista del arreglo esperado\n// usar ____",
+    "question": "Complete con el concepto, anotación o identificador clave relacionado con items.",
+    "code": "// Pista del arreglo esperado // usar ____",
     "answer": [
       "items"
     ],
@@ -3895,37 +3896,37 @@
     "topic": "activity",
     "type": "single",
     "difficulty": "matar",
-    "question": "Forma directa: La Activity launcher con intent-filter MAIN/LAUNCHER debe declarar exported=true en Android moderno. Que opcion encaja mejor?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre Android Manifest y Activities.",
     "options": [
       "SplashActivity es exported=true",
       "La launcher puede ser exported=false con MAIN/LAUNCHER",
-      "Depende solo de si compila",
-      "No se puede saber mirando el codigo"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 0,
     "explanation": "La Activity launcher con intent-filter MAIN/LAUNCHER debe declarar exported=true en Android moderno."
   },
   {
     "id": "auto-manifest-exported-launcher-inverse-18",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "matar",
-    "question": "Forma inversa sobre activity: cual es la afirmacion falsa?",
+    "question": "En relación con Android Manifest y Activities, seleccione la opción incompatible con el comportamiento implementado.",
     "options": [
       "La Activity launcher con intent-filter MAIN/LAUNCHER debe declarar exported=true en Android moderno.",
       "SplashActivity es exported=true",
       "La launcher puede ser exported=false con MAIN/LAUNCHER",
-      "Es un detalle que puede salir en examen"
+      "La implementacion debe evaluarse a partir del contrato y del flujo real del codigo."
     ],
     "answer": 2,
-    "explanation": "La falsa es: La launcher puede ser exported=false con MAIN/LAUNCHER. La Activity launcher con intent-filter MAIN/LAUNCHER debe declarar exported=true en Android moderno."
+    "explanation": "La afirmación incorrecta es: La launcher puede ser exported=false con MAIN/LAUNCHER. La Activity launcher con intent-filter MAIN/LAUNCHER debe declarar exported=true en Android moderno."
   },
   {
     "id": "auto-manifest-exported-launcher-review-18",
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "matar",
-    "question": "Codigo de otro grupo: di si esta bien, mal o parcial y como lo arreglarias.",
+    "question": "Evalúe el fragmento de código asociado a Android Manifest y Activities. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
     "code": "<activity android:name=\".presentation.SplashActivity\" android:exported=\"false\"><intent-filter>...</intent-filter></activity>",
     "verdictOptions": [
       "correcto",
@@ -3946,12 +3947,12 @@
     "topic": "activity",
     "type": "multiple",
     "difficulty": "matar",
-    "question": "Selecciona las ideas correctas relacionadas con: La Activity launcher con intent-filter MAIN/LAUNCHER debe declarar exported=true en Android moderno.",
+    "question": "Seleccione todas las afirmaciones tecnicamente correctas sobre Android Manifest y Activities.",
     "options": [
       "SplashActivity es exported=true",
       "La Activity launcher con intent-filter MAIN/LAUNCHER debe declarar exported=true en Android moderno.",
       "La launcher puede ser exported=false con MAIN/LAUNCHER",
-      "La compilacion siempre demuestra que la arquitectura es correcta"
+      "La compilacion del fragmento garantiza por si sola que se respeta la arquitectura esperada."
     ],
     "answer": [
       0,
@@ -3964,8 +3965,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "matar",
-    "question": "Completa con la palabra clave que mejor arregla este caso: La launcher puede ser exported=false con MAIN/LAUNCHER",
-    "code": "// Pista del arreglo esperado\n// usar ____",
+    "question": "Complete con el concepto, anotación o identificador clave relacionado con exported.",
+    "code": "// Pista del arreglo esperado // usar ____",
     "answer": [
       "exported"
     ],
@@ -3976,37 +3977,37 @@
     "topic": "activity",
     "type": "single",
     "difficulty": "normal",
-    "question": "Forma directa: Sin android.permission.INTERNET las llamadas de Retrofit a red fallarian. Que opcion encaja mejor?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre Android Manifest y Activities.",
     "options": [
       "Declarar INTERNET en manifest",
       "Retrofit anade permiso INTERNET automaticamente",
-      "Depende solo de si compila",
-      "No se puede saber mirando el codigo"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 0,
     "explanation": "Sin android.permission.INTERNET las llamadas de Retrofit a red fallarian."
   },
   {
     "id": "auto-manifest-internet-inverse-19",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "normal",
-    "question": "Forma inversa sobre activity: cual es la afirmacion falsa?",
+    "question": "En relación con Android Manifest y Activities, seleccione la opción incompatible con el comportamiento implementado.",
     "options": [
       "Sin android.permission.INTERNET las llamadas de Retrofit a red fallarian.",
       "Declarar INTERNET en manifest",
       "Retrofit anade permiso INTERNET automaticamente",
-      "Es un detalle que puede salir en examen"
+      "La implementacion debe evaluarse a partir del contrato y del flujo real del codigo."
     ],
     "answer": 2,
-    "explanation": "La falsa es: Retrofit anade permiso INTERNET automaticamente. Sin android.permission.INTERNET las llamadas de Retrofit a red fallarian."
+    "explanation": "La afirmación incorrecta es: Retrofit anade permiso INTERNET automaticamente. Sin android.permission.INTERNET las llamadas de Retrofit a red fallarian."
   },
   {
     "id": "auto-manifest-internet-review-19",
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "normal",
-    "question": "Codigo de otro grupo: di si esta bien, mal o parcial y como lo arreglarias.",
+    "question": "Evalúe el fragmento de código asociado a Android Manifest y Activities. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
     "code": "<manifest><application>...</application></manifest>",
     "verdictOptions": [
       "correcto",
@@ -4026,12 +4027,12 @@
     "topic": "activity",
     "type": "multiple",
     "difficulty": "normal",
-    "question": "Selecciona las ideas correctas relacionadas con: Sin android.permission.INTERNET las llamadas de Retrofit a red fallarian.",
+    "question": "Seleccione todas las afirmaciones tecnicamente correctas sobre Android Manifest y Activities.",
     "options": [
       "Declarar INTERNET en manifest",
       "Sin android.permission.INTERNET las llamadas de Retrofit a red fallarian.",
       "Retrofit anade permiso INTERNET automaticamente",
-      "La compilacion siempre demuestra que la arquitectura es correcta"
+      "La compilacion del fragmento garantiza por si sola que se respeta la arquitectura esperada."
     ],
     "answer": [
       0,
@@ -4044,8 +4045,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "normal",
-    "question": "Completa con la palabra clave que mejor arregla este caso: Retrofit anade permiso INTERNET automaticamente",
-    "code": "// Pista del arreglo esperado\n// usar ____",
+    "question": "Complete con el concepto, anotación o identificador clave relacionado con INTERNET.",
+    "code": "// Pista del arreglo esperado // usar ____",
     "answer": [
       "INTERNET"
     ],
@@ -4056,37 +4057,37 @@
     "topic": "gradle",
     "type": "single",
     "difficulty": "matar",
-    "question": "Forma directa: Room compiler esta configurado con ksp, no kapt. Que opcion encaja mejor?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre Gradle.",
     "options": [
       "ksp(libs.androidx.room.compiler)",
       "kapt es obligatorio en este proyecto",
-      "Depende solo de si compila",
-      "No se puede saber mirando el codigo"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 0,
-    "explanation": "Room compiler esta configurado con ksp, no kapt."
+    "explanation": "Room compiler está configurado con ksp, no kapt."
   },
   {
     "id": "auto-gradle-ksp-room-inverse-20",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "matar",
-    "question": "Forma inversa sobre gradle: cual es la afirmacion falsa?",
+    "question": "En relación con Gradle, seleccione la opción incompatible con el comportamiento implementado.",
     "options": [
       "Room compiler esta configurado con ksp, no kapt.",
       "ksp(libs.androidx.room.compiler)",
       "kapt es obligatorio en este proyecto",
-      "Es un detalle que puede salir en examen"
+      "La implementacion debe evaluarse a partir del contrato y del flujo real del codigo."
     ],
     "answer": 2,
-    "explanation": "La falsa es: kapt es obligatorio en este proyecto. Room compiler esta configurado con ksp, no kapt."
+    "explanation": "La afirmación incorrecta es: kapt es obligatorio en este proyecto. Room compiler está configurado con ksp, no kapt."
   },
   {
     "id": "auto-gradle-ksp-room-review-20",
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "matar",
-    "question": "Codigo de otro grupo: di si esta bien, mal o parcial y como lo arreglarias.",
+    "question": "Evalúe el fragmento de código asociado a Gradle. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
     "code": "dependencies { implementation(libs.androidx.room.compiler) }",
     "verdictOptions": [
       "correcto",
@@ -4107,12 +4108,12 @@
     "topic": "gradle",
     "type": "multiple",
     "difficulty": "matar",
-    "question": "Selecciona las ideas correctas relacionadas con: Room compiler esta configurado con ksp, no kapt.",
+    "question": "Seleccione todas las afirmaciones tecnicamente correctas sobre Gradle.",
     "options": [
       "ksp(libs.androidx.room.compiler)",
       "Room compiler esta configurado con ksp, no kapt.",
       "kapt es obligatorio en este proyecto",
-      "La compilacion siempre demuestra que la arquitectura es correcta"
+      "La compilacion del fragmento garantiza por si sola que se respeta la arquitectura esperada."
     ],
     "answer": [
       0,
@@ -4125,49 +4126,49 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "matar",
-    "question": "Completa con la palabra clave que mejor arregla este caso: kapt es obligatorio en este proyecto",
-    "code": "// Pista del arreglo esperado\n// usar ____",
+    "question": "Complete con el concepto, anotación o identificador clave relacionado con ksp.",
+    "code": "// Pista del arreglo esperado // usar ____",
     "answer": [
       "ksp"
     ],
-    "explanation": "Una palabra clave esperada es ksp. Room compiler esta configurado con ksp, no kapt."
+    "explanation": "Una palabra clave esperada es ksp. Room compiler está configurado con ksp, no kapt."
   },
   {
     "id": "auto-gradle-minsdk-direct-21",
     "topic": "gradle",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Forma directa: El minSdk configurado es 33. Que opcion encaja mejor?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre Gradle.",
     "options": [
       "minSdk = 33",
       "minSdk es 21 por defecto",
-      "Depende solo de si compila",
-      "No se puede saber mirando el codigo"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 0,
     "explanation": "El minSdk configurado es 33."
   },
   {
     "id": "auto-gradle-minsdk-inverse-21",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Forma inversa sobre gradle: cual es la afirmacion falsa?",
+    "question": "En relación con Gradle, seleccione la opción incompatible con el comportamiento implementado.",
     "options": [
       "El minSdk configurado es 33.",
       "minSdk = 33",
       "minSdk es 21 por defecto",
-      "Es un detalle que puede salir en examen"
+      "La implementacion debe evaluarse a partir del contrato y del flujo real del codigo."
     ],
     "answer": 2,
-    "explanation": "La falsa es: minSdk es 21 por defecto. El minSdk configurado es 33."
+    "explanation": "La afirmación incorrecta es: minSdk es 21 por defecto. El minSdk configurado es 33."
   },
   {
     "id": "auto-gradle-minsdk-review-21",
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "trampa",
-    "question": "Codigo de otro grupo: di si esta bien, mal o parcial y como lo arreglarias.",
+    "question": "Evalúe el fragmento de código asociado a Gradle. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
     "code": "defaultConfig { minSdk = 21 }",
     "verdictOptions": [
       "correcto",
@@ -4188,12 +4189,12 @@
     "topic": "gradle",
     "type": "multiple",
     "difficulty": "trampa",
-    "question": "Selecciona las ideas correctas relacionadas con: El minSdk configurado es 33.",
+    "question": "Seleccione todas las afirmaciones tecnicamente correctas sobre Gradle.",
     "options": [
       "minSdk = 33",
       "El minSdk configurado es 33.",
       "minSdk es 21 por defecto",
-      "La compilacion siempre demuestra que la arquitectura es correcta"
+      "La compilacion del fragmento garantiza por si sola que se respeta la arquitectura esperada."
     ],
     "answer": [
       0,
@@ -4206,8 +4207,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "trampa",
-    "question": "Completa con la palabra clave que mejor arregla este caso: minSdk es 21 por defecto",
-    "code": "// Pista del arreglo esperado\n// usar ____",
+    "question": "Complete con el concepto, anotación o identificador clave relacionado con minSdk.",
+    "code": "// Pista del arreglo esperado // usar ____",
     "answer": [
       "minSdk"
     ],
@@ -4218,37 +4219,37 @@
     "topic": "usecases",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Forma directa: LoginUsecase hace trim de email y password antes de crear TokenRequest. Que opcion encaja mejor?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre casos de uso.",
     "options": [
       "Usa credentials.email.trim() y password.trim()",
       "Envia los espacios tal cual",
-      "Depende solo de si compila",
-      "No se puede saber mirando el codigo"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 0,
     "explanation": "LoginUsecase hace trim de email y password antes de crear TokenRequest."
   },
   {
     "id": "auto-login-trim-inverse-22",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Forma inversa sobre usecases: cual es la afirmacion falsa?",
+    "question": "En relación con casos de uso, seleccione la opción incompatible con el comportamiento implementado.",
     "options": [
       "LoginUsecase hace trim de email y password antes de crear TokenRequest.",
       "Usa credentials.email.trim() y password.trim()",
       "Envia los espacios tal cual",
-      "Es un detalle que puede salir en examen"
+      "La implementacion debe evaluarse a partir del contrato y del flujo real del codigo."
     ],
     "answer": 2,
-    "explanation": "La falsa es: Envia los espacios tal cual. LoginUsecase hace trim de email y password antes de crear TokenRequest."
+    "explanation": "La afirmación incorrecta es: Envia los espacios tal cual. LoginUsecase hace trim de email y password antes de crear TokenRequest."
   },
   {
     "id": "auto-login-trim-review-22",
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "trampa",
-    "question": "Codigo de otro grupo: di si esta bien, mal o parcial y como lo arreglarias.",
+    "question": "Evalúe el fragmento de código asociado a casos de uso. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
     "code": "TokenRequest(username = credentials.email, password = credentials.password)",
     "verdictOptions": [
       "correcto",
@@ -4268,12 +4269,12 @@
     "topic": "usecases",
     "type": "multiple",
     "difficulty": "trampa",
-    "question": "Selecciona las ideas correctas relacionadas con: LoginUsecase hace trim de email y password antes de crear TokenRequest.",
+    "question": "Seleccione todas las afirmaciones tecnicamente correctas sobre casos de uso.",
     "options": [
       "Usa credentials.email.trim() y password.trim()",
       "LoginUsecase hace trim de email y password antes de crear TokenRequest.",
       "Envia los espacios tal cual",
-      "La compilacion siempre demuestra que la arquitectura es correcta"
+      "La compilacion del fragmento garantiza por si sola que se respeta la arquitectura esperada."
     ],
     "answer": [
       0,
@@ -4286,8 +4287,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "trampa",
-    "question": "Completa con la palabra clave que mejor arregla este caso: Envia los espacios tal cual",
-    "code": "// Pista del arreglo esperado\n// usar ____",
+    "question": "Complete con el concepto, anotación o identificador clave relacionado con trim.",
+    "code": "// Pista del arreglo esperado // usar ____",
     "answer": [
       "trim"
     ],
@@ -4298,38 +4299,38 @@
     "topic": "usecases",
     "type": "single",
     "difficulty": "matar",
-    "question": "Forma directa: Si cachear usuario falla despues de guardar tokens, el login sigue devolviendo true. Que opcion encaja mejor?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre casos de uso.",
     "options": [
       "El fallo de cache no invalida login",
       "Si falla cachear usuario, execute devuelve false siempre",
-      "Depende solo de si compila",
-      "No se puede saber mirando el codigo"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 0,
     "explanation": "Si cachear usuario falla despues de guardar tokens, el login sigue devolviendo true."
   },
   {
     "id": "auto-login-cache-not-fatal-inverse-23",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "matar",
-    "question": "Forma inversa sobre usecases: cual es la afirmacion falsa?",
+    "question": "En relación con casos de uso, seleccione la opción incompatible con el comportamiento implementado.",
     "options": [
       "Si cachear usuario falla despues de guardar tokens, el login sigue devolviendo true.",
       "El fallo de cache no invalida login",
       "Si falla cachear usuario, execute devuelve false siempre",
-      "Es un detalle que puede salir en examen"
+      "La implementacion debe evaluarse a partir del contrato y del flujo real del codigo."
     ],
     "answer": 2,
-    "explanation": "La falsa es: Si falla cachear usuario, execute devuelve false siempre. Si cachear usuario falla despues de guardar tokens, el login sigue devolviendo true."
+    "explanation": "La afirmación incorrecta es: Si falla cachear usuario, execute devuelve false siempre. Si cachear usuario falla despues de guardar tokens, el login sigue devolviendo true."
   },
   {
     "id": "auto-login-cache-not-fatal-review-23",
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "matar",
-    "question": "Codigo de otro grupo: di si esta bien, mal o parcial y como lo arreglarias.",
-    "code": "val user = userRepository.getUser() ?: return false\nreturn true",
+    "question": "Evalúe el fragmento de código asociado a casos de uso. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
+    "code": "val user = userRepository.getUser() ?: return false return true",
     "verdictOptions": [
       "correcto",
       "incorrecto",
@@ -4349,12 +4350,12 @@
     "topic": "usecases",
     "type": "multiple",
     "difficulty": "matar",
-    "question": "Selecciona las ideas correctas relacionadas con: Si cachear usuario falla despues de guardar tokens, el login sigue devolviendo true.",
+    "question": "Seleccione todas las afirmaciones tecnicamente correctas sobre casos de uso.",
     "options": [
       "El fallo de cache no invalida login",
       "Si cachear usuario falla despues de guardar tokens, el login sigue devolviendo true.",
       "Si falla cachear usuario, execute devuelve false siempre",
-      "La compilacion siempre demuestra que la arquitectura es correcta"
+      "La compilacion del fragmento garantiza por si sola que se respeta la arquitectura esperada."
     ],
     "answer": [
       0,
@@ -4367,8 +4368,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "matar",
-    "question": "Completa con la palabra clave que mejor arregla este caso: Si falla cachear usuario, execute devuelve false siempre",
-    "code": "// Pista del arreglo esperado\n// usar ____",
+    "question": "Complete con el concepto, anotación o identificador clave relacionado con cache.",
+    "code": "// Pista del arreglo esperado // usar ____",
     "answer": [
       "cache"
     ],
@@ -4379,37 +4380,37 @@
     "topic": "json-api",
     "type": "single",
     "difficulty": "matar",
-    "question": "Forma directa: UserRemoteDatasource acepta un objeto directo si tiene uuid, email o username. Que opcion encaja mejor?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre parseo JSON de la API.",
     "options": [
       "Acepta objeto usuario directo",
       "Solo acepta arrays",
-      "Depende solo de si compila",
-      "No se puede saber mirando el codigo"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 0,
     "explanation": "UserRemoteDatasource acepta un objeto directo si tiene uuid, email o username."
   },
   {
     "id": "auto-api-user-direct-object-inverse-24",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "matar",
-    "question": "Forma inversa sobre json-api: cual es la afirmacion falsa?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre codigo.",
     "options": [
       "UserRemoteDatasource acepta un objeto directo si tiene uuid, email o username.",
       "Acepta objeto usuario directo",
-      "Solo acepta arrays",
-      "Es un detalle que puede salir en examen"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 2,
-    "explanation": "La falsa es: Solo acepta arrays. UserRemoteDatasource acepta un objeto directo si tiene uuid, email o username."
+    "explanation": "La afirmación incorrecta es: Solo acepta arrays. UserRemoteDatasource acepta un objeto directo si tiene uuid, email o username."
   },
   {
     "id": "auto-api-user-direct-object-review-24",
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "matar",
-    "question": "Codigo de otro grupo: di si esta bien, mal o parcial y como lo arreglarias.",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre revision codigo.",
     "code": "if (!element.isJsonArray) return emptyList()",
     "verdictOptions": [
       "correcto",
@@ -4431,12 +4432,12 @@
     "topic": "json-api",
     "type": "multiple",
     "difficulty": "matar",
-    "question": "Selecciona las ideas correctas relacionadas con: UserRemoteDatasource acepta un objeto directo si tiene uuid, email o username.",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre parseo JSON de la API.",
     "options": [
       "Acepta objeto usuario directo",
       "UserRemoteDatasource acepta un objeto directo si tiene uuid, email o username.",
-      "Solo acepta arrays",
-      "La compilacion siempre demuestra que la arquitectura es correcta"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": [
       0,
@@ -4449,8 +4450,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "matar",
-    "question": "Completa con la palabra clave que mejor arregla este caso: Solo acepta arrays",
-    "code": "// Pista del arreglo esperado\n// usar ____",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre codigo.",
+    "code": "// Pista del arreglo esperado // usar ____",
     "answer": [
       "uuid"
     ],
@@ -4461,37 +4462,37 @@
     "topic": "json-api",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Forma directa: Bike/Rent remote buscan el primer campo JsonArray dentro de un objeto. Que opcion encaja mejor?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre parseo JSON de la API.",
     "options": [
       "Busca el primer array interno",
       "Exige que el campo se llame exactamente data",
-      "Depende solo de si compila",
-      "No se puede saber mirando el codigo"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 0,
     "explanation": "Bike/Rent remote buscan el primer campo JsonArray dentro de un objeto."
   },
   {
     "id": "auto-api-first-array-inverse-25",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Forma inversa sobre json-api: cual es la afirmacion falsa?",
+    "question": "En relación con parseo JSON de la API, seleccione la opción incompatible con el comportamiento implementado.",
     "options": [
       "Bike/Rent remote buscan el primer campo JsonArray dentro de un objeto.",
       "Busca el primer array interno",
       "Exige que el campo se llame exactamente data",
-      "Es un detalle que puede salir en examen"
+      "La implementacion debe evaluarse a partir del contrato y del flujo real del codigo."
     ],
     "answer": 2,
-    "explanation": "La falsa es: Exige que el campo se llame exactamente data. Bike/Rent remote buscan el primer campo JsonArray dentro de un objeto."
+    "explanation": "La afirmación incorrecta es: Exige que el campo se llame exactamente data. Bike/Rent remote buscan el primer campo JsonArray dentro de un objeto."
   },
   {
     "id": "auto-api-first-array-review-25",
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "trampa",
-    "question": "Codigo de otro grupo: di si esta bien, mal o parcial y como lo arreglarias.",
+    "question": "Evalúe el fragmento de código asociado a parseo JSON de la API. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
     "code": "val array = element.asJsonObject.getAsJsonArray(\"data\")",
     "verdictOptions": [
       "correcto",
@@ -4512,12 +4513,12 @@
     "topic": "json-api",
     "type": "multiple",
     "difficulty": "trampa",
-    "question": "Selecciona las ideas correctas relacionadas con: Bike/Rent remote buscan el primer campo JsonArray dentro de un objeto.",
+    "question": "Seleccione todas las afirmaciones tecnicamente correctas sobre parseo JSON de la API.",
     "options": [
       "Busca el primer array interno",
       "Bike/Rent remote buscan el primer campo JsonArray dentro de un objeto.",
       "Exige que el campo se llame exactamente data",
-      "La compilacion siempre demuestra que la arquitectura es correcta"
+      "La compilacion del fragmento garantiza por si sola que se respeta la arquitectura esperada."
     ],
     "answer": [
       0,
@@ -4530,8 +4531,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "trampa",
-    "question": "Completa con la palabra clave que mejor arregla este caso: Exige que el campo se llame exactamente data",
-    "code": "// Pista del arreglo esperado\n// usar ____",
+    "question": "Complete con el concepto, anotación o identificador clave relacionado con JsonArray.",
+    "code": "// Pista del arreglo esperado // usar ____",
     "answer": [
       "JsonArray"
     ],
@@ -4542,37 +4543,37 @@
     "topic": "modelos",
     "type": "single",
     "difficulty": "normal",
-    "question": "Forma directa: User de dominio usa campos nullable, pero UserModel local usa valores no nulos. Que opcion encaja mejor?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre modelos de dominio.",
     "options": [
       "El mapper usa orEmpty y defaults",
       "UserModel guarda nulls igual que User",
-      "Depende solo de si compila",
-      "No se puede saber mirando el codigo"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 0,
     "explanation": "User de dominio usa campos nullable, pero UserModel local usa valores no nulos."
   },
   {
     "id": "auto-domain-user-nullable-inverse-26",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "normal",
-    "question": "Forma inversa sobre modelos: cual es la afirmacion falsa?",
+    "question": "En relación con modelos de dominio, seleccione la opción incompatible con el comportamiento implementado.",
     "options": [
       "User de dominio usa campos nullable, pero UserModel local usa valores no nulos.",
       "El mapper usa orEmpty y defaults",
       "UserModel guarda nulls igual que User",
-      "Es un detalle que puede salir en examen"
+      "La implementacion debe evaluarse a partir del contrato y del flujo real del codigo."
     ],
     "answer": 2,
-    "explanation": "La falsa es: UserModel guarda nulls igual que User. User de dominio usa campos nullable, pero UserModel local usa valores no nulos."
+    "explanation": "La afirmación incorrecta es: UserModel guarda nulls igual que User. User de dominio usa campos nullable, pero UserModel local usa valores no nulos."
   },
   {
     "id": "auto-domain-user-nullable-review-26",
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "normal",
-    "question": "Codigo de otro grupo: di si esta bien, mal o parcial y como lo arreglarias.",
+    "question": "Evalúe el fragmento de código asociado a modelos de dominio. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
     "code": "UserModel(uuid = user.uuid, email = user.email) // sin gestionar nulls",
     "verdictOptions": [
       "correcto",
@@ -4593,12 +4594,12 @@
     "topic": "modelos",
     "type": "multiple",
     "difficulty": "normal",
-    "question": "Selecciona las ideas correctas relacionadas con: User de dominio usa campos nullable, pero UserModel local usa valores no nulos.",
+    "question": "Seleccione todas las afirmaciones tecnicamente correctas sobre modelos de dominio.",
     "options": [
       "El mapper usa orEmpty y defaults",
       "User de dominio usa campos nullable, pero UserModel local usa valores no nulos.",
       "UserModel guarda nulls igual que User",
-      "La compilacion siempre demuestra que la arquitectura es correcta"
+      "La compilacion del fragmento garantiza por si sola que se respeta la arquitectura esperada."
     ],
     "answer": [
       0,
@@ -4611,8 +4612,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "normal",
-    "question": "Completa con la palabra clave que mejor arregla este caso: UserModel guarda nulls igual que User",
-    "code": "// Pista del arreglo esperado\n// usar ____",
+    "question": "Complete con el concepto, anotación o identificador clave relacionado con nullable.",
+    "code": "// Pista del arreglo esperado // usar ____",
     "answer": [
       "nullable"
     ],
@@ -4623,37 +4624,37 @@
     "topic": "modelos",
     "type": "single",
     "difficulty": "matar",
-    "question": "Forma directa: En Rent de dominio la bici alquilada se llama rents, nombre confuso pero usado por UI. Que opcion encaja mejor?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre modelos de dominio.",
     "options": [
       "rent.rents contiene BikeRent",
       "La UI usa rent.bike porque existe en dominio",
-      "Depende solo de si compila",
-      "No se puede saber mirando el codigo"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 0,
     "explanation": "En Rent de dominio la bici alquilada se llama rents, nombre confuso pero usado por UI."
   },
   {
     "id": "auto-domain-rent-rents-name-inverse-27",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "matar",
-    "question": "Forma inversa sobre modelos: cual es la afirmacion falsa?",
+    "question": "En relación con modelos de dominio, seleccione la opción incompatible con el comportamiento implementado.",
     "options": [
       "En Rent de dominio la bici alquilada se llama rents, nombre confuso pero usado por UI.",
       "rent.rents contiene BikeRent",
       "La UI usa rent.bike porque existe en dominio",
-      "Es un detalle que puede salir en examen"
+      "La implementacion debe evaluarse a partir del contrato y del flujo real del codigo."
     ],
     "answer": 2,
-    "explanation": "La falsa es: La UI usa rent.bike porque existe en dominio. En Rent de dominio la bici alquilada se llama rents, nombre confuso pero usado por UI."
+    "explanation": "La afirmación incorrecta es: La UI usa rent.bike porque existe en dominio. En Rent de dominio la bici alquilada se llama rents, nombre confuso pero usado por UI."
   },
   {
     "id": "auto-domain-rent-rents-name-review-27",
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "matar",
-    "question": "Codigo de otro grupo: di si esta bien, mal o parcial y como lo arreglarias.",
+    "question": "Evalúe el fragmento de código asociado a modelos de dominio. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
     "code": "Text(rent.bike.name)",
     "verdictOptions": [
       "correcto",
@@ -4674,12 +4675,12 @@
     "topic": "modelos",
     "type": "multiple",
     "difficulty": "matar",
-    "question": "Selecciona las ideas correctas relacionadas con: En Rent de dominio la bici alquilada se llama rents, nombre confuso pero usado por UI.",
+    "question": "Seleccione todas las afirmaciones tecnicamente correctas sobre modelos de dominio.",
     "options": [
       "rent.rents contiene BikeRent",
       "En Rent de dominio la bici alquilada se llama rents, nombre confuso pero usado por UI.",
       "La UI usa rent.bike porque existe en dominio",
-      "La compilacion siempre demuestra que la arquitectura es correcta"
+      "La compilacion del fragmento garantiza por si sola que se respeta la arquitectura esperada."
     ],
     "answer": [
       0,
@@ -4692,8 +4693,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "matar",
-    "question": "Completa con la palabra clave que mejor arregla este caso: La UI usa rent.bike porque existe en dominio",
-    "code": "// Pista del arreglo esperado\n// usar ____",
+    "question": "Complete con el concepto, anotación o identificador clave relacionado con rents.",
+    "code": "// Pista del arreglo esperado // usar ____",
     "answer": [
       "rents"
     ],
@@ -4704,37 +4705,37 @@
     "topic": "perfil",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Forma directa: ProfileScreen muestra datos de tarjeta, incluido CVV, segun el codigo actual. Que opcion encaja mejor?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre pantalla de perfil.",
     "options": [
       "Muestra Number, CVV y Expiration",
       "Nunca muestra informacion de tarjeta",
-      "Depende solo de si compila",
-      "No se puede saber mirando el codigo"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 0,
     "explanation": "ProfileScreen muestra datos de tarjeta, incluido CVV, segun el codigo actual."
   },
   {
     "id": "auto-profile-credit-card-inverse-28",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "trampa",
-    "question": "Forma inversa sobre perfil: cual es la afirmacion falsa?",
+    "question": "En relación con pantalla de perfil, seleccione la opción incompatible con el comportamiento implementado.",
     "options": [
       "ProfileScreen muestra datos de tarjeta, incluido CVV, segun el codigo actual.",
       "Muestra Number, CVV y Expiration",
       "Nunca muestra informacion de tarjeta",
-      "Es un detalle que puede salir en examen"
+      "La implementacion debe evaluarse a partir del contrato y del flujo real del codigo."
     ],
     "answer": 2,
-    "explanation": "La falsa es: Nunca muestra informacion de tarjeta. ProfileScreen muestra datos de tarjeta, incluido CVV, segun el codigo actual."
+    "explanation": "La afirmación incorrecta es: Nunca muestra informacion de tarjeta. ProfileScreen muestra datos de tarjeta, incluido CVV, segun el codigo actual."
   },
   {
     "id": "auto-profile-credit-card-review-28",
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "trampa",
-    "question": "Codigo de otro grupo: di si esta bien, mal o parcial y como lo arreglarias.",
+    "question": "Evalúe el fragmento de código asociado a pantalla de perfil. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
     "code": "// Comentario: por seguridad esta pantalla no muestra CVV",
     "verdictOptions": [
       "correcto",
@@ -4755,12 +4756,12 @@
     "topic": "perfil",
     "type": "multiple",
     "difficulty": "trampa",
-    "question": "Selecciona las ideas correctas relacionadas con: ProfileScreen muestra datos de tarjeta, incluido CVV, segun el codigo actual.",
+    "question": "Seleccione todas las afirmaciones tecnicamente correctas sobre pantalla de perfil.",
     "options": [
       "Muestra Number, CVV y Expiration",
       "ProfileScreen muestra datos de tarjeta, incluido CVV, segun el codigo actual.",
       "Nunca muestra informacion de tarjeta",
-      "La compilacion siempre demuestra que la arquitectura es correcta"
+      "La compilacion del fragmento garantiza por si sola que se respeta la arquitectura esperada."
     ],
     "answer": [
       0,
@@ -4773,8 +4774,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "trampa",
-    "question": "Completa con la palabra clave que mejor arregla este caso: Nunca muestra informacion de tarjeta",
-    "code": "// Pista del arreglo esperado\n// usar ____",
+    "question": "Complete con el concepto, anotación o identificador clave relacionado con CVV.",
+    "code": "// Pista del arreglo esperado // usar ____",
     "answer": [
       "CVV"
     ],
@@ -4785,37 +4786,37 @@
     "topic": "profile-ui",
     "type": "single",
     "difficulty": "matar",
-    "question": "Forma directa: formatDuration usa h:mm:ss si hay horas, y m:ss si no las hay. Que opcion encaja mejor?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre pantalla de perfil.",
     "options": [
       "3661 -> 1:01:01",
       "3661 -> 61:01 siempre",
-      "Depende solo de si compila",
-      "No se puede saber mirando el codigo"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 0,
     "explanation": "formatDuration usa h:mm:ss si hay horas, y m:ss si no las hay."
   },
   {
     "id": "auto-profile-duration-hours-inverse-29",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "matar",
-    "question": "Forma inversa sobre profile-ui: cual es la afirmacion falsa?",
+    "question": "En relación con pantalla de perfil, seleccione la opción incompatible con el comportamiento implementado.",
     "options": [
       "formatDuration usa h:mm:ss si hay horas, y m:ss si no las hay.",
       "3661 -> 1:01:01",
       "3661 -> 61:01 siempre",
-      "Es un detalle que puede salir en examen"
+      "La implementacion debe evaluarse a partir del contrato y del flujo real del codigo."
     ],
     "answer": 2,
-    "explanation": "La falsa es: 3661 -> 61:01 siempre. formatDuration usa h:mm:ss si hay horas, y m:ss si no las hay."
+    "explanation": "La afirmación incorrecta es: 3661 -> 61:01 siempre. formatDuration usa h:mm:ss si hay horas, y m:ss si no las hay."
   },
   {
     "id": "auto-profile-duration-hours-review-29",
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "matar",
-    "question": "Codigo de otro grupo: di si esta bien, mal o parcial y como lo arreglarias.",
+    "question": "Evalúe el fragmento de código asociado a pantalla de perfil. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
     "code": "return \"%d:%02d\".format(seconds / 60, seconds % 60)",
     "verdictOptions": [
       "correcto",
@@ -4837,12 +4838,12 @@
     "topic": "profile-ui",
     "type": "multiple",
     "difficulty": "matar",
-    "question": "Selecciona las ideas correctas relacionadas con: formatDuration usa h:mm:ss si hay horas, y m:ss si no las hay.",
+    "question": "Seleccione todas las afirmaciones tecnicamente correctas sobre pantalla de perfil.",
     "options": [
       "3661 -> 1:01:01",
       "formatDuration usa h:mm:ss si hay horas, y m:ss si no las hay.",
       "3661 -> 61:01 siempre",
-      "La compilacion siempre demuestra que la arquitectura es correcta"
+      "La compilacion del fragmento garantiza por si sola que se respeta la arquitectura esperada."
     ],
     "answer": [
       0,
@@ -4855,8 +4856,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "matar",
-    "question": "Completa con la palabra clave que mejor arregla este caso: 3661 -> 61:01 siempre",
-    "code": "// Pista del arreglo esperado\n// usar ____",
+    "question": "Complete con el concepto, anotación o identificador clave relacionado con h.",
+    "code": "// Pista del arreglo esperado // usar ____",
     "answer": [
       "h"
     ],
@@ -4867,37 +4868,37 @@
     "topic": "ui-estado",
     "type": "single",
     "difficulty": "matar",
-    "question": "Forma directa: Si hay activeRent, los botones de alquilar otras bicis disponibles se deshabilitan. Que opcion encaja mejor?",
+    "question": "Seleccione la afirmacion tecnicamente correcta sobre estado de UI.",
     "options": [
       "enabled = activeRent == null",
       "Permite varias rentas activas desde la UI",
-      "Depende solo de si compila",
-      "No se puede saber mirando el codigo"
+      "La correccion depende exclusivamente de que el fragmento compile sin errores.",
+      "La responsabilidad deberia trasladarse a una capa no relacionada para simplificar la implementacion."
     ],
     "answer": 0,
     "explanation": "Si hay activeRent, los botones de alquilar otras bicis disponibles se deshabilitan."
   },
   {
     "id": "auto-bike-active-rent-disable-inverse-30",
-    "topic": "preguntas-inversas",
+    "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "matar",
-    "question": "Forma inversa sobre ui-estado: cual es la afirmacion falsa?",
+    "question": "En relación con estado de UI, seleccione la opción incompatible con el comportamiento implementado.",
     "options": [
       "Si hay activeRent, los botones de alquilar otras bicis disponibles se deshabilitan.",
       "enabled = activeRent == null",
       "Permite varias rentas activas desde la UI",
-      "Es un detalle que puede salir en examen"
+      "La implementacion debe evaluarse a partir del contrato y del flujo real del codigo."
     ],
     "answer": 2,
-    "explanation": "La falsa es: Permite varias rentas activas desde la UI. Si hay activeRent, los botones de alquilar otras bicis disponibles se deshabilitan."
+    "explanation": "La afirmación incorrecta es: Permite varias rentas activas desde la UI. Si hay activeRent, los botones de alquilar otras bicis disponibles se deshabilitan."
   },
   {
     "id": "auto-bike-active-rent-disable-review-30",
     "topic": "revision-codigo",
     "type": "revisar-codigo",
     "difficulty": "matar",
-    "question": "Codigo de otro grupo: di si esta bien, mal o parcial y como lo arreglarias.",
+    "question": "Evalúe el fragmento de código asociado a estado de UI. Determine si la implementación es correcta, incorrecta o parcialmente correcta y justifique la corrección necesaria.",
     "code": "Button(onClick = onRentClick, enabled = available) { Text(\"Rent Bike\") }",
     "verdictOptions": [
       "correcto",
@@ -4918,12 +4919,12 @@
     "topic": "ui-estado",
     "type": "multiple",
     "difficulty": "matar",
-    "question": "Selecciona las ideas correctas relacionadas con: Si hay activeRent, los botones de alquilar otras bicis disponibles se deshabilitan.",
+    "question": "Seleccione todas las afirmaciones tecnicamente correctas sobre estado de UI.",
     "options": [
       "enabled = activeRent == null",
       "Si hay activeRent, los botones de alquilar otras bicis disponibles se deshabilitan.",
       "Permite varias rentas activas desde la UI",
-      "La compilacion siempre demuestra que la arquitectura es correcta"
+      "La compilacion del fragmento garantiza por si sola que se respeta la arquitectura esperada."
     ],
     "answer": [
       0,
