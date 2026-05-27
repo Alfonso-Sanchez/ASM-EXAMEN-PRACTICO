@@ -42,14 +42,22 @@ const els = {
   updatePanel: document.querySelector("#updatePanel"),
   updateTitle: document.querySelector("#updateTitle"),
   updateStatus: document.querySelector("#updateStatus"),
-  applyUpdateBtn: document.querySelector("#applyUpdateBtn")
+  applyUpdateBtn: document.querySelector("#applyUpdateBtn"),
+  updateModal: document.querySelector("#updateModal"),
+  updateModalBody: document.querySelector("#updateModalBody"),
+  closeUpdateModalBtn: document.querySelector("#closeUpdateModalBtn"),
+  cancelUpdateBtn: document.querySelector("#cancelUpdateBtn"),
+  confirmUpdateBtn: document.querySelector("#confirmUpdateBtn")
 };
 
 document.querySelector("#newExamBtn").addEventListener("click", () => startExam("test"));
 document.querySelector("#reinforceBtn").addEventListener("click", () => startExam("reinforcement"));
 document.querySelector("#bankBtn").addEventListener("click", showBank);
 els.updateBtn.addEventListener("click", checkForUpdates);
-els.applyUpdateBtn.addEventListener("click", applyUpdate);
+els.applyUpdateBtn.addEventListener("click", openUpdateModal);
+els.closeUpdateModalBtn.addEventListener("click", closeUpdateModal);
+els.cancelUpdateBtn.addEventListener("click", closeUpdateModal);
+els.confirmUpdateBtn.addEventListener("click", applyUpdate);
 els.prevBtn.addEventListener("click", () => move(-1));
 els.nextBtn.addEventListener("click", () => move(1));
 els.checkBtn.addEventListener("click", checkCurrent);
@@ -563,7 +571,7 @@ async function checkForUpdates() {
 
 async function applyUpdate() {
   if (!state.pendingUpdate?.packageAvailable) return;
-  if (!confirm("Se descargaran los archivos publicos del repo y se sobrescribira esta app local. ¿Actualizar ahora?")) return;
+  closeUpdateModal();
   setUpdatePanel("Aplicando update...", "Descargando archivos desde GitHub.", "ready");
   try {
     const response = await fetch("/api/apply-update", { method: "POST" });
@@ -574,6 +582,28 @@ async function applyUpdate() {
   } catch (error) {
     setUpdatePanel("Fallo al aplicar", error.message, "error");
   }
+}
+
+function openUpdateModal() {
+  const info = state.pendingUpdate;
+  if (!info?.packageAvailable) return;
+  els.updateModalBody.innerHTML = `
+    <p>Se descargara la version publica mas reciente desde <strong>${escapeHtml(GITHUB_REPO)}</strong>.</p>
+    <p class="modal-warning">Esta accion sobrescribe los archivos locales de esta app de examen y reinicia el servidor local.</p>
+    <ul class="modal-list">
+      <li><strong>Commit local:</strong> ${escapeHtml(shortSha(info.currentCommit))}</li>
+      <li><strong>Commit GitHub:</strong> ${escapeHtml(shortSha(info.latestCommit))}</li>
+      <li><strong>Archivos:</strong> index.html, app.js, styles.css, README.md y data/questions.json</li>
+      <li><strong>Despues:</strong> se espera a que el servidor responda y se recarga la pagina automaticamente.</li>
+    </ul>
+    <p>Tu historial de notas se guarda en el navegador y no se borra al actualizar los archivos.</p>
+  `;
+  els.updateModal.classList.remove("hidden");
+  els.confirmUpdateBtn.focus();
+}
+
+function closeUpdateModal() {
+  els.updateModal.classList.add("hidden");
 }
 
 async function waitForServerAndReload() {
