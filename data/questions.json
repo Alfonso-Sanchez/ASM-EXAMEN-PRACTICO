@@ -2589,8 +2589,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "matar",
-    "question": "Complete con el concepto, anotación o identificador clave relacionado con applicationContext.",
-    "code": "// Pista del arreglo esperado // usar ____",
+    "question": "Complete el acceso al contexto correcto para construir el singleton de Room sin retener una Activity.",
+    "code": "Room.databaseBuilder(\n    context.____,\n    Pedalean2Database::class.java,\n    \"pedalean2.db\"\n)",
     "answer": [
       "applicationContext"
     ],
@@ -2670,8 +2670,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "trampa",
-    "question": "Complete con el concepto, anotación o identificador clave relacionado con exportSchema.",
-    "code": "// Pista del arreglo esperado // usar ____",
+    "question": "Complete el atributo de @Database que evita que Room exporte el esquema a una carpeta externa.",
+    "code": "@Database(\n    entities = [UserEntity::class, BikeEntity::class, RentEntity::class],\n    version = 1,\n    ____ = false\n)",
     "answer": [
       "exportSchema"
     ],
@@ -2751,10 +2751,11 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "normal",
-    "question": "Complete con el concepto, anotación o identificador clave relacionado con filas.",
-    "code": "// Pista del arreglo esperado // usar ____",
+    "question": "Complete que representa el Int que devuelve una consulta DELETE en un DAO de Room.",
+    "code": "@Query(\"DELETE FROM bikes WHERE uuid = :uuid\")\nfun deleteByUuid(uuid: String): Int\n\n// El Int devuelto indica el numero de ____ afectadas.",
     "answer": [
-      "filas"
+      "filas",
+      "rows"
     ],
     "explanation": "Una palabra clave esperada es filas. Un @Query DELETE que devuelve Int informa cuantas filas se han borrado."
   },
@@ -2832,8 +2833,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "matar",
-    "question": "Complete con el concepto, anotación o identificador clave relacionado con REPLACE.",
-    "code": "// Pista del arreglo esperado // usar ____",
+    "question": "Complete la estrategia de conflicto usada para reemplazar una entidad existente al insertar en Room.",
+    "code": "@Insert(onConflict = OnConflictStrategy.____)\nfun insertBike(bike: BikeEntity)",
     "answer": [
       "REPLACE"
     ],
@@ -2913,9 +2914,10 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "trampa",
-    "question": "Complete con el concepto, anotación o identificador clave relacionado con barra.",
-    "code": "// Pista del arreglo esperado // usar ____",
+    "question": "Complete el caracter obligatorio al final de la baseUrl de Retrofit para que no lance IllegalArgumentException.",
+    "code": "Retrofit.Builder()\n    .baseUrl(\"https://api.pedalean2.com/endpoints/v2____\")\n    .build()",
     "answer": [
+      "/",
       "barra"
     ],
     "explanation": "Una palabra clave esperada es barra. La baseUrl de Retrofit debe terminar en /."
@@ -2994,8 +2996,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "matar",
-    "question": "Complete con el concepto, anotación o identificador clave relacionado con execute.",
-    "code": "// Pista del arreglo esperado // usar ____",
+    "question": "Complete la llamada que ejecuta una peticion Retrofit de forma sincronica cuando se trabaja con Call<T>.",
+    "code": "val call = apiService.getBikes()\nval response = call.____()",
     "answer": [
       "execute"
     ],
@@ -3075,8 +3077,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "matar",
-    "question": "Complete con el concepto, anotación o identificador clave relacionado con refresh.",
-    "code": "// Pista del arreglo esperado // usar ____",
+    "question": "Complete el tipo de token que se guarda en preferencias pero no se usa para renovar automaticamente el access token.",
+    "code": "prefs.edit()\n    .putString(\"access_token\", token.accessToken)\n    .putString(\"_____token\", token.refreshToken)\n    .apply()",
     "answer": [
       "refresh"
     ],
@@ -3156,8 +3158,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "normal",
-    "question": "Complete con el concepto, anotación o identificador clave relacionado con clear.",
-    "code": "// Pista del arreglo esperado // usar ____",
+    "question": "Complete la operacion de SharedPreferences que borra todos los tokens al cerrar sesion.",
+    "code": "prefs.edit()\n    .____()\n    .apply()",
     "answer": [
       "clear"
     ],
@@ -3237,8 +3239,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "trampa",
-    "question": "Complete con el concepto, anotación o identificador clave relacionado con RepositoryProvider.",
-    "code": "// Pista del arreglo esperado // usar ____",
+    "question": "Complete el objeto usado como service locator para obtener repositorios desde la capa de presentacion.",
+    "code": "val bikeRepository = ____.bikeRepository(context)\nval userRepository = ____.userRepository(context)",
     "answer": [
       "RepositoryProvider"
     ],
@@ -3318,9 +3320,11 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "matar",
-    "question": "Complete con el concepto, anotación o identificador clave relacionado con borra.",
-    "code": "// Pista del arreglo esperado // usar ____",
+    "question": "Complete el metodo del datasource local que se llama para borrar cada bici antes de guardar las descargadas.",
+    "code": "localDatasource.getAll().forEach { bike ->\n    localDatasource.____(bike.uuid)\n}",
     "answer": [
+      "delete",
+      "deleteByUuid",
       "borra"
     ],
     "explanation": "Una palabra clave esperada es borra. BikeRepository.refreshFromRemote borra la cache local y la reemplaza con datos remotos si remoto responde."
@@ -3399,9 +3403,11 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "matar",
-    "question": "Complete con el concepto, anotación o identificador clave relacionado con renta.",
-    "code": "// Pista del arreglo esperado // usar ____",
+    "question": "Complete la propiedad de BikeRent que permite saber si una renta sigue activa.",
+    "code": "override fun isRentActive(uuid: String): Boolean {\n    return localDatasource.getById(uuid)\n        ?.toRent()\n        ?.____ ?: false\n}",
     "answer": [
+      "isRented",
+      "rented",
       "renta"
     ],
     "explanation": "Una palabra clave esperada es renta. isRentActive(uuid) consulta una renta por uuid de renta, no por uuid de bici."
@@ -3480,8 +3486,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "trampa",
-    "question": "Complete con el concepto, anotación o identificador clave relacionado con orEmpty.",
-    "code": "// Pista del arreglo esperado // usar ____",
+    "question": "Complete la funcion Kotlin que convierte un String nullable en cadena vacia si viene null.",
+    "code": "Bike(\n    uuid = uuid,\n    name = name,\n    lastUse = lastUse.____()\n)",
     "answer": [
       "orEmpty"
     ],
@@ -3561,8 +3567,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "matar",
-    "question": "Complete con el concepto, anotación o identificador clave relacionado con LocalDateTime.",
-    "code": "// Pista del arreglo esperado // usar ____",
+    "question": "Complete la clase usada para parsear una fecha-hora sin zona horaria en los mappers.",
+    "code": "fun String.toLocalDateTimeOrNull() =\n    runCatching { ____.parse(this) }.getOrNull()",
     "answer": [
       "LocalDateTime"
     ],
@@ -3642,8 +3648,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "trampa",
-    "question": "Complete con el concepto, anotación o identificador clave relacionado con finally.",
-    "code": "// Pista del arreglo esperado // usar ____",
+    "question": "Complete el bloque que garantiza apagar el indicador de carga aunque falle la operacion.",
+    "code": "_isLoading.value = true\ntry {\n    refreshBikeState()\n} catch (e: Exception) {\n    _error.value = e.message\n} ____ {\n    _isLoading.value = false\n}",
     "answer": [
       "finally"
     ],
@@ -3723,8 +3729,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "matar",
-    "question": "Complete con el concepto, anotación o identificador clave relacionado con runCatching.",
-    "code": "// Pista del arreglo esperado // usar ____",
+    "question": "Complete el helper Kotlin usado para capturar excepciones al refrescar el estado desde un ViewModel.",
+    "code": "____ {\n    refreshBikeState()\n}.onFailure { error ->\n    _error.value = error.message\n}",
     "answer": [
       "runCatching"
     ],
@@ -3803,8 +3809,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "normal",
-    "question": "Complete con el concepto, anotación o identificador clave relacionado con innerPadding.",
-    "code": "// Pista del arreglo esperado // usar ____",
+    "question": "Complete el padding que debe aplicar el contenido interno de un Scaffold para respetar barras superiores e inferiores.",
+    "code": "Scaffold(\n    topBar = { TopAppBar(title = { Text(\"Pedalean2\") }) }\n) { innerPadding ->\n    BikeList(\n        modifier = Modifier.padding(____)\n    )\n}",
     "answer": [
       "innerPadding"
     ],
@@ -3884,8 +3890,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "trampa",
-    "question": "Complete con el concepto, anotación o identificador clave relacionado con items.",
-    "code": "// Pista del arreglo esperado // usar ____",
+    "question": "Complete la funcion de LazyColumn que pinta una fila por cada elemento de la lista.",
+    "code": "LazyColumn {\n    ____(bikes) { bike ->\n        BikeRow(bike = bike)\n    }\n}",
     "answer": [
       "items"
     ],
@@ -3965,8 +3971,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "matar",
-    "question": "Complete con el concepto, anotación o identificador clave relacionado con exported.",
-    "code": "// Pista del arreglo esperado // usar ____",
+    "question": "Complete el atributo obligatorio en Android 12+ para una Activity con intent-filter launcher.",
+    "code": "<activity\n    android:name=\".presentation.SplashActivity\"\n    android:____=\"true\">\n    <intent-filter>\n        <action android:name=\"android.intent.action.MAIN\" />\n        <category android:name=\"android.intent.category.LAUNCHER\" />\n    </intent-filter>\n</activity>",
     "answer": [
       "exported"
     ],
@@ -4045,8 +4051,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "normal",
-    "question": "Complete con el concepto, anotación o identificador clave relacionado con INTERNET.",
-    "code": "// Pista del arreglo esperado // usar ____",
+    "question": "Complete el permiso del Manifest necesario para que Retrofit pueda llamar a la API.",
+    "code": "<uses-permission android:name=\"android.permission.____\" />",
     "answer": [
       "INTERNET"
     ],
@@ -4126,8 +4132,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "matar",
-    "question": "Complete con el concepto, anotación o identificador clave relacionado con ksp.",
-    "code": "// Pista del arreglo esperado // usar ____",
+    "question": "Complete la configuracion Gradle usada para aplicar el compilador de Room con Kotlin Symbol Processing.",
+    "code": "dependencies {\n    implementation(libs.androidx.room.runtime)\n    implementation(libs.androidx.room.ktx)\n    ____(libs.androidx.room.compiler)\n}",
     "answer": [
       "ksp"
     ],
@@ -4207,8 +4213,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "trampa",
-    "question": "Complete con el concepto, anotación o identificador clave relacionado con minSdk.",
-    "code": "// Pista del arreglo esperado // usar ____",
+    "question": "Complete el campo de defaultConfig que fija la version minima de Android soportada por la app.",
+    "code": "android {\n    defaultConfig {\n        applicationId = \"com.example.pedalean2\"\n        ____ = 33\n    }\n}",
     "answer": [
       "minSdk"
     ],
@@ -4287,8 +4293,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "trampa",
-    "question": "Complete con el concepto, anotación o identificador clave relacionado con trim.",
-    "code": "// Pista del arreglo esperado // usar ____",
+    "question": "Complete la funcion aplicada a email y password antes de construir el TokenRequest en el login.",
+    "code": "val request = TokenRequest(\n    username = credentials.email.____(),\n    password = credentials.password.____()\n)",
     "answer": [
       "trim"
     ],
@@ -4368,10 +4374,11 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "matar",
-    "question": "Complete con el concepto, anotación o identificador clave relacionado con cache.",
-    "code": "// Pista del arreglo esperado // usar ____",
+    "question": "Complete que parte puede fallar tras el login sin invalidar necesariamente que el token se haya obtenido.",
+    "code": "val token = authRepository.login(credentials)\ntry {\n    userRepository.getUser()\n} catch (e: Exception) {\n    // Fallo al refrescar la ____ local, pero el login ya devolvio token.\n}",
     "answer": [
-      "cache"
+      "cache",
+      "caché"
     ],
     "explanation": "Una palabra clave esperada es cache. Si cachear usuario falla despues de guardar tokens, el login sigue devolviendo true."
   },
@@ -4450,8 +4457,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "matar",
-    "question": "Seleccione la afirmacion tecnicamente correcta sobre codigo.",
-    "code": "// Pista del arreglo esperado // usar ____",
+    "question": "Complete el campo que se comprueba para detectar que la respuesta ya contiene directamente un usuario.",
+    "code": "if (\n    jsonObject.has(\"____\") ||\n    jsonObject.has(\"email\") ||\n    jsonObject.has(\"username\")\n) {\n    return gson.fromJson(jsonObject, ApiUser::class.java)\n}",
     "answer": [
       "uuid"
     ],
@@ -4531,10 +4538,11 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "trampa",
-    "question": "Complete con el concepto, anotación o identificador clave relacionado con JsonArray.",
-    "code": "// Pista del arreglo esperado // usar ____",
+    "question": "Complete la propiedad de JsonElement que permite detectar el primer array dentro de una respuesta JSON envoltorio.",
+    "code": "for ((_, value) in jsonObject.entrySet()) {\n    if (value.is____) {\n        return value.asJsonArray\n    }\n}",
     "answer": [
-      "JsonArray"
+      "JsonArray",
+      "isJsonArray"
     ],
     "explanation": "Una palabra clave esperada es JsonArray. Bike/Rent remote buscan el primer campo JsonArray dentro de un objeto."
   },
@@ -4612,8 +4620,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "normal",
-    "question": "Complete con el concepto, anotación o identificador clave relacionado con nullable.",
-    "code": "// Pista del arreglo esperado // usar ____",
+    "question": "Complete el concepto que describe un campo Kotlin declarado con ? porque puede venir sin valor.",
+    "code": "data class User(\n    val uuid: String?,\n    val email: String?\n)\n\n// String? significa que el campo es ____.",
     "answer": [
       "nullable"
     ],
@@ -4693,8 +4701,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "matar",
-    "question": "Complete con el concepto, anotación o identificador clave relacionado con rents.",
-    "code": "// Pista del arreglo esperado // usar ____",
+    "question": "Complete el nombre de la propiedad del dominio Bike que guarda la renta activa asociada a la bici.",
+    "code": "data class Bike(\n    val uuid: String,\n    val name: String,\n    val ____: BikeRent? = null\n)",
     "answer": [
       "rents"
     ],
@@ -4774,10 +4782,11 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "trampa",
-    "question": "Complete con el concepto, anotación o identificador clave relacionado con CVV.",
-    "code": "// Pista del arreglo esperado // usar ____",
+    "question": "Complete la etiqueta que se muestra para el codigo de seguridad de la tarjeta en el perfil.",
+    "code": "ProfileField(\n    label = \"____\",\n    value = user.creditCardCvv?.toString()\n)",
     "answer": [
-      "CVV"
+      "CVV",
+      "cvv"
     ],
     "explanation": "Una palabra clave esperada es CVV. ProfileScreen muestra datos de tarjeta, incluido CVV, segun el codigo actual."
   },
@@ -4856,8 +4865,8 @@
     "topic": "codigo",
     "type": "completar-codigo",
     "difficulty": "matar",
-    "question": "Complete con el concepto, anotación o identificador clave relacionado con h.",
-    "code": "// Pista del arreglo esperado // usar ____",
+    "question": "Complete la variable que representa las horas al convertir segundos de uso a formato legible.",
+    "code": "val totalSeconds = user.totalUsageSeconds ?: 0\nval ____ = totalSeconds / 3600\nval m = (totalSeconds % 3600) / 60",
     "answer": [
       "h"
     ],
