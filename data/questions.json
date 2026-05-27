@@ -1433,7 +1433,7 @@
       "regular",
       "REGULAR",
       "electric",
-      ""
+      "Sin valor por defecto"
     ],
     "answer": 0,
     "explanation": "BikeApiModel declara @SerializedName(\"type\") val type: String = \"regular\"."
