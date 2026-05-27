@@ -11,7 +11,7 @@ const newQuestions = [
     topic: "room",
     type: "seleccionar-codigo",
     difficulty: "matar",
-    question: "Te dan este código de creación de Room. ¿Qué respuesta elegirías en un test?",
+    question: "Analiza esta creacion de la base de datos Room. Cual es el problema principal si se usa como singleton?",
     code: `Room.databaseBuilder(
     activity,
     Pedalean2Database::class.java,

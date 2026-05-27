@@ -12,6 +12,7 @@ const updateFiles = [
   "index.html",
   "app.js",
   "styles.css",
+  "serve-local.js",
   "README.md",
   "data/questions.json"
 ];
@@ -56,7 +57,10 @@ const server = http.createServer(async (req, res) => {
     }
 
     res.writeHead(200, {
-      "Content-Type": mime[path.extname(filePath)] || "text/plain; charset=utf-8"
+      "Content-Type": mime[path.extname(filePath)] || "text/plain; charset=utf-8",
+      "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+      "Pragma": "no-cache",
+      "Expires": "0"
     });
     res.end(data);
   });

@@ -76,7 +76,7 @@ function on(element, event, handler) {
 
 async function loadQuestions() {
   try {
-    const res = await fetch("data/questions.json");
+    const res = await fetch(`data/questions.json?v=${Date.now()}`, { cache: "no-store" });
     if (!res.ok) throw new Error("No se pudo cargar data/questions.json");
     state.questions = await res.json();
   } catch (error) {
@@ -605,8 +605,9 @@ function openUpdateModal() {
     <ul class="modal-list">
       <li><strong>Commit local:</strong> ${escapeHtml(shortSha(info.currentCommit))}</li>
       <li><strong>Commit GitHub:</strong> ${escapeHtml(shortSha(info.latestCommit))}</li>
-      <li><strong>Archivos:</strong> index.html, app.js, styles.css, README.md y data/questions.json</li>
-      <li><strong>Despues:</strong> se espera a que el servidor responda y se recarga la pagina automaticamente.</li>
+      <li><strong>Archivos:</strong> index.html, app.js, styles.css, serve-local.js, README.md y data/questions.json</li>
+      <li><strong>Banco:</strong> las preguntas se sustituyen por las publicadas en GitHub.</li>
+      <li><strong>Despues:</strong> se espera a que el servidor responda y se recarga la pagina automaticamente sin usar cache.</li>
     </ul>
     <p>Tu historial de notas se guarda en el navegador y no se borra al actualizar los archivos.</p>
   `;
