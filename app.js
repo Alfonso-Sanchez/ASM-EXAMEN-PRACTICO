@@ -33,6 +33,8 @@ const els = {
   examTitle: document.querySelector("#examTitle"),
   progressText: document.querySelector("#progressText"),
   progressBar: document.querySelector("#progressBar"),
+  scoreText: document.querySelector("#scoreText"),
+  scoreBar: document.querySelector("#scoreBar"),
   prevBtn: document.querySelector("#prevBtn"),
   nextBtn: document.querySelector("#nextBtn"),
   checkBtn: document.querySelector("#checkBtn"),
@@ -203,12 +205,13 @@ function renderQuestion() {
   els.examTitle.textContent = `Pregunta ${state.index + 1}`;
   els.progressText.textContent = `${state.index + 1}/${state.exam.length}`;
   els.progressBar.style.width = `${((state.index + 1) / state.exam.length) * 100}%`;
+  updateLiveScore();
   els.prevBtn.disabled = state.index === 0;
-  els.nextBtn.disabled = state.index === state.exam.length - 1;
 
   const checked = state.checked.has(q.id);
   const answer = state.answers.get(q.id);
   const answered = state.exam.filter(item => state.answers.has(item.id)).length;
+  const lockedText = checked ? "<span>Pregunta bloqueada</span>" : "";
   const passNeeded = Math.ceil(state.exam.length * PASS_GRADE / 10);
   els.questionHost.innerHTML = `
     <div class="question-meta">
@@ -220,6 +223,7 @@ function renderQuestion() {
       <span>Respondidas: ${answered}/${state.exam.length}</span>
       <span>Aprobado: ${passNeeded}/${state.exam.length}</span>
       <span>Fallos no restan</span>
+      ${lockedText}
     </div>
     <div class="prompt">${escapeHtml(q.question)}</div>
     ${q.code ? `<pre><code>${escapeHtml(q.code)}</code></pre>` : ""}
@@ -229,11 +233,16 @@ function renderQuestion() {
 
   renderAnswerControl(q, answer);
   if (checked) renderFeedback(q);
+  els.checkBtn.disabled = checked;
+  els.checkBtn.textContent = checked ? "Comprobada" : "Comprobar";
+  els.nextBtn.disabled = !checked || state.index === state.exam.length - 1;
+  els.nextBtn.title = !checked ? "Comprueba esta pregunta para poder avanzar" : "";
 }
 
 function renderAnswerControl(q, answer) {
   const host = document.querySelector("#answerHost");
   const optionOrder = state.optionOrders.get(q.id) || q.options?.map((_, idx) => idx) || [];
+  const locked = state.checked.has(q.id);
   if (q.type === "ordenar-codigo") {
     const picked = Array.isArray(answer) ? answer : [];
     const remaining = optionOrder.filter(idx => !picked.includes(idx));
@@ -249,19 +258,21 @@ function renderAnswerControl(q, answer) {
         </div>
       </div>
     `;
-    renderOrderZone(q, picked, remaining);
+    renderOrderZone(q, picked, remaining, locked);
     return;
   }
 
   if (q.type === "completar-codigo") {
     host.innerHTML = `
       <label>Respuesta exacta o concepto clave
-        <input id="fillAnswer" value="${escapeHtml(answer || "")}" placeholder="Escribe aqui">
+        <input id="fillAnswer" value="${escapeHtml(answer || "")}" placeholder="Escribe aqui" ${locked ? "disabled" : ""}>
       </label>
     `;
-    host.querySelector("input").addEventListener("input", event => {
-      state.answers.set(q.id, event.target.value);
-    });
+    if (!locked) {
+      host.querySelector("input").addEventListener("input", event => {
+        state.answers.set(q.id, event.target.value);
+      });
+    }
     return;
   }
 
@@ -276,19 +287,23 @@ function renderAnswerControl(q, answer) {
           `).join("")}
         </div>
         <label>Como lo arreglarias o que explicarias en el examen
-          <textarea id="reviewFix" rows="5" placeholder="Escribe el diagnostico y el arreglo concreto...">${escapeHtml(current.fix || "")}</textarea>
+          <textarea id="reviewFix" rows="5" placeholder="Escribe el diagnostico y el arreglo concreto..." ${locked ? "disabled" : ""}>${escapeHtml(current.fix || "")}</textarea>
         </label>
       </div>
     `;
     host.querySelectorAll("[data-verdict]").forEach(btn => {
+      btn.disabled = locked;
       btn.addEventListener("click", () => {
+        if (state.checked.has(q.id)) return;
         state.answers.set(q.id, { ...current, verdict: btn.dataset.verdict });
         renderQuestion();
       });
     });
-    host.querySelector("#reviewFix").addEventListener("input", event => {
-      state.answers.set(q.id, { ...current, fix: event.target.value });
-    });
+    if (!locked) {
+      host.querySelector("#reviewFix").addEventListener("input", event => {
+        state.answers.set(q.id, { ...current, fix: event.target.value });
+      });
+    }
     return;
   }
 
@@ -298,7 +313,8 @@ function renderAnswerControl(q, answer) {
     const text = q.options[idx];
     const btn = document.createElement("button");
     const selected = Array.isArray(answer) ? answer.includes(idx) : answer === idx;
-    btn.className = `option ${q.type === "multiple" ? "multi-option" : "single-option"}${selected ? " selected" : ""}`;
+    btn.className = `option ${q.type === "multiple" ? "multi-option" : "single-option"}${selected ? " selected" : ""}${locked ? " locked" : ""}`;
+    btn.disabled = locked;
     btn.innerHTML = `
       <span class="choice-indicator" aria-hidden="true"></span>
       <span>${escapeHtml(text)}</span>
@@ -308,7 +324,7 @@ function renderAnswerControl(q, answer) {
   });
 }
 
-function renderOrderZone(q, picked, remaining) {
+function renderOrderZone(q, picked, remaining, locked = false) {
   const pickedZone = document.querySelector("#pickedZone");
   const choiceZone = document.querySelector("#choiceZone");
   pickedZone.innerHTML = "";
@@ -317,8 +333,10 @@ function renderOrderZone(q, picked, remaining) {
   picked.forEach((idx, pos) => {
     const btn = document.createElement("button");
     btn.className = "line-chip selected";
+    btn.disabled = locked;
     btn.textContent = `${pos + 1}. ${q.options[idx]}`;
     btn.addEventListener("click", () => {
+      if (state.checked.has(q.id)) return;
       const next = picked.filter(item => item !== idx);
       state.answers.set(q.id, next);
       renderAnswerControl(q, next);
@@ -329,8 +347,10 @@ function renderOrderZone(q, picked, remaining) {
   remaining.forEach(idx => {
     const btn = document.createElement("button");
     btn.className = "line-chip";
+    btn.disabled = locked;
     btn.textContent = q.options[idx];
     btn.addEventListener("click", () => {
+      if (state.checked.has(q.id)) return;
       const next = [...picked, idx];
       state.answers.set(q.id, next);
       renderAnswerControl(q, next);
@@ -340,6 +360,7 @@ function renderOrderZone(q, picked, remaining) {
 }
 
 function selectOption(q, idx) {
+  if (state.checked.has(q.id)) return;
   const current = state.answers.get(q.id);
   if (q.type === "multiple") {
     const next = new Set(Array.isArray(current) ? current : []);
@@ -354,8 +375,19 @@ function selectOption(q, idx) {
 function checkCurrent() {
   const q = state.exam[state.index];
   if (!q) return;
+  if (state.checked.has(q.id)) return;
   state.checked.add(q.id);
   renderQuestion();
+}
+
+function updateLiveScore() {
+  const total = state.exam.length || 1;
+  const correct = state.exam.filter(q => state.checked.has(q.id) && isCorrect(q, state.answers.get(q.id))).length;
+  const checked = state.exam.filter(q => state.checked.has(q.id)).length;
+  const grade = Number(((correct / total) * 10).toFixed(2));
+  els.scoreText.textContent = `Nota ${grade}/10 · ${correct}/${total} correctas · ${checked} comprobadas`;
+  els.scoreBar.style.width = `${Math.min(100, grade * 10)}%`;
+  els.scoreBar.classList.toggle("passing", grade >= PASS_GRADE);
 }
 
 function renderFeedback(q) {
