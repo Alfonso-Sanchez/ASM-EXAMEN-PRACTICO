@@ -283,6 +283,18 @@ textarea {
   color: var(--ink);
 }
 
+.timer-text {
+  display: block;
+  margin-top: 10px;
+  color: var(--primary-dark);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.timer-text.urgent {
+  color: var(--danger);
+}
+
 .progress .score-track {
   height: 8px;
   background: #fff1f0;

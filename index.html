@@ -13,7 +13,8 @@
       <h1>Entrenador de examen</h1>
     </div>
     <div class="header-actions">
-      <button id="newExamBtn" class="primary">Test de 15</button>
+      <button id="moodleExamBtn" class="primary">Simulacro Moodle 20 min</button>
+      <button id="newExamBtn">Test libre</button>
       <button id="reinforceBtn">Refuerzo</button>
       <button id="bankBtn">Banco</button>
       <button id="updateBtn">Actualizar</button>
@@ -77,8 +78,8 @@
     </section>
 
     <section id="intro" class="panel intro">
-      <h2>Practica como si fueran a preguntar lo rebuscado</h2>
-      <p>El banco esta inspirado en la practica Pedalean2: Room, DAOs, entidades, repositorios, Retrofit, tokens, mappers, ViewModels, Compose, ciclos de Activity y sincronizacion local-remota.</p>
+      <h2>Preparación enfocada al Moodle práctico</h2>
+      <p>El simulacro usa un banco Moodle separado de 80 preguntas de verdadero/falso, opción múltiple y respuesta breve sobre el código de Pedalean2. El objetivo es entrenar comprensión real del proyecto, explicación breve y detección rápida de errores en fragmentos de código.</p>
       <div class="quick-grid" id="topicCards"></div>
     </section>
 
@@ -91,6 +92,7 @@
         <div class="progress">
           <span id="progressText">0/0</span>
           <div><i id="progressBar"></i></div>
+          <span id="timerText" class="timer-text"></span>
           <span id="scoreText">Nota 0/10</span>
           <div class="score-track"><i id="scoreBar"></i></div>
         </div>

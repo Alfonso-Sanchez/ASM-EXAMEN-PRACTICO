@@ -1,5 +1,6 @@
 const state = {
   questions: [],
+  moodleQuestions: [],
   exam: [],
   answers: new Map(),
   optionOrders: new Map(),
@@ -7,11 +8,16 @@ const state = {
   index: 0,
   mode: "intro",
   history: JSON.parse(localStorage.getItem("pedalean2ExamHistory") || "[]"),
-  pendingUpdate: null
+  pendingUpdate: null,
+  timerId: null,
+  endsAt: null
 };
 
 const PASS_GRADE = 6;
 const GITHUB_REPO = "Alfonso-Sanchez/ASM-EXAMEN-PRACTICO";
+const MOODLE_MINUTES = 20;
+const MOODLE_QUESTION_COUNT = 20;
+const MOODLE_TYPES = ["verdadero-falso", "single", "multiple", "seleccionar-codigo", "respuesta-breve"];
 
 const els = {
   topicFilter: document.querySelector("#topicFilter"),
@@ -33,6 +39,7 @@ const els = {
   examTitle: document.querySelector("#examTitle"),
   progressText: document.querySelector("#progressText"),
   progressBar: document.querySelector("#progressBar"),
+  timerText: document.querySelector("#timerText"),
   scoreText: document.querySelector("#scoreText"),
   scoreBar: document.querySelector("#scoreBar"),
   prevBtn: document.querySelector("#prevBtn"),
@@ -52,6 +59,7 @@ const els = {
   confirmUpdateBtn: document.querySelector("#confirmUpdateBtn")
 };
 
+on(document.querySelector("#moodleExamBtn"), "click", () => startExam("moodle"));
 on(document.querySelector("#newExamBtn"), "click", () => startExam("test"));
 on(document.querySelector("#reinforceBtn"), "click", () => startExam("reinforcement"));
 on(document.querySelector("#bankBtn"), "click", showBank);
@@ -78,9 +86,13 @@ function on(element, event, handler) {
 
 async function loadQuestions() {
   try {
-    const res = await fetch(`data/questions.json?v=${Date.now()}`, { cache: "no-store" });
+    const version = Date.now();
+    const res = await fetch(`data/questions.json?v=${version}`, { cache: "no-store" });
     if (!res.ok) throw new Error("No se pudo cargar data/questions.json");
-    state.questions = await res.json();
+    const generalQuestions = await res.json();
+    const moodleQuestions = await loadMoodleQuestions(version, generalQuestions);
+    state.moodleQuestions = moodleQuestions;
+    state.questions = mergeQuestions(generalQuestions, moodleQuestions);
   } catch (error) {
     showLoadError(error);
     return;
@@ -90,6 +102,25 @@ async function loadQuestions() {
   renderStats();
   renderTopicCards();
   updatePassTarget();
+}
+
+async function loadMoodleQuestions(version, generalQuestions) {
+  try {
+    const res = await fetch(`data/questionsMoodle.json?v=${version}`, { cache: "no-store" });
+    if (!res.ok) throw new Error("questionsMoodle.json no disponible");
+    const questions = await res.json();
+    return Array.isArray(questions) && questions.length
+      ? questions
+      : generalQuestions.filter(q => q.moodle === true);
+  } catch {
+    return generalQuestions.filter(q => q.moodle === true);
+  }
+}
+
+function mergeQuestions(generalQuestions, moodleQuestions) {
+  const byId = new Map(generalQuestions.map(question => [question.id, question]));
+  moodleQuestions.forEach(question => byId.set(question.id, question));
+  return [...byId.values()];
 }
 
 function showLoadError(error) {
@@ -158,8 +189,15 @@ function renderTopicCards() {
 }
 
 function startExam(mode) {
-  const count = clamp(Number(els.questionCount.value) || 15, 5, 30);
+  stopTimer();
+  const count = mode === "moodle" ? MOODLE_QUESTION_COUNT : clamp(Number(els.questionCount.value) || 15, 5, 30);
   let pool = filteredQuestions();
+
+  if (mode === "moodle") {
+    const curatedPool = state.moodleQuestions;
+    const fallbackPool = state.questions.filter(q => MOODLE_TYPES.includes(q.type));
+    pool = curatedPool.length >= MOODLE_QUESTION_COUNT ? curatedPool : fallbackPool;
+  }
 
   if (mode === "reinforcement") {
     const weak = getWeakAreas(state.history);
@@ -174,6 +212,7 @@ function startExam(mode) {
   state.checked = new Set();
   state.index = 0;
   state.mode = mode;
+  if (mode === "moodle") startTimer(MOODLE_MINUTES);
   state.exam.forEach(q => {
     if (Array.isArray(q.options)) {
       state.optionOrders.set(q.id, shuffle(q.options.map((_, idx) => idx)));
@@ -201,7 +240,7 @@ function renderQuestion() {
     return;
   }
 
-  els.examMode.textContent = state.mode === "reinforcement" ? "Refuerzo inteligente" : "Test";
+  els.examMode.textContent = examModeLabel();
   els.examTitle.textContent = `Pregunta ${state.index + 1}`;
   els.progressText.textContent = `${state.index + 1}/${state.exam.length}`;
   els.progressBar.style.width = `${((state.index + 1) / state.exam.length) * 100}%`;
@@ -262,14 +301,17 @@ function renderAnswerControl(q, answer) {
     return;
   }
 
-  if (q.type === "completar-codigo") {
+  if (q.type === "completar-codigo" || q.type === "respuesta-breve") {
+    const isBrief = q.type === "respuesta-breve";
     host.innerHTML = `
-      <label>Respuesta exacta o concepto clave
-        <input id="fillAnswer" value="${escapeHtml(answer || "")}" placeholder="Escribe aqui" ${locked ? "disabled" : ""}>
+      <label>${isBrief ? "Respuesta breve" : "Respuesta exacta o concepto clave"}
+        ${isBrief
+          ? `<textarea id="fillAnswer" rows="5" placeholder="Explica la idea principal con tus palabras..." ${locked ? "disabled" : ""}>${escapeHtml(answer || "")}</textarea>`
+          : `<input id="fillAnswer" value="${escapeHtml(answer || "")}" placeholder="Escribe aqui" ${locked ? "disabled" : ""}>`}
       </label>
     `;
     if (!locked) {
-      host.querySelector("input").addEventListener("input", event => {
+      host.querySelector("#fillAnswer").addEventListener("input", event => {
         state.answers.set(q.id, event.target.value);
       });
     }
@@ -400,8 +442,21 @@ function renderFeedback(q) {
       <strong>${ok ? "Correcta" : "Revisa esta"}</strong>
       <p>${escapeHtml(q.explanation)}</p>
       ${q.type === "revisar-codigo" ? renderReviewExpected(q, answer) : ""}
+      ${q.type === "respuesta-breve" ? renderBriefExpected(q, answer) : ""}
       ${q.type === "completar-codigo" ? renderFillExpected(q) : ""}
       ${q.trap ? `<p><strong>Trampa:</strong> ${escapeHtml(q.trap)}</p>` : ""}
+    </div>
+  `;
+}
+
+function renderBriefExpected(q, answer) {
+  const keywords = q.answer?.keywords || [];
+  const normalized = normalizeText(answer || "");
+  const missing = keywords.filter(keyword => !normalized.includes(normalizeText(keyword)));
+  return `
+    <div class="expected">
+      <p><strong>Conceptos esperados:</strong> ${escapeHtml(keywords.join(", ")) || "-"}.</p>
+      ${missing.length ? `<p><strong>Te faltaria mencionar:</strong> ${escapeHtml(missing.join(", "))}.</p>` : "<p><strong>Respuesta:</strong> contiene las claves principales.</p>"}
     </div>
   `;
 }
@@ -425,7 +480,7 @@ function renderFillExpected(q) {
 }
 
 function markOptions(q) {
-  if (q.type !== "single" && q.type !== "multiple") return;
+  if (!Array.isArray(q.options)) return;
   const buttons = [...document.querySelectorAll(".option")];
   const answer = state.answers.get(q.id);
   const correct = Array.isArray(q.answer) ? q.answer : [q.answer];
@@ -445,6 +500,7 @@ function move(step) {
 
 function finishExam() {
   if (!state.exam.length) return;
+  stopTimer();
   const results = state.exam.map(q => ({
     id: q.id,
     topic: q.topic,
@@ -455,6 +511,7 @@ function finishExam() {
   const score = results.filter(r => r.correct).length;
   const summary = {
     date: new Date().toISOString(),
+    mode: state.mode,
     score,
     total: results.length,
     percent: Math.round((score / results.length) * 100),
@@ -472,12 +529,13 @@ function finishExam() {
 
 function renderReport(summary, results) {
   showOnly("report");
+  const passLabel = summary.passed ? "Apte" : "No Apte";
   els.report.innerHTML = `
     <p class="eyebrow">Informe</p>
     <h2>${summary.score}/${summary.total} correctas (${summary.percent}%) - Nota ${summary.grade}/10</h2>
     <div class="result-banner ${summary.passed ? "pass" : "fail"}">
-      <strong>${summary.passed ? "Aprobado" : "Suspenso"}</strong>
-      <span>Minimo para aprobar: ${PASS_GRADE}/10. Las incorrectas no restan.</span>
+      <strong>${passLabel}</strong>
+      <span>Umbral Moodle: ${PASS_GRADE}/10 (60%). Las respuestas incorrectas no restan.</span>
     </div>
     <div class="report-grid">
       ${renderSummaryTable("Por tipo", summary.byType)}
@@ -546,10 +604,51 @@ function isCorrect(q, answer) {
     const fix = normalizeText(answer.fix || "");
     return (q.answer.keywords || []).every(keyword => fix.includes(normalizeText(keyword)));
   }
+  if (q.type === "respuesta-breve") {
+    const normalized = normalizeText(answer || "");
+    return (q.answer?.keywords || []).every(keyword => normalized.includes(normalizeText(keyword)));
+  }
   if (Array.isArray(q.answer)) {
     return Array.isArray(answer) && q.answer.length === answer.length && q.answer.every((item, idx) => item === answer[idx]);
   }
   return answer === q.answer;
+}
+
+function examModeLabel() {
+  if (state.mode === "moodle") return "Simulacro Moodle · 20 minutos · Apte 60%";
+  if (state.mode === "reinforcement") return "Refuerzo inteligente";
+  if (state.mode === "topic") return "Entrenamiento por tema";
+  return "Test libre";
+}
+
+function startTimer(minutes) {
+  state.endsAt = Date.now() + minutes * 60 * 1000;
+  updateTimer();
+  state.timerId = setInterval(updateTimer, 1000);
+}
+
+function stopTimer() {
+  if (state.timerId) clearInterval(state.timerId);
+  state.timerId = null;
+  state.endsAt = null;
+  if (els.timerText) {
+    els.timerText.textContent = "";
+    els.timerText.classList.remove("urgent");
+  }
+}
+
+function updateTimer() {
+  if (!state.endsAt) {
+    els.timerText.textContent = "";
+    els.timerText.classList.remove("urgent");
+    return;
+  }
+  const remaining = Math.max(0, state.endsAt - Date.now());
+  const minutes = Math.floor(remaining / 60000);
+  const seconds = Math.floor((remaining % 60000) / 1000);
+  els.timerText.textContent = `Tiempo ${minutes}:${String(seconds).padStart(2, "0")}`;
+  els.timerText.classList.toggle("urgent", remaining <= 3 * 60 * 1000);
+  if (remaining <= 0) finishExam();
 }
 
 function summarize(results, key) {

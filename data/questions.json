@@ -1636,15 +1636,15 @@
     "topic": "bug-hunt",
     "type": "single",
     "difficulty": "matar",
-    "question": "Qué detalle de ProfileScreen puede provocar texto raro si el archivo no esta bien codificado?",
+    "question": "¿Qué detalle de ProfileScreen puede mostrar un carácter incorrecto si el archivo no está bien codificado?",
     "options": [
-      "El separador Â· en RentCardItem",
+      "El separador de punto medio en RentCardItem",
       "El texto Profile",
       "El numero de rentas",
       "HorizontalDivider"
     ],
     "answer": 0,
-    "explanation": "En la salida leida aparece \"Â·\", indicio tipico de problema de codificacion del punto medio."
+    "explanation": "El separador de punto medio puede mostrarse de forma incorrecta si el archivo se interpreta con una codificación distinta."
   },
   {
     "id": "bug-hunt-002",
@@ -2246,7 +2246,7 @@
     "topic": "analisis-conceptual",
     "type": "single",
     "difficulty": "matar",
-    "question": "Te dan una bici con type = 'ELECTRIC'. qué NO pasara en BikeModel.toBike()?",
+    "question": "Si una bici llega con type = 'ELECTRIC', ¿qué comportamiento NO ocurrirá en BikeModel.toBike()?",
     "options": [
       "Se hara uppercase",
       "Se obtendra BikeType.ELECTRIC",
@@ -5420,5 +5420,515 @@
     ],
     "answer": 0,
     "explanation": "La query correcta filtra la columna uuid con el parámetro uuid y limita a una fila."
+  },
+  {
+    "id": "moodle-vf-room-context-001",
+    "topic": "room",
+    "type": "verdadero-falso",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: para crear un singleton de Room es preferible usar applicationContext antes que conservar una referencia a una Activity.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 0,
+    "explanation": "Es verdadero. El uso de applicationContext evita retener una Activity en un objeto de vida larga."
+  },
+  {
+    "id": "moodle-vf-retrofit-baseurl-002",
+    "topic": "retrofit",
+    "type": "verdadero-falso",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: la baseUrl de Retrofit puede declararse sin barra final y Retrofit la corregirá automáticamente.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 1,
+    "explanation": "Es falso. Retrofit exige que la baseUrl termine en barra para resolver rutas relativas."
+  },
+  {
+    "id": "moodle-vf-room-replace-003",
+    "topic": "dao",
+    "type": "verdadero-falso",
+    "difficulty": "trampa",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: OnConflictStrategy.REPLACE fusiona los campos no nulos de la entidad nueva con los campos antiguos.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 1,
+    "explanation": "Es falso. REPLACE sustituye la fila conflictiva; no realiza una fusión parcial de campos."
+  },
+  {
+    "id": "moodle-vf-delete-int-004",
+    "topic": "dao",
+    "type": "verdadero-falso",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: una consulta DELETE de Room que devuelve Int informa del número de filas afectadas.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 0,
+    "explanation": "Es verdadero. Room devuelve el recuento de filas afectadas por la operación."
+  },
+  {
+    "id": "moodle-vf-refresh-token-005",
+    "topic": "auth",
+    "type": "verdadero-falso",
+    "difficulty": "matar",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: guardar un refresh token implica necesariamente que el proyecto renueva automáticamente el access token.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 1,
+    "explanation": "Es falso. Puede guardarse el refresh token sin que exista un flujo implementado de renovación automática."
+  },
+  {
+    "id": "moodle-vf-compose-padding-006",
+    "topic": "compose",
+    "type": "verdadero-falso",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: el contenido de un Scaffold debe tener en cuenta innerPadding para evitar solaparse con barras de la interfaz.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 0,
+    "explanation": "Es verdadero. El padding que entrega Scaffold debe aplicarse al contenido cuando hay topBar, bottomBar u otros elementos estructurales."
+  },
+  {
+    "id": "moodle-vf-main-thread-007",
+    "topic": "retrofit",
+    "type": "verdadero-falso",
+    "difficulty": "matar",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: Call.execute() de Retrofit es una llamada síncrona y no debe ejecutarse bloqueando el hilo principal.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 0,
+    "explanation": "Es verdadero. execute() bloquea el hilo actual y debe ejecutarse en una capa o dispatcher adecuado."
+  },
+  {
+    "id": "moodle-vf-manifest-internet-008",
+    "topic": "activity",
+    "type": "verdadero-falso",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: Retrofit añade automáticamente el permiso INTERNET al Manifest si detecta llamadas de red.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 1,
+    "explanation": "Es falso. El permiso android.permission.INTERNET debe declararse explícitamente en el Manifest."
+  },
+  {
+    "id": "moodle-vf-nullable-009",
+    "topic": "modelos",
+    "type": "verdadero-falso",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: un tipo Kotlin declarado como String? puede contener null.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 0,
+    "explanation": "Es verdadero. El signo ? indica que el tipo es nullable."
+  },
+  {
+    "id": "moodle-vf-loading-finally-010",
+    "topic": "viewmodel",
+    "type": "verdadero-falso",
+    "difficulty": "trampa",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: si isLoading se pone a false solo al final del try, también se garantiza que se apague cuando hay una excepción.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 1,
+    "explanation": "Es falso. Para garantizarlo en éxito y error debe usarse un bloque finally o una estructura equivalente."
+  },
+  {
+    "id": "moodle-single-room-db-011",
+    "topic": "room",
+    "type": "single",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "¿Cuál es la finalidad principal de la clase que extiende RoomDatabase en el proyecto?",
+    "options": [
+      "Definir la base de datos local, sus entidades y el acceso a los DAO.",
+      "Ejecutar directamente las llamadas HTTP de Retrofit.",
+      "Pintar las pantallas de Compose.",
+      "Guardar el token en el Manifest."
+    ],
+    "answer": 0,
+    "explanation": "La clase RoomDatabase centraliza la configuración de la base de datos local y expone los DAO."
+  },
+  {
+    "id": "moodle-single-repository-012",
+    "topic": "repositorios",
+    "type": "single",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "¿Qué responsabilidad describe mejor a un repositorio dentro de esta práctica?",
+    "options": [
+      "Coordinar fuentes de datos locales/remotas y ofrecer operaciones de dominio a la capa superior.",
+      "Declarar permisos del Manifest.",
+      "Dibujar cada Composable de la interfaz.",
+      "Sustituir todas las entidades de Room por JSON."
+    ],
+    "answer": 0,
+    "explanation": "El repositorio actúa como capa de coordinación entre datasources y casos de uso/presentación."
+  },
+  {
+    "id": "moodle-single-token-clear-013",
+    "topic": "auth",
+    "type": "single",
+    "difficulty": "trampa",
+    "moodle": true,
+    "question": "¿Qué implementación es más segura para cerrar sesión si todas las claves guardadas pertenecen al almacenamiento de autenticación?",
+    "options": [
+      "prefs.edit().clear().apply()",
+      "prefs.edit().remove(\"access_token\").apply()",
+      "prefs.getString(\"access_token\", null)",
+      "prefs.edit().putString(\"access_token\", \"\").commit() sin borrar el resto"
+    ],
+    "answer": 0,
+    "explanation": "Si el SharedPreferences contiene solo datos de autenticación, clear().apply() evita dejar claves residuales."
+  },
+  {
+    "id": "moodle-single-gradle-ksp-014",
+    "topic": "gradle",
+    "type": "single",
+    "difficulty": "matar",
+    "moodle": true,
+    "question": "¿Dónde debe declararse el compilador de Room cuando el proyecto usa Kotlin Symbol Processing?",
+    "options": [
+      "En ksp(libs.androidx.room.compiler).",
+      "En implementation(libs.androidx.room.compiler).",
+      "En AndroidManifest.xml como permiso.",
+      "Dentro de cada entidad con @ColumnInfo."
+    ],
+    "answer": 0,
+    "explanation": "El compiler de Room debe configurarse como procesador de anotaciones, no como dependencia de runtime."
+  },
+  {
+    "id": "moodle-single-manifest-exported-015",
+    "topic": "activity",
+    "type": "single",
+    "difficulty": "matar",
+    "moodle": true,
+    "question": "Una Activity con intent-filter MAIN/LAUNCHER debe declarar android:exported porque:",
+    "options": [
+      "el sistema necesita poder lanzarla desde fuera del proceso de la aplicación.",
+      "Room necesita exportar sus tablas.",
+      "Retrofit necesita generar endpoints.",
+      "Compose lo exige para recomponer la pantalla."
+    ],
+    "answer": 0,
+    "explanation": "Las Activities con filtros de intent deben declarar explícitamente si son exportadas."
+  },
+  {
+    "id": "moodle-code-choice-query-016",
+    "topic": "dao",
+    "type": "seleccionar-codigo",
+    "difficulty": "matar",
+    "moodle": true,
+    "question": "Analiza este DAO. ¿Qué fallo debe detectarse si el objetivo es buscar una bici por uuid?",
+    "code": "@Query(\"SELECT * FROM bikes WHERE id = :uuid LIMIT 1\")\nfun getById(uuid: String): BikeEntity?",
+    "options": [
+      "La consulta filtra por id aunque el parámetro representa uuid.",
+      "LIMIT 1 no está permitido en Room.",
+      "Una entidad de Room no puede devolverse nullable.",
+      "El parámetro uuid debe ser obligatoriamente Int."
+    ],
+    "answer": 0,
+    "explanation": "La consulta debe filtrar por la columna uuid si el método recibe un uuid."
+  },
+  {
+    "id": "moodle-code-choice-baseurl-017",
+    "topic": "retrofit",
+    "type": "seleccionar-codigo",
+    "difficulty": "trampa",
+    "moodle": true,
+    "question": "Analiza esta configuración de Retrofit. ¿Cuál es el problema?",
+    "code": "Retrofit.Builder()\n    .baseUrl(\"https://api.pedalean2.com/endpoints/v2\")\n    .build()",
+    "options": [
+      "La baseUrl no termina en barra final.",
+      "Retrofit no admite HTTPS.",
+      "La baseUrl debe declararse en Room.",
+      "build() solo puede llamarse dentro de un Composable."
+    ],
+    "answer": 0,
+    "explanation": "Retrofit requiere que la baseUrl termine en /."
+  },
+  {
+    "id": "moodle-code-choice-loading-018",
+    "topic": "viewmodel",
+    "type": "seleccionar-codigo",
+    "difficulty": "trampa",
+    "moodle": true,
+    "question": "Analiza este fragmento. ¿Qué problema de estado puede producirse?",
+    "code": "_isLoading.value = true\ntry {\n    repository.refreshFromRemote()\n    _isLoading.value = false\n} catch (e: Exception) {\n    _error.value = e.message\n}",
+    "options": [
+      "Si refreshFromRemote lanza una excepción, isLoading puede quedarse a true.",
+      "El bloque catch se ejecuta siempre antes que el try.",
+      "StateFlow no permite valores Boolean.",
+      "El repositorio no puede lanzar excepciones."
+    ],
+    "answer": 0,
+    "explanation": "El apagado del estado de carga debe garantizarse también cuando se produce una excepción."
+  },
+  {
+    "id": "moodle-multiple-room-019",
+    "topic": "room",
+    "type": "multiple",
+    "difficulty": "trampa",
+    "moodle": true,
+    "question": "Selecciona las afirmaciones correctas sobre Room en la práctica.",
+    "options": [
+      "La base de datos local agrupa entidades y DAO.",
+      "El singleton de Room debe evitar retener una Activity.",
+      "Room sustituye la necesidad de declarar permisos de red.",
+      "exportSchema=false borra la base de datos en cada arranque."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "explanation": "Room organiza la persistencia local. exportSchema no borra datos y no tiene relación con permisos de red."
+  },
+  {
+    "id": "moodle-multiple-retrofit-020",
+    "topic": "retrofit",
+    "type": "multiple",
+    "difficulty": "matar",
+    "moodle": true,
+    "question": "Selecciona las afirmaciones correctas sobre Retrofit y red.",
+    "options": [
+      "La baseUrl debe terminar en barra.",
+      "Call.execute() es síncrono.",
+      "Retrofit añade automáticamente el permiso INTERNET.",
+      "response.body() debe tratarse como potencialmente null."
+    ],
+    "answer": [
+      0,
+      1,
+      3
+    ],
+    "explanation": "Retrofit exige barra final, execute() bloquea y body() puede ser null; el permiso INTERNET se declara en el Manifest."
+  },
+  {
+    "id": "moodle-multiple-compose-021",
+    "topic": "compose",
+    "type": "multiple",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Selecciona las afirmaciones correctas sobre Compose en las pantallas con Scaffold.",
+    "options": [
+      "El contenido debe considerar innerPadding.",
+      "LazyColumn permite mostrar colecciones de elementos.",
+      "TopAppBar impide usar estado en un ViewModel.",
+      "items(bikes) recorre la lista recibida."
+    ],
+    "answer": [
+      0,
+      1,
+      3
+    ],
+    "explanation": "Scaffold entrega padding estructural y LazyColumn/items permiten pintar listas."
+  },
+  {
+    "id": "moodle-multiple-auth-022",
+    "topic": "auth",
+    "type": "multiple",
+    "difficulty": "matar",
+    "moodle": true,
+    "question": "Selecciona las afirmaciones correctas sobre autenticación y sesión.",
+    "options": [
+      "Guardar refresh token no demuestra por sí solo que exista renovación automática.",
+      "Cerrar sesión debe evitar dejar credenciales residuales.",
+      "El token se guarda en el Manifest.",
+      "trim() puede evitar espacios accidentales en credenciales."
+    ],
+    "answer": [
+      0,
+      1,
+      3
+    ],
+    "explanation": "La sesión depende de TokenManager/SharedPreferences y del flujo implementado; no del Manifest."
+  },
+  {
+    "id": "moodle-brief-room-023",
+    "topic": "room",
+    "type": "respuesta-breve",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Explica brevemente por qué conviene usar applicationContext al construir la instancia singleton de Room.",
+    "answer": {
+      "keywords": [
+        "applicationContext",
+        "Activity",
+        "retener"
+      ]
+    },
+    "explanation": "La respuesta debe indicar que applicationContext evita retener una Activity en un singleton de larga vida."
+  },
+  {
+    "id": "moodle-brief-repository-024",
+    "topic": "repositorios",
+    "type": "respuesta-breve",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Explica brevemente qué papel cumple un repositorio entre los datasources y la capa de presentación.",
+    "answer": {
+      "keywords": [
+        "coordina",
+        "local",
+        "remoto"
+      ]
+    },
+    "explanation": "La respuesta debe mencionar que coordina fuentes locales/remotas y expone operaciones a capas superiores."
+  },
+  {
+    "id": "moodle-brief-cache-025",
+    "topic": "repositorios",
+    "type": "respuesta-breve",
+    "difficulty": "matar",
+    "moodle": true,
+    "question": "Explica qué riesgo existe si un refresco remoto inserta nuevas bicis sin limpiar antes la caché local.",
+    "answer": {
+      "keywords": [
+        "obsoletos",
+        "cache",
+        "remoto"
+      ]
+    },
+    "explanation": "La respuesta debe mencionar que pueden permanecer datos obsoletos que ya no vienen del remoto."
+  },
+  {
+    "id": "moodle-brief-retrofit-026",
+    "topic": "retrofit",
+    "type": "respuesta-breve",
+    "difficulty": "trampa",
+    "moodle": true,
+    "question": "Explica por qué una llamada con execute() debe tratarse con cuidado en una aplicación Android.",
+    "answer": {
+      "keywords": [
+        "sincrona",
+        "bloquea",
+        "hilo"
+      ]
+    },
+    "explanation": "La respuesta debe indicar que execute() es síncrona y bloquea el hilo en el que se ejecuta."
+  },
+  {
+    "id": "moodle-brief-token-027",
+    "topic": "auth",
+    "type": "respuesta-breve",
+    "difficulty": "matar",
+    "moodle": true,
+    "question": "Explica por qué no basta con ver un refresh token guardado para afirmar que la sesión se renueva automáticamente.",
+    "answer": {
+      "keywords": [
+        "refresh",
+        "renovacion",
+        "implementado"
+      ]
+    },
+    "explanation": "La respuesta debe diferenciar almacenamiento del token y existencia real de un flujo de renovación."
+  },
+  {
+    "id": "moodle-brief-loading-028",
+    "topic": "viewmodel",
+    "type": "respuesta-breve",
+    "difficulty": "trampa",
+    "moodle": true,
+    "question": "Explica por qué un bloque finally ayuda a gestionar correctamente el estado isLoading.",
+    "answer": {
+      "keywords": [
+        "finally",
+        "excepcion",
+        "false"
+      ]
+    },
+    "explanation": "La respuesta debe indicar que finally permite apagar isLoading aunque haya una excepción."
+  },
+  {
+    "id": "moodle-brief-manifest-029",
+    "topic": "activity",
+    "type": "respuesta-breve",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Explica qué permiso del Manifest es necesario para realizar llamadas de red y por qué.",
+    "answer": {
+      "keywords": [
+        "INTERNET",
+        "Manifest",
+        "red"
+      ]
+    },
+    "explanation": "La respuesta debe mencionar android.permission.INTERNET y su relación con las llamadas de red."
+  },
+  {
+    "id": "moodle-brief-null-030",
+    "topic": "mappers",
+    "type": "respuesta-breve",
+    "difficulty": "trampa",
+    "moodle": true,
+    "question": "Explica por qué usar toString() directamente sobre un valor nullable puede ser problemático en un mapper.",
+    "answer": {
+      "keywords": [
+        "null",
+        "toString",
+        "orEmpty"
+      ]
+    },
+    "explanation": "La respuesta debe mencionar que puede persistirse el literal \"null\" y que conviene tratar el null explícitamente."
+  },
+  {
+    "id": "moodle-brief-dao-query-031",
+    "topic": "dao",
+    "type": "respuesta-breve",
+    "difficulty": "matar",
+    "moodle": true,
+    "question": "Explica cómo detectarías el error en una consulta que recibe uuid como parámetro pero filtra por la columna id.",
+    "answer": {
+      "keywords": [
+        "uuid",
+        "id",
+        "columna"
+      ]
+    },
+    "explanation": "La respuesta debe identificar la incoherencia entre el parámetro uuid y la columna usada en la consulta."
+  },
+  {
+    "id": "moodle-brief-compose-032",
+    "topic": "compose",
+    "type": "respuesta-breve",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Explica brevemente para qué sirve innerPadding en el contenido de un Scaffold.",
+    "answer": {
+      "keywords": [
+        "innerPadding",
+        "Scaffold",
+        "solape"
+      ]
+    },
+    "explanation": "La respuesta debe indicar que evita solapes del contenido con barras u otros elementos del Scaffold."
   }
 ]

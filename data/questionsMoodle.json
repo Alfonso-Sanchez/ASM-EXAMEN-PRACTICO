@@ -1,0 +1,1284 @@
+[
+  {
+    "id": "moodle-brief-bike-rent-080",
+    "topic": "modelos",
+    "type": "respuesta-breve",
+    "difficulty": "trampa",
+    "moodle": true,
+    "question": "Explica qué implica que una propiedad de dominio sea BikeRent?.",
+    "answer": {
+      "keywords": [
+        "BikeRent",
+        "nullable",
+        "renta"
+      ]
+    },
+    "explanation": "La respuesta debe indicar que la renta asociada puede no existir."
+  },
+  {
+    "id": "moodle-brief-body-null-073",
+    "topic": "retrofit",
+    "type": "respuesta-breve",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Explica por qué response.body() debe tratarse como potencialmente null.",
+    "answer": {
+      "keywords": [
+        "body",
+        "null",
+        "respuesta"
+      ]
+    },
+    "explanation": "La respuesta debe mencionar que la respuesta HTTP puede no contener cuerpo válido."
+  },
+  {
+    "id": "moodle-brief-cache-025",
+    "topic": "repositorios",
+    "type": "respuesta-breve",
+    "difficulty": "matar",
+    "moodle": true,
+    "question": "Explica qué riesgo existe si un refresco remoto inserta nuevas bicis sin limpiar antes la caché local.",
+    "answer": {
+      "keywords": [
+        "obsoletos",
+        "cache",
+        "remoto"
+      ]
+    },
+    "explanation": "La respuesta debe mencionar que pueden permanecer datos obsoletos que ya no vienen del remoto."
+  },
+  {
+    "id": "moodle-brief-compose-032",
+    "topic": "compose",
+    "type": "respuesta-breve",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Explica brevemente para qué sirve innerPadding en el contenido de un Scaffold.",
+    "answer": {
+      "keywords": [
+        "innerPadding",
+        "Scaffold",
+        "solape"
+      ]
+    },
+    "explanation": "La respuesta debe indicar que evita solapes del contenido con barras u otros elementos del Scaffold."
+  },
+  {
+    "id": "moodle-brief-cvv-079",
+    "topic": "profile",
+    "type": "respuesta-breve",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Explica qué representa el campo CVV si aparece en la pantalla de perfil.",
+    "answer": {
+      "keywords": [
+        "CVV",
+        "tarjeta",
+        "usuario"
+      ]
+    },
+    "explanation": "La respuesta debe relacionarlo con el código de seguridad de la tarjeta del usuario."
+  },
+  {
+    "id": "moodle-brief-dao-query-031",
+    "topic": "dao",
+    "type": "respuesta-breve",
+    "difficulty": "matar",
+    "moodle": true,
+    "question": "Explica cómo detectarías el error en una consulta que recibe uuid como parámetro pero filtra por la columna id.",
+    "answer": {
+      "keywords": [
+        "uuid",
+        "id",
+        "columna"
+      ]
+    },
+    "explanation": "La respuesta debe identificar la incoherencia entre el parámetro uuid y la columna usada en la consulta."
+  },
+  {
+    "id": "moodle-brief-delete-int-077",
+    "topic": "dao",
+    "type": "respuesta-breve",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Explica qué significa el Int devuelto por un DELETE en Room.",
+    "answer": {
+      "keywords": [
+        "Int",
+        "filas",
+        "afectadas"
+      ]
+    },
+    "explanation": "La respuesta debe indicar que representa el número de filas afectadas."
+  },
+  {
+    "id": "moodle-brief-exported-075",
+    "topic": "activity",
+    "type": "respuesta-breve",
+    "difficulty": "matar",
+    "moodle": true,
+    "question": "Explica por qué una Activity launcher necesita una configuración correcta de android:exported.",
+    "answer": {
+      "keywords": [
+        "Activity",
+        "launcher",
+        "exported"
+      ]
+    },
+    "explanation": "La respuesta debe mencionar que el sistema debe poder lanzar la Activity principal."
+  },
+  {
+    "id": "moodle-brief-items-key-076",
+    "topic": "compose",
+    "type": "respuesta-breve",
+    "difficulty": "trampa",
+    "moodle": true,
+    "question": "Explica qué limitación tiene usar items(bikes) sin proporcionar una key estable.",
+    "answer": {
+      "keywords": [
+        "items",
+        "key",
+        "estable"
+      ]
+    },
+    "explanation": "La respuesta debe diferenciar pintar la lista de declarar una key estable explícita."
+  },
+  {
+    "id": "moodle-brief-json-array-072",
+    "topic": "api",
+    "type": "respuesta-breve",
+    "difficulty": "trampa",
+    "moodle": true,
+    "question": "Explica por qué puede ser necesario buscar un JsonArray dentro de un JsonObject de respuesta.",
+    "answer": {
+      "keywords": [
+        "JsonArray",
+        "respuesta",
+        "envuelta"
+      ]
+    },
+    "explanation": "La respuesta debe identificar que algunas respuestas vienen envueltas y la lista está en un campo interno."
+  },
+  {
+    "id": "moodle-brief-ksp-074",
+    "topic": "gradle",
+    "type": "respuesta-breve",
+    "difficulty": "matar",
+    "moodle": true,
+    "question": "Explica por qué Room compiler no debería declararse como una dependencia normal de implementation.",
+    "answer": {
+      "keywords": [
+        "compiler",
+        "ksp",
+        "procesador"
+      ]
+    },
+    "explanation": "La respuesta debe indicar que es un procesador de anotaciones y se configura con KSP."
+  },
+  {
+    "id": "moodle-brief-loading-028",
+    "topic": "viewmodel",
+    "type": "respuesta-breve",
+    "difficulty": "trampa",
+    "moodle": true,
+    "question": "Explica por qué un bloque finally ayuda a gestionar correctamente el estado isLoading.",
+    "answer": {
+      "keywords": [
+        "finally",
+        "excepcion",
+        "false"
+      ]
+    },
+    "explanation": "La respuesta debe indicar que finally permite apagar isLoading aunque haya una excepción."
+  },
+  {
+    "id": "moodle-brief-manifest-029",
+    "topic": "activity",
+    "type": "respuesta-breve",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Explica qué permiso del Manifest es necesario para realizar llamadas de red y por qué.",
+    "answer": {
+      "keywords": [
+        "INTERNET",
+        "Manifest",
+        "red"
+      ]
+    },
+    "explanation": "La respuesta debe mencionar android.permission.INTERNET y su relación con las llamadas de red."
+  },
+  {
+    "id": "moodle-brief-minsdk-078",
+    "topic": "gradle",
+    "type": "respuesta-breve",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Explica qué representa minSdk dentro de defaultConfig.",
+    "answer": {
+      "keywords": [
+        "minSdk",
+        "version",
+        "minima"
+      ]
+    },
+    "explanation": "La respuesta debe mencionar que fija la versión mínima de Android soportada."
+  },
+  {
+    "id": "moodle-brief-null-030",
+    "topic": "mappers",
+    "type": "respuesta-breve",
+    "difficulty": "trampa",
+    "moodle": true,
+    "question": "Explica por qué usar toString() directamente sobre un valor nullable puede ser problemático en un mapper.",
+    "answer": {
+      "keywords": [
+        "null",
+        "toString",
+        "orEmpty"
+      ]
+    },
+    "explanation": "La respuesta debe mencionar que puede persistirse el literal \"null\" y que conviene tratar el null explícitamente."
+  },
+  {
+    "id": "moodle-brief-repository-024",
+    "topic": "repositorios",
+    "type": "respuesta-breve",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Explica brevemente qué papel cumple un repositorio entre los datasources y la capa de presentación.",
+    "answer": {
+      "keywords": [
+        "coordina",
+        "local",
+        "remoto"
+      ]
+    },
+    "explanation": "La respuesta debe mencionar que coordina fuentes locales/remotas y expone operaciones a capas superiores."
+  },
+  {
+    "id": "moodle-brief-retrofit-026",
+    "topic": "retrofit",
+    "type": "respuesta-breve",
+    "difficulty": "trampa",
+    "moodle": true,
+    "question": "Explica por qué una llamada con execute() debe tratarse con cuidado en una aplicación Android.",
+    "answer": {
+      "keywords": [
+        "sincrona",
+        "bloquea",
+        "hilo"
+      ]
+    },
+    "explanation": "La respuesta debe indicar que execute() es síncrona y bloquea el hilo en el que se ejecuta."
+  },
+  {
+    "id": "moodle-brief-room-023",
+    "topic": "room",
+    "type": "respuesta-breve",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Explica brevemente por qué conviene usar applicationContext al construir la instancia singleton de Room.",
+    "answer": {
+      "keywords": [
+        "applicationContext",
+        "Activity",
+        "retener"
+      ]
+    },
+    "explanation": "La respuesta debe indicar que applicationContext evita retener una Activity en un singleton de larga vida."
+  },
+  {
+    "id": "moodle-brief-service-locator-071",
+    "topic": "repositorios",
+    "type": "respuesta-breve",
+    "difficulty": "trampa",
+    "moodle": true,
+    "question": "Explica brevemente por qué RepositoryProvider puede considerarse un service locator manual.",
+    "answer": {
+      "keywords": [
+        "RepositoryProvider",
+        "repositorios",
+        "manual"
+      ]
+    },
+    "explanation": "La respuesta debe mencionar que centraliza la obtención de repositorios sin un framework de inyección."
+  },
+  {
+    "id": "moodle-brief-token-027",
+    "topic": "auth",
+    "type": "respuesta-breve",
+    "difficulty": "matar",
+    "moodle": true,
+    "question": "Explica por qué no basta con ver un refresh token guardado para afirmar que la sesión se renueva automáticamente.",
+    "answer": {
+      "keywords": [
+        "refresh",
+        "renovacion",
+        "implementado"
+      ]
+    },
+    "explanation": "La respuesta debe diferenciar almacenamiento del token y existencia real de un flujo de renovación."
+  },
+  {
+    "id": "moodle-code-choice-baseurl-017",
+    "topic": "retrofit",
+    "type": "seleccionar-codigo",
+    "difficulty": "trampa",
+    "moodle": true,
+    "question": "Analiza esta configuración de Retrofit. ¿Cuál es el problema?",
+    "code": "Retrofit.Builder()\n    .baseUrl(\"https://api.pedalean2.com/endpoints/v2\")\n    .build()",
+    "options": [
+      "La baseUrl no termina en barra final.",
+      "Retrofit no admite HTTPS.",
+      "La baseUrl debe declararse en Room.",
+      "build() solo puede llamarse dentro de un Composable."
+    ],
+    "answer": 0,
+    "explanation": "Retrofit requiere que la baseUrl termine en /."
+  },
+  {
+    "id": "moodle-code-choice-cache-057",
+    "topic": "repositorios",
+    "difficulty": "matar",
+    "question": "Analiza este refresco. ¿Qué riesgo presenta?",
+    "code": "remoteDatasource.getAll().forEach { bike ->\n    localDatasource.insert(bike.toEntity())\n}",
+    "options": [
+      "Puede conservar datos locales obsoletos si no se limpia la caché.",
+      "Siempre elimina todos los datos antes de insertar.",
+      "No compila porque forEach no existe en Kotlin.",
+      "Convierte automáticamente las bicis en usuarios."
+    ],
+    "answer": 0,
+    "explanation": "Sin limpieza previa pueden quedarse registros que ya no existen en remoto.",
+    "type": "seleccionar-codigo",
+    "moodle": true
+  },
+  {
+    "id": "moodle-code-choice-delete-064",
+    "topic": "dao",
+    "difficulty": "normal",
+    "question": "Analiza este DAO. ¿Qué devuelve el método si se ejecuta correctamente?",
+    "code": "@Query(\"DELETE FROM bikes WHERE uuid = :uuid\")\nfun delete(uuid: String): Int",
+    "options": [
+      "El número de filas eliminadas.",
+      "La entidad eliminada completa.",
+      "El código HTTP de la petición.",
+      "El nuevo uuid de la bici."
+    ],
+    "answer": 0,
+    "explanation": "Un DELETE de Room que retorna Int informa de filas afectadas.",
+    "type": "seleccionar-codigo",
+    "moodle": true
+  },
+  {
+    "id": "moodle-code-choice-exported-062",
+    "topic": "activity",
+    "difficulty": "matar",
+    "question": "Analiza esta Activity launcher. ¿Qué valor debería revisarse?",
+    "code": "<activity android:name=\".presentation.SplashActivity\" android:exported=\"false\">\n    <intent-filter>\n        <action android:name=\"android.intent.action.MAIN\" />\n        <category android:name=\"android.intent.category.LAUNCHER\" />\n    </intent-filter>\n</activity>",
+    "options": [
+      "android:exported debería permitir que el sistema lance la Activity.",
+      "El intent-filter debe ir en build.gradle.",
+      "MAIN solo puede usarse con Room.",
+      "LAUNCHER impide usar Retrofit."
+    ],
+    "answer": 0,
+    "explanation": "Una Activity launcher debe poder ser lanzada por el sistema.",
+    "type": "seleccionar-codigo",
+    "moodle": true
+  },
+  {
+    "id": "moodle-code-choice-json-059",
+    "topic": "api",
+    "difficulty": "trampa",
+    "question": "Analiza este fragmento. ¿Qué está comprobando?",
+    "code": "if (jsonObject.has(\"uuid\") || jsonObject.has(\"email\") || jsonObject.has(\"username\")) {\n    return gson.fromJson(jsonObject, ApiUser::class.java)\n}",
+    "options": [
+      "Que la respuesta parece contener directamente un usuario.",
+      "Que la respuesta es obligatoriamente un array.",
+      "Que el usuario está autenticado en Room.",
+      "Que el Manifest tiene permiso INTERNET."
+    ],
+    "answer": 0,
+    "explanation": "Campos como uuid, email o username permiten detectar un objeto de usuario directo.",
+    "type": "seleccionar-codigo",
+    "moodle": true
+  },
+  {
+    "id": "moodle-code-choice-ksp-061",
+    "topic": "gradle",
+    "difficulty": "matar",
+    "question": "Analiza estas dependencias. ¿Qué corrección es más adecuada para Room compiler?",
+    "code": "dependencies {\n    implementation(libs.androidx.room.compiler)\n}",
+    "options": [
+      "Usar ksp(libs.androidx.room.compiler).",
+      "Mover room.compiler a AndroidManifest.xml.",
+      "Eliminar room.runtime.",
+      "Convertirlo en un Composable."
+    ],
+    "answer": 0,
+    "explanation": "Room compiler debe configurarse como procesador de anotaciones.",
+    "type": "seleccionar-codigo",
+    "moodle": true
+  },
+  {
+    "id": "moodle-code-choice-loading-018",
+    "topic": "viewmodel",
+    "type": "seleccionar-codigo",
+    "difficulty": "trampa",
+    "moodle": true,
+    "question": "Analiza este fragmento. ¿Qué problema de estado puede producirse?",
+    "code": "_isLoading.value = true\ntry {\n    repository.refreshFromRemote()\n    _isLoading.value = false\n} catch (e: Exception) {\n    _error.value = e.message\n}",
+    "options": [
+      "Si refreshFromRemote lanza una excepción, isLoading puede quedarse a true.",
+      "El bloque catch se ejecuta siempre antes que el try.",
+      "StateFlow no permite valores Boolean.",
+      "El repositorio no puede lanzar excepciones."
+    ],
+    "answer": 0,
+    "explanation": "El apagado del estado de carga debe garantizarse también cuando se produce una excepción."
+  },
+  {
+    "id": "moodle-code-choice-or-empty-058",
+    "topic": "mappers",
+    "difficulty": "trampa",
+    "question": "Analiza este mapper. ¿Qué mejora sería más adecuada?",
+    "code": "lastUse = apiBike.lastUse.toString()",
+    "options": [
+      "Tratar el null explícitamente, por ejemplo con orEmpty() si se espera String.",
+      "Eliminar la entidad de Room.",
+      "Mover el código al Manifest.",
+      "Cambiar Retrofit por Compose."
+    ],
+    "answer": 0,
+    "explanation": "toString() sobre null puede producir el literal \"null\".",
+    "type": "seleccionar-codigo",
+    "moodle": true
+  },
+  {
+    "id": "moodle-code-choice-query-016",
+    "topic": "dao",
+    "type": "seleccionar-codigo",
+    "difficulty": "matar",
+    "moodle": true,
+    "question": "Analiza este DAO. ¿Qué fallo debe detectarse si el objetivo es buscar una bici por uuid?",
+    "code": "@Query(\"SELECT * FROM bikes WHERE id = :uuid LIMIT 1\")\nfun getById(uuid: String): BikeEntity?",
+    "options": [
+      "La consulta filtra por id aunque el parámetro representa uuid.",
+      "LIMIT 1 no está permitido en Room.",
+      "Una entidad de Room no puede devolverse nullable.",
+      "El parámetro uuid debe ser obligatoriamente Int."
+    ],
+    "answer": 0,
+    "explanation": "La consulta debe filtrar por la columna uuid si el método recibe un uuid."
+  },
+  {
+    "id": "moodle-code-choice-runcatching-063",
+    "topic": "viewmodel",
+    "difficulty": "trampa",
+    "question": "Analiza este catch. ¿Qué podría añadirse para recuperar estado sin romper el flujo?",
+    "code": "catch (e: Exception) {\n    _error.value = e.message\n}",
+    "options": [
+      "Un runCatching que intente refrescar el estado.",
+      "Un permiso INTERNET.",
+      "Una nueva entidad Room para errores.",
+      "Un @Insert en el ViewModel."
+    ],
+    "answer": 0,
+    "explanation": "runCatching permite intentar una operación de recuperación capturando sus fallos.",
+    "type": "seleccionar-codigo",
+    "moodle": true
+  },
+  {
+    "id": "moodle-code-choice-scaffold-060",
+    "topic": "compose",
+    "difficulty": "normal",
+    "question": "Analiza este Scaffold. ¿Qué falta en el contenido?",
+    "code": "Scaffold(topBar = { TopAppBar(title = { Text(\"Bicis\") }) }) { innerPadding ->\n    LazyColumn(Modifier.fillMaxSize()) {\n        item { Text(\"Listado de bicis\") }\n    }\n}",
+    "options": [
+      "Aplicar el innerPadding recibido por Scaffold.",
+      "Eliminar LazyColumn.",
+      "Declarar INTERNET dentro del Composable.",
+      "Crear un DAO dentro de TopAppBar."
+    ],
+    "answer": 0,
+    "explanation": "El contenido debe respetar el padding estructural para evitar solapes.",
+    "type": "seleccionar-codigo",
+    "moodle": true
+  },
+  {
+    "id": "moodle-multiple-api-068",
+    "topic": "api",
+    "difficulty": "matar",
+    "question": "Selecciona las afirmaciones correctas sobre parseo de respuestas API.",
+    "options": [
+      "Una respuesta puede venir como objeto directo.",
+      "Una respuesta puede venir envuelta y contener un JsonArray interno.",
+      "Gson puede mapear objetos si la estructura coincide.",
+      "Toda respuesta de API debe ser siempre una lista en la raíz."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "La práctica contempla respuestas directas y respuestas envueltas.",
+    "type": "multiple",
+    "moodle": true
+  },
+  {
+    "id": "moodle-multiple-auth-022",
+    "topic": "auth",
+    "type": "multiple",
+    "difficulty": "matar",
+    "moodle": true,
+    "question": "Selecciona las afirmaciones correctas sobre autenticación y sesión.",
+    "options": [
+      "Guardar refresh token no demuestra por sí solo que exista renovación automática.",
+      "Cerrar sesión debe evitar dejar credenciales residuales.",
+      "El token se guarda en el Manifest.",
+      "trim() puede evitar espacios accidentales en credenciales."
+    ],
+    "answer": [
+      0,
+      1,
+      3
+    ],
+    "explanation": "La sesión depende de TokenManager/SharedPreferences y del flujo implementado; no del Manifest."
+  },
+  {
+    "id": "moodle-multiple-compose-021",
+    "topic": "compose",
+    "type": "multiple",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Selecciona las afirmaciones correctas sobre Compose en las pantallas con Scaffold.",
+    "options": [
+      "El contenido debe considerar innerPadding.",
+      "LazyColumn permite mostrar colecciones de elementos.",
+      "TopAppBar impide usar estado en un ViewModel.",
+      "items(bikes) recorre la lista recibida."
+    ],
+    "answer": [
+      0,
+      1,
+      3
+    ],
+    "explanation": "Scaffold entrega padding estructural y LazyColumn/items permiten pintar listas."
+  },
+  {
+    "id": "moodle-multiple-dao-066",
+    "topic": "dao",
+    "difficulty": "normal",
+    "question": "Selecciona las afirmaciones correctas sobre DAO de Room.",
+    "options": [
+      "@Dao marca una interfaz de acceso a datos.",
+      "@Query permite declarar consultas SQL.",
+      "Un DELETE que devuelve Int informa de filas afectadas.",
+      "@Composable convierte una interfaz en DAO."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "DAO y @Query pertenecen a Room; @Composable pertenece a Compose.",
+    "type": "multiple",
+    "moodle": true
+  },
+  {
+    "id": "moodle-multiple-manifest-gradle-069",
+    "topic": "gradle",
+    "difficulty": "trampa",
+    "question": "Selecciona las afirmaciones correctas sobre configuración del proyecto.",
+    "options": [
+      "INTERNET se declara en el Manifest.",
+      "Room compiler se configura como procesador.",
+      "minSdk fija la versión mínima soportada.",
+      "android:exported sustituye a ksp."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Manifest y Gradle tienen responsabilidades distintas.",
+    "type": "multiple",
+    "moodle": true
+  },
+  {
+    "id": "moodle-multiple-mappers-065",
+    "topic": "mappers",
+    "difficulty": "trampa",
+    "question": "Selecciona las afirmaciones correctas sobre mappers y nulabilidad.",
+    "options": [
+      "orEmpty() evita null en Strings.",
+      "toString() sobre null puede producir el literal \"null\".",
+      "LocalDateTime.parse puede fallar si el formato no es compatible.",
+      "String? significa que el campo nunca puede ser null."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "La nulabilidad debe tratarse de forma explícita en mappers.",
+    "type": "multiple",
+    "moodle": true
+  },
+  {
+    "id": "moodle-multiple-retrofit-020",
+    "topic": "retrofit",
+    "type": "multiple",
+    "difficulty": "matar",
+    "moodle": true,
+    "question": "Selecciona las afirmaciones correctas sobre Retrofit y red.",
+    "options": [
+      "La baseUrl debe terminar en barra.",
+      "Call.execute() es síncrono.",
+      "Retrofit añade automáticamente el permiso INTERNET.",
+      "response.body() debe tratarse como potencialmente null."
+    ],
+    "answer": [
+      0,
+      1,
+      3
+    ],
+    "explanation": "Retrofit exige barra final, execute() bloquea y body() puede ser null; el permiso INTERNET se declara en el Manifest."
+  },
+  {
+    "id": "moodle-multiple-room-019",
+    "topic": "room",
+    "type": "multiple",
+    "difficulty": "trampa",
+    "moodle": true,
+    "question": "Selecciona las afirmaciones correctas sobre Room en la práctica.",
+    "options": [
+      "La base de datos local agrupa entidades y DAO.",
+      "El singleton de Room debe evitar retener una Activity.",
+      "Room sustituye la necesidad de declarar permisos de red.",
+      "exportSchema=false borra la base de datos en cada arranque."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "explanation": "Room organiza la persistencia local. exportSchema no borra datos y no tiene relación con permisos de red."
+  },
+  {
+    "id": "moodle-multiple-session-070",
+    "topic": "auth",
+    "difficulty": "matar",
+    "question": "Selecciona las afirmaciones correctas sobre sesión.",
+    "options": [
+      "El access token se usa para autenticar peticiones.",
+      "Guardar refresh token no prueba que haya renovación automática.",
+      "Cerrar sesión debe limpiar credenciales.",
+      "El token debe guardarse como entidad BikeEntity."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "La sesión se gestiona en almacenamiento de autenticación, no como entidad de bici.",
+    "type": "multiple",
+    "moodle": true
+  },
+  {
+    "id": "moodle-multiple-viewmodel-067",
+    "topic": "viewmodel",
+    "difficulty": "trampa",
+    "question": "Selecciona las afirmaciones correctas sobre estados de carga y errores.",
+    "options": [
+      "finally ayuda a apagar isLoading aunque haya excepción.",
+      "Un catch puede publicar un mensaje de error.",
+      "runCatching puede capturar fallos de recuperación.",
+      "isLoading solo puede modificarse desde AndroidManifest.xml."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "El estado de pantalla se gestiona desde el ViewModel, no desde el Manifest.",
+    "type": "multiple",
+    "moodle": true
+  },
+  {
+    "id": "moodle-single-bike-rent-053",
+    "topic": "modelos",
+    "difficulty": "trampa",
+    "question": "Si Bike contiene una propiedad rents: BikeRent?, ¿qué se debe tener en cuenta?",
+    "options": [
+      "Puede no existir renta asociada y debe tratarse como nullable.",
+      "Siempre contiene una lista completa de rentas históricas.",
+      "Es el DAO de rentas.",
+      "Es el token de sesión."
+    ],
+    "answer": 0,
+    "explanation": "BikeRent? indica una renta opcional asociada, no una lista obligatoria.",
+    "type": "single",
+    "moodle": true
+  },
+  {
+    "id": "moodle-single-dao-annotation-055",
+    "topic": "dao",
+    "difficulty": "normal",
+    "question": "¿Qué anotación identifica una interfaz como DAO de Room?",
+    "options": [
+      "@Dao",
+      "@Database",
+      "@Entity",
+      "@Composable"
+    ],
+    "answer": 0,
+    "explanation": "@Dao marca la interfaz donde se declaran operaciones de acceso a datos.",
+    "type": "single",
+    "moodle": true
+  },
+  {
+    "id": "moodle-single-entity-primary-056",
+    "topic": "room",
+    "difficulty": "trampa",
+    "question": "¿Qué representa una clave primaria en una entidad de Room?",
+    "options": [
+      "El campo que identifica de forma única una fila.",
+      "El endpoint principal de Retrofit.",
+      "El primer Composable de la pantalla.",
+      "El permiso principal del Manifest."
+    ],
+    "answer": 0,
+    "explanation": "La clave primaria permite identificar de forma única cada registro de la tabla.",
+    "type": "single",
+    "moodle": true
+  },
+  {
+    "id": "moodle-single-gradle-ksp-014",
+    "topic": "gradle",
+    "type": "single",
+    "difficulty": "matar",
+    "moodle": true,
+    "question": "¿Dónde debe declararse el compilador de Room cuando el proyecto usa Kotlin Symbol Processing?",
+    "options": [
+      "En ksp(libs.androidx.room.compiler).",
+      "En implementation(libs.androidx.room.compiler).",
+      "En AndroidManifest.xml como permiso.",
+      "Dentro de cada entidad con @ColumnInfo."
+    ],
+    "answer": 0,
+    "explanation": "El compiler de Room debe configurarse como procesador de anotaciones, no como dependencia de runtime."
+  },
+  {
+    "id": "moodle-single-items-key-050",
+    "topic": "compose",
+    "difficulty": "trampa",
+    "question": "¿Qué afirmación describe mejor items(bikes) sin parámetro key?",
+    "options": [
+      "Pinta los elementos, pero no declara una key estable explícita.",
+      "Usa siempre bike.uuid como key aunque no se indique.",
+      "Solo pinta el primer elemento de la lista.",
+      "Convierte la lista en una entidad de Room."
+    ],
+    "answer": 0,
+    "explanation": "items recorre la lista, pero la key estable debe indicarse si se necesita ese comportamiento.",
+    "type": "single",
+    "moodle": true
+  },
+  {
+    "id": "moodle-single-json-array-047",
+    "topic": "api",
+    "difficulty": "trampa",
+    "question": "¿Qué objetivo tiene recorrer las entradas de un JsonObject buscando value.isJsonArray?",
+    "options": [
+      "Localizar un array de datos dentro de una respuesta envuelta.",
+      "Eliminar todos los campos que no sean String.",
+      "Crear automáticamente una tabla de Room.",
+      "Renovar el access token."
+    ],
+    "answer": 0,
+    "explanation": "Ese recorrido permite extraer una lista cuando la API no devuelve directamente un array en la raíz.",
+    "type": "single",
+    "moodle": true
+  },
+  {
+    "id": "moodle-single-localdatetime-048",
+    "topic": "mappers",
+    "difficulty": "matar",
+    "question": "¿Por qué conviene envolver LocalDateTime.parse en runCatching o una estructura equivalente?",
+    "options": [
+      "Porque el texto puede no tener un formato compatible y lanzar una excepción.",
+      "Porque LocalDateTime.parse siempre devuelve Boolean.",
+      "Porque Room solo acepta fechas con permisos del Manifest.",
+      "Porque Gson no puede leer fechas en ningún caso."
+    ],
+    "answer": 0,
+    "explanation": "El parseo puede fallar si el formato no encaja; capturarlo permite devolver null o controlar el error.",
+    "type": "single",
+    "moodle": true
+  },
+  {
+    "id": "moodle-single-manifest-exported-015",
+    "topic": "activity",
+    "type": "single",
+    "difficulty": "matar",
+    "moodle": true,
+    "question": "Una Activity con intent-filter MAIN/LAUNCHER debe declarar android:exported porque:",
+    "options": [
+      "el sistema necesita poder lanzarla desde fuera del proceso de la aplicación.",
+      "Room necesita exportar sus tablas.",
+      "Retrofit necesita generar endpoints.",
+      "Compose lo exige para recomponer la pantalla."
+    ],
+    "answer": 0,
+    "explanation": "Las Activities con filtros de intent deben declarar explícitamente si son exportadas."
+  },
+  {
+    "id": "moodle-single-nullable-model-052",
+    "topic": "modelos",
+    "difficulty": "normal",
+    "question": "¿Qué indica una propiedad declarada como Int? en un modelo Kotlin?",
+    "options": [
+      "Que puede contener null.",
+      "Que siempre se serializa como String.",
+      "Que no puede mostrarse en Compose.",
+      "Que Room la convierte en clave primaria automáticamente."
+    ],
+    "answer": 0,
+    "explanation": "El signo ? convierte el tipo en nullable.",
+    "type": "single",
+    "moodle": true
+  },
+  {
+    "id": "moodle-single-refresh-cache-049",
+    "topic": "repositorios",
+    "difficulty": "matar",
+    "question": "¿Qué comportamiento es más coherente si se quiere que la caché local refleje exactamente el estado remoto?",
+    "options": [
+      "Eliminar los datos locales anteriores y guardar los datos remotos recibidos.",
+      "Insertar siempre encima sin borrar nada.",
+      "Guardar los datos remotos en AndroidManifest.xml.",
+      "Actualizar únicamente la primera fila de la tabla."
+    ],
+    "answer": 0,
+    "explanation": "Si la caché debe representar el remoto, conviene reemplazar el contenido local con la respuesta actual.",
+    "type": "single",
+    "moodle": true
+  },
+  {
+    "id": "moodle-single-repository-012",
+    "topic": "repositorios",
+    "type": "single",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "¿Qué responsabilidad describe mejor a un repositorio dentro de esta práctica?",
+    "options": [
+      "Coordinar fuentes de datos locales/remotas y ofrecer operaciones de dominio a la capa superior.",
+      "Declarar permisos del Manifest.",
+      "Dibujar cada Composable de la interfaz.",
+      "Sustituir todas las entidades de Room por JSON."
+    ],
+    "answer": 0,
+    "explanation": "El repositorio actúa como capa de coordinación entre datasources y casos de uso/presentación."
+  },
+  {
+    "id": "moodle-single-room-db-011",
+    "topic": "room",
+    "type": "single",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "¿Cuál es la finalidad principal de la clase que extiende RoomDatabase en el proyecto?",
+    "options": [
+      "Definir la base de datos local, sus entidades y el acceso a los DAO.",
+      "Ejecutar directamente las llamadas HTTP de Retrofit.",
+      "Pintar las pantallas de Compose.",
+      "Guardar el token en el Manifest."
+    ],
+    "answer": 0,
+    "explanation": "La clase RoomDatabase centraliza la configuración de la base de datos local y expone los DAO."
+  },
+  {
+    "id": "moodle-single-token-cache-051",
+    "topic": "login",
+    "difficulty": "matar",
+    "question": "Si el login obtiene token pero falla la carga posterior del usuario, ¿qué interpretación es más precisa?",
+    "options": [
+      "La autenticación puede haber funcionado aunque falle la actualización de la caché de usuario.",
+      "El token nunca se obtuvo.",
+      "Room elimina automáticamente todos los tokens.",
+      "El Manifest impide iniciar sesión."
+    ],
+    "answer": 0,
+    "explanation": "El flujo de autenticación y la carga/cache del usuario son pasos relacionados, pero no idénticos.",
+    "type": "single",
+    "moodle": true
+  },
+  {
+    "id": "moodle-single-token-clear-013",
+    "topic": "auth",
+    "type": "single",
+    "difficulty": "trampa",
+    "moodle": true,
+    "question": "¿Qué implementación es más segura para cerrar sesión si todas las claves guardadas pertenecen al almacenamiento de autenticación?",
+    "options": [
+      "prefs.edit().clear().apply()",
+      "prefs.edit().remove(\"access_token\").apply()",
+      "prefs.getString(\"access_token\", null)",
+      "prefs.edit().putString(\"access_token\", \"\").commit() sin borrar el resto"
+    ],
+    "answer": 0,
+    "explanation": "Si el SharedPreferences contiene solo datos de autenticación, clear().apply() evita dejar claves residuales."
+  },
+  {
+    "id": "moodle-single-viewmodel-state-054",
+    "topic": "viewmodel",
+    "difficulty": "normal",
+    "question": "¿Cuál es una responsabilidad habitual de un ViewModel en esta práctica?",
+    "options": [
+      "Exponer estado de pantalla y coordinar llamadas al repositorio.",
+      "Declarar permisos de red.",
+      "Definir las columnas de una entidad.",
+      "Compilar las anotaciones de Room."
+    ],
+    "answer": 0,
+    "explanation": "El ViewModel prepara estado para la UI y llama a casos de uso o repositorios.",
+    "type": "single",
+    "moodle": true
+  },
+  {
+    "id": "moodle-vf-bike-rent-uuid-035",
+    "topic": "repositorios",
+    "type": "verdadero-falso",
+    "difficulty": "matar",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: Un método llamado isRentActive(uuid) siempre debe recibir el uuid de la bici, aunque internamente consulte rentas.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 1,
+    "explanation": "Es falso. Según la implementación, puede estar esperando el uuid de la renta, no necesariamente el de la bici."
+  },
+  {
+    "id": "moodle-vf-cache-refresh-034",
+    "topic": "repositorios",
+    "type": "verdadero-falso",
+    "difficulty": "matar",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: Si un refresco remoto no elimina datos locales anteriores, pueden permanecer registros obsoletos.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 0,
+    "explanation": "Es verdadero. Insertar datos nuevos sin limpiar puede dejar elementos que el servidor ya no devuelve."
+  },
+  {
+    "id": "moodle-vf-compose-padding-006",
+    "topic": "compose",
+    "type": "verdadero-falso",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: el contenido de un Scaffold debe tener en cuenta innerPadding para evitar solaparse con barras de la interfaz.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 0,
+    "explanation": "Es verdadero. El padding que entrega Scaffold debe aplicarse al contenido cuando hay topBar, bottomBar u otros elementos estructurales."
+  },
+  {
+    "id": "moodle-vf-cvv-profile-040",
+    "topic": "profile",
+    "type": "verdadero-falso",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: Mostrar el CVV en la pantalla de perfil corresponde a un dato del usuario, no a un dato de la bici.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 0,
+    "explanation": "Es verdadero. El CVV pertenece a los datos de tarjeta del usuario."
+  },
+  {
+    "id": "moodle-vf-delete-int-004",
+    "topic": "dao",
+    "type": "verdadero-falso",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: una consulta DELETE de Room que devuelve Int informa del número de filas afectadas.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 0,
+    "explanation": "Es verdadero. Room devuelve el recuento de filas afectadas por la operación."
+  },
+  {
+    "id": "moodle-vf-json-array-038",
+    "topic": "api",
+    "type": "verdadero-falso",
+    "difficulty": "trampa",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: Algunas respuestas de API pueden venir envueltas en un objeto y requerir buscar un JsonArray interno.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 0,
+    "explanation": "Es verdadero. El parser puede necesitar localizar el primer campo que contenga un array."
+  },
+  {
+    "id": "moodle-vf-ksp-compiler-042",
+    "topic": "gradle",
+    "type": "verdadero-falso",
+    "difficulty": "matar",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: El compilador de Room debe configurarse como procesador, no como una dependencia normal de runtime.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 0,
+    "explanation": "Es verdadero. En un proyecto con KSP se declara con la configuración ksp del compilador de Room."
+  },
+  {
+    "id": "moodle-vf-lazycolumn-key-041",
+    "topic": "compose",
+    "type": "verdadero-falso",
+    "difficulty": "trampa",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: items(bikes) usa automáticamente bike.uuid como key estable aunque no se indique explícitamente.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 1,
+    "explanation": "Es falso. Para usar una key estable se debe pasar explícitamente."
+  },
+  {
+    "id": "moodle-vf-loading-finally-010",
+    "topic": "viewmodel",
+    "type": "verdadero-falso",
+    "difficulty": "trampa",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: si isLoading se pone a false solo al final del try, también se garantiza que se apague cuando hay una excepción.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 1,
+    "explanation": "Es falso. Para garantizarlo en éxito y error debe usarse un bloque finally o una estructura equivalente."
+  },
+  {
+    "id": "moodle-vf-localdatetime-037",
+    "topic": "mappers",
+    "type": "verdadero-falso",
+    "difficulty": "trampa",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: LocalDateTime.parse acepta cualquier formato de fecha escrito por el usuario.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 1,
+    "explanation": "Es falso. Requiere un formato compatible; por eso conviene capturar fallos de parseo."
+  },
+  {
+    "id": "moodle-vf-main-thread-007",
+    "topic": "retrofit",
+    "type": "verdadero-falso",
+    "difficulty": "matar",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: Call.execute() de Retrofit es una llamada síncrona y no debe ejecutarse bloqueando el hilo principal.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 0,
+    "explanation": "Es verdadero. execute() bloquea el hilo actual y debe ejecutarse en una capa o dispatcher adecuado."
+  },
+  {
+    "id": "moodle-vf-manifest-internet-008",
+    "topic": "activity",
+    "type": "verdadero-falso",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: Retrofit añade automáticamente el permiso INTERNET al Manifest si detecta llamadas de red.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 1,
+    "explanation": "Es falso. El permiso android.permission.INTERNET debe declararse explícitamente en el Manifest."
+  },
+  {
+    "id": "moodle-vf-minsdk-043",
+    "topic": "gradle",
+    "type": "verdadero-falso",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: minSdk define la versión mínima de Android en la que puede ejecutarse la aplicación.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 0,
+    "explanation": "Es verdadero. Forma parte de la configuración Android del proyecto."
+  },
+  {
+    "id": "moodle-vf-nullable-009",
+    "topic": "modelos",
+    "type": "verdadero-falso",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: un tipo Kotlin declarado como String? puede contener null.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 0,
+    "explanation": "Es verdadero. El signo ? indica que el tipo es nullable."
+  },
+  {
+    "id": "moodle-vf-or-empty-036",
+    "topic": "mappers",
+    "type": "verdadero-falso",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: orEmpty() permite convertir un String nullable en una cadena vacía cuando el valor es null.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 0,
+    "explanation": "Es verdadero. Es una forma habitual de evitar persistir null o el literal \"null\" en campos de texto."
+  },
+  {
+    "id": "moodle-vf-refresh-token-005",
+    "topic": "auth",
+    "type": "verdadero-falso",
+    "difficulty": "matar",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: guardar un refresh token implica necesariamente que el proyecto renueva automáticamente el access token.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 1,
+    "explanation": "Es falso. Puede guardarse el refresh token sin que exista un flujo implementado de renovación automática."
+  },
+  {
+    "id": "moodle-vf-repository-provider-033",
+    "topic": "repositorios",
+    "type": "verdadero-falso",
+    "difficulty": "trampa",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: RepositoryProvider actúa como un service locator manual para obtener repositorios.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 0,
+    "explanation": "Es verdadero. Centraliza la creación u obtención de repositorios sin usar un framework de inyección."
+  },
+  {
+    "id": "moodle-vf-response-body-046",
+    "topic": "retrofit",
+    "type": "verdadero-falso",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: response.body() puede ser null y debe tratarse de forma segura.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 0,
+    "explanation": "Es verdadero. Un código robusto no debe asumir que body() siempre contiene datos."
+  },
+  {
+    "id": "moodle-vf-retrofit-baseurl-002",
+    "topic": "retrofit",
+    "type": "verdadero-falso",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: la baseUrl de Retrofit puede declararse sin barra final y Retrofit la corregirá automáticamente.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 1,
+    "explanation": "Es falso. Retrofit exige que la baseUrl termine en barra para resolver rutas relativas."
+  },
+  {
+    "id": "moodle-vf-room-context-001",
+    "topic": "room",
+    "type": "verdadero-falso",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: para crear un singleton de Room es preferible usar applicationContext antes que conservar una referencia a una Activity.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 0,
+    "explanation": "Es verdadero. El uso de applicationContext evita retener una Activity en un objeto de vida larga."
+  },
+  {
+    "id": "moodle-vf-room-replace-003",
+    "topic": "dao",
+    "type": "verdadero-falso",
+    "difficulty": "trampa",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: OnConflictStrategy.REPLACE fusiona los campos no nulos de la entidad nueva con los campos antiguos.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 1,
+    "explanation": "Es falso. REPLACE sustituye la fila conflictiva; no realiza una fusión parcial de campos."
+  },
+  {
+    "id": "moodle-vf-run-catching-044",
+    "topic": "viewmodel",
+    "type": "verdadero-falso",
+    "difficulty": "trampa",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: runCatching puede usarse para intentar una recuperación sin propagar una segunda excepción al flujo principal.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 0,
+    "explanation": "Es verdadero. Permite capturar fallos de una operación secundaria."
+  },
+  {
+    "id": "moodle-vf-trim-login-045",
+    "topic": "login",
+    "type": "verdadero-falso",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: trim() elimina espacios al principio y al final de las credenciales antes de construir una petición.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 0,
+    "explanation": "Es verdadero. Reduce errores por espacios accidentales."
+  },
+  {
+    "id": "moodle-vf-user-direct-039",
+    "topic": "api",
+    "type": "verdadero-falso",
+    "difficulty": "normal",
+    "moodle": true,
+    "question": "Indica si la afirmación es verdadera o falsa: Si un objeto JSON contiene campos como uuid, email o username, puede interpretarse como un usuario directo.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "answer": 0,
+    "explanation": "Es verdadero. Esos campos ayudan a distinguir una respuesta directa de una respuesta envuelta."
+  }
+]
